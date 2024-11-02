@@ -49,6 +49,7 @@ public class Supplier
 		// For loop that loops through supplier list 
 		// If-else loop to match by supplier ID 
 		// Return true if successfully removed, false if not
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	// Method to Search for Suppler (by name)
@@ -57,6 +58,7 @@ public class Supplier
 		// For loop that loops through supplier list
 		// If-else loop to match by name
 		// If found, return supplier, if not, return null
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	// Method to Display Supplier Information
@@ -64,5 +66,6 @@ public class Supplier
 	{
 		// Print headings for each attribute on a new line
 		// Ex: "Name: "
+		throw new UnsupportedOperationException("Not supported yet.");
 	}	
 }
