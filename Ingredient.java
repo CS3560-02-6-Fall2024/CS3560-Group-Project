@@ -37,7 +37,7 @@ public class Ingredient
 		// If successful, return true, if not, return false
 	}
 
-	// Method to Searh for Ingredient
+	// Method to Search for Ingredient
 	public static Ingredient searchingredient(String name)
 	{
 		// Loop through ingredients list 
