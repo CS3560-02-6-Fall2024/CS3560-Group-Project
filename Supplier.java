@@ -1,9 +1,9 @@
-import.java.util.*;
+import java.util.*;
 
 public class Supplier
 {
 	private static int idCounter = 1; // Counter to ensure unique supplier IDs
-	private static List<Supplier> suppliers = new ArrayList<>(); // List of all suppliers
+	private static ArrayList<Supplier> suppliers = new ArrayList<>(); // List of all suppliers
 	
 	private int supplierID; // Primary key for suppliers
 	private String name; // Name of the supplier
