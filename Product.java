@@ -28,4 +28,13 @@ public class Product
 		//destroy related batches
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	// Method to Search for Product
+	public static Product searchProduct(String name)
+	{
+		// Loop through product list 
+		// If statement to match name 
+		// If successful, return ingredient, if not, return null
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }

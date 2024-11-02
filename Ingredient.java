@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 public class Ingredient
 {
 	private static int idCounter = 1; // Counter for unique IDs
-	private static List<Ingredient> ingredients = new ArrayList<>(); // List of Ingredients
+	private static ArrayList<Ingredient> ingredients = new ArrayList<>(); // List of Ingredients
 
 	private int ingredientID;
 	private String name; // Name of the ingredient
@@ -35,14 +36,16 @@ public class Ingredient
 		// Loop through ingredients list
 		// If statement to match ID 
 		// If successful, return true, if not, return false
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	// Method to Search for Ingredient
-	public static Ingredient searchingredient(String name)
+	public static Ingredient searchIngredient(String name)
 	{
 		// Loop through ingredients list 
 		// If statement to match name 
 		// If successful, return ingredient, if not, return null
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	
 	// Method to Display Ingredient
@@ -50,5 +53,6 @@ public class Ingredient
 	{
 		// Print headers to each attribute
 		// Will also print corresponding batch information 
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }
