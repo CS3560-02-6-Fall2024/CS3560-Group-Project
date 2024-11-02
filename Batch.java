@@ -9,9 +9,13 @@ public abstract class Batch
 	// if quantity - amount < 0, we don't have enough products in this batch, search for other batches with this item
 	// quantity = quantity - amount
 	// if quantity = 0, remove/ notify to remove batch
-	public abstract void removeFromBatch(int amount);
+	public abstract void removeFromBatch(int _amount);
 
 	// Adds to this batch's quantity after using "amount" number of items
 	// Used to fix batch information when a batch is incorrectly entered into the system
-	public abstract void addToBatch(int amount);
+	public abstract void addToBatch(int _amount);
+
+	// Delete this batch
+	public abstract void deleteBatch(int _batchID);
+
 }

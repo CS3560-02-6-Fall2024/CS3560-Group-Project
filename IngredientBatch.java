@@ -12,15 +12,19 @@ public class IngredientBatch extends Batch
     }
 
     @Override
-    public void removeFromBatch(int amount) 
+    public void removeFromBatch(int _amount) 
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void addToBatch(int amount) 
+    public void addToBatch(int _amount) 
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public void deleteBatch(int _batchID) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
