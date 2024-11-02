@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public abstract class Batch
 {
 	public int batchNumber; // Key attribute used to identify the batch
@@ -16,6 +17,11 @@ public abstract class Batch
 	public abstract void addToBatch(int _amount);
 
 	// Delete this batch
+	// Returns true if deletion is sucessful, false otherwise
 	public abstract boolean deleteBatch(int _batchID);
+
+	// Search for a batch by ingredientID
+	// returns: a list of Batches that have that lookupID
+	public abstract ArrayList<Batch> searchForBatch(int _lookupID);
 
 }

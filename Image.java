@@ -22,6 +22,6 @@ public class Image
 	public boolean deleteImage()
 	{
 		//destroy this
-		return true;
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }
