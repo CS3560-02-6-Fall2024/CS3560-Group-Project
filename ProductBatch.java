@@ -1,5 +1,14 @@
 public class ProductBatch extends Batch
 {
+    public int productID;
+    public String dateAdded;
+
+    // Constructor for ProductBatch
+    public ProductBatch(int _productID)
+    {
+        productID = _productID;
+    }
+
      @Override
     public void removeFromBatch(int amount) {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -9,5 +18,5 @@ public class ProductBatch extends Batch
     public void addToBatch(int amount) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
 }
