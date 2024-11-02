@@ -44,10 +44,10 @@ public class Supplier
 	}
 
 	// Method to Remove Supplier
-	public boolean removeSupplier(String name)
+	public boolean removeSupplier(int id)
 	{
 		// For loop that loops through supplier list 
-		// If-else loop to match by name 
+		// If-else loop to match by supplier ID 
 		// Return true if successfully removed, false if not
 	}
 
@@ -64,9 +64,5 @@ public class Supplier
 	{
 		// Print headings for each attribute on a new line
 		// Ex: "Name: "
-	}
-
-	// Getters
-	
-		
+	}	
 }
