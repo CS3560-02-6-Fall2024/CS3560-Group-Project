@@ -41,8 +41,8 @@ public class Ingredient
 	public static Ingredient searchingredient(String name)
 	{
 		// Loop through ingredients list 
-		// If statemtne to match name 
-		// IF successfull, return ingredient, if not, return null
+		// If statement to match name 
+		// If successful, return ingredient, if not, return null
 	}
 	
 	// Method to Display Ingredient
@@ -51,8 +51,4 @@ public class Ingredient
 		// Print headers to each attribute
 		// Will also print corresponding batch information 
 	}
-
-	
-
-	
 }
