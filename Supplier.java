@@ -9,7 +9,7 @@ public class Supplier
 	public Supplier(String _name, String _phoneNumber, String _email)
 	{
 		name = _name;
-		phtonNumber = _phoneNumber;
+		phoneNumber = _phoneNumber;
 		email = _email;
 	}
 }

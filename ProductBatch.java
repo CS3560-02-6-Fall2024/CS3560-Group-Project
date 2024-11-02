@@ -20,7 +20,7 @@ public class ProductBatch extends Batch
     }
 
     @Override
-    public void deleteBatch(int _batchID) {
+    public boolean deleteBatch(int _batchID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

@@ -16,6 +16,6 @@ public abstract class Batch
 	public abstract void addToBatch(int _amount);
 
 	// Delete this batch
-	public abstract void deleteBatch(int _batchID);
+	public abstract boolean deleteBatch(int _batchID);
 
 }
