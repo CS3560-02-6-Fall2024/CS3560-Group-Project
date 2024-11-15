@@ -1,4 +1,4 @@
-
+/* Search Bar */
 .search-bar input[type=text] {
     right: 26%;
     width: 40%;
@@ -30,6 +30,7 @@
     background: #ccc;
   }
   
+  /* Result Backdrop */
   .result {
     border:8px solid #453836;
     border-bottom: none;
@@ -44,6 +45,7 @@
     overflow-y: auto;
   }
 
+  /* Result Box Components */
   .result .result-box {
     background-color: #D9D9D9;
     position: absolute;
