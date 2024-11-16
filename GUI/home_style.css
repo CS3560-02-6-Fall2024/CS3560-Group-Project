@@ -1,0 +1,32 @@
+body {
+    background-color: #CECAC1;
+}
+header {
+    font-size: 300px;
+    padding-left: 9%;
+    padding-top: 5%;
+    font-family: sans-serif;
+    color: #453836;
+}
+
+.buttons {
+    justify-content: center;
+    display: flex;
+    margin-top: 3%;
+}
+.buttons .button {
+    font-size: 50px;
+    font-family: sans-serif;
+    color: #453836;
+    background-color: #F3F3F3;
+    margin: 2%;
+    border-radius: 30px;
+    height: 400px;
+    width: 400px;
+    border: 10px solid #453836;
+}
+
+.button:hover {
+    background-color: #453836;
+    color: #F3F3F3;
+}

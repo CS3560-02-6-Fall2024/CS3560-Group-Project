@@ -1,0 +1,117 @@
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+a {
+    line-height: 3em;
+    color: #453836;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 40px;
+    padding-left: 10%;
+    text-decoration: none;
+}
+.head {
+    line-height: 2em;
+    color: #453836;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 80px;
+    padding-left: 12%;
+}
+.batchNum {
+    line-height: 1em;
+    color: #453836;
+    font-family: sans-serif;
+    font-size: 63px;
+    padding-left: 12%;
+}
+.batches {
+    background-color: #453836;
+    border-radius: 100px 0px 0px 100px;
+    margin-top: 4%;
+    margin-bottom: 10%;
+    margin-left: 20%;
+    height: 600px;
+    padding: 2%;
+    padding-left: 5%;
+    scrollbar-width: none;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.batches .add-batch-box {
+    color: #453836;
+    font-family: sans-serif;
+    font-size: 63px;
+    align-items: center;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    height: 100%;
+    width: 23%;
+    margin-right: 2%;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.batches .add-batch-box:hover {
+    background-color: #F3F3F3;
+}
+
+.batches .batch-box {
+    display: inline-block;
+    background-color: #F3F3F3;
+    border-radius: 20px;
+    height: 100%;
+    width: 23%;
+    margin-right: 2%;
+    justify-content: center;
+    text-align: left;
+    vertical-align: middle;
+    color: #453836;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.batches .batch-box .batchID{
+    padding-top: 6%;
+    font-size: 50px;
+    text-align: center;
+}
+
+.batches .batch-box .text{
+    padding-left: 5%;
+    font-size: 35px;
+}
+
+.batches .batch-box input[type=text]{
+    font-size: 20px;
+    margin-left: 5%;
+    margin-bottom: 4%;
+    padding-top: 5%;
+    padding: 20px;
+    width: 70%;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: #D9D9D9;
+}
+
+.batches .batch-box .remove{
+    display: block;
+    margin: auto;
+    margin-top: 13px;
+    padding: 5%;
+    font-size: 35px;
+    border-radius: 30px;
+    background-color: #453836;
+    color: #D9D9D9;
+    cursor: pointer;
+}
+.batches .batch-box .remove:hover {
+    background-color: #D9D9D9;
+    color: #453836;
+    border: 3px solid #453836;
+}
