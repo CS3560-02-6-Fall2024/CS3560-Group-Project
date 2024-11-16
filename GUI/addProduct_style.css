@@ -1,0 +1,257 @@
+/* General Page Layout */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #d3cbc4;
+}
+
+/* Main Content Area */
+.content {
+    flex: 1;
+    padding: 20px;
+    color: #3b2f3a;
+    margin-left: 250px;
+    margin-right: 50px;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    color: #453836;
+    font-size: 1.4rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.save-button {
+    background-color: #453836;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    border-radius: 15px;
+}
+
+.save-button:hover {
+    background-color: #4538367c;
+}
+
+/* Form Layout */
+.form {
+    display: flex;
+    gap: 20px;
+    background-color: #453836;
+    padding: 20px;
+    border-radius: 15px;
+    color: #f0f0f0;
+}
+
+/* Form Sections */
+.form-selection {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.left-side {
+    flex: 1; 
+}
+
+.right-side {
+    flex: 1; 
+}
+
+/* Input Fields and Labels */
+label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #dcd3ca;
+    margin-bottom: 5px;
+}
+
+.form-selection input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+textarea {
+    width: 100%; 
+    max-width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px; 
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+}
+
+/* Product Name Styling */
+.product-name {
+    margin-bottom: 30px; 
+}
+
+.product-name label {
+    font-size: 1.2rem; 
+    font-weight: bold;
+    color: #ffffff; 
+}
+
+.product-name input[type="text"] {
+    color: #706661;
+    border: 0px;
+}
+
+.product-id label {
+    font-size: 1.2rem; 
+    font-weight: bold;
+    color: #ffffff; 
+}
+
+.product-id input[type="text"] {
+    padding: 10px;
+    border-radius: 15px;
+    width: 100%; 
+    background-color: #cecac1;
+    color: #706661;
+    font-weight: bold;
+    border: 0px;
+}
+
+/* Description Styling */
+.description {
+    margin-left: 20px;
+    width: auto;
+    flex: 1;
+}
+
+.description label {
+    font-size: 1.2rem;
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.description textarea {
+    width: 100%; 
+    max-width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px; 
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    resize: none;
+    border: 0px;
+    color: #706661;
+}
+
+/* Add Photo Styling */
+.add-photo {
+    height: 500px;
+    width: 400px;
+    font-size: 40px;
+    margin-top: 20px;
+    border-radius: 15px;
+    background-color: #cecac1;
+    border: 0px;
+}
+
+.add-photo:hover {
+    background-color: #cecac196;
+}
+
+.add-photo-label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #fffefe;
+}
+
+/* Ingredients Section Styling */
+.ingredients {
+    background-color: #cecac1;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 140%; 
+    margin-left: -300px; 
+    height: 460px;
+    
+}
+
+.ingredients label {
+    color: #4d413e;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+/* Ensure the ingredient rows are displayed inline */
+.ingredient-row {
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 15px; 
+    margin-right: 20px;
+}
+
+.ingredient-row label {
+    margin-top: 20px;
+    color: #4d413e;
+    font-size: 0.8rem;
+    font-weight:lighter;
+}
+
+.ingredient-row input[type="text"] {
+    padding: 10px;
+    border-radius: 15px;
+    width: 100%; 
+    background-color: #f3f3f3;
+    color: #796f6b;
+    font-weight: bold;
+    border: 0px;
+}
+
+.ingredient-row div {
+    width: 48%; 
+}
+
+.ingredient-row div:last-child {
+    margin-right: 0; 
+}
+
+/* Add New Ingredient Button Styling */
+.add-ingredient {
+    background-color: #796f6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+}
+
+.add-ingredient:hover {
+    background-color: #796f6b86;
+}
