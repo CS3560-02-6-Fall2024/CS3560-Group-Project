@@ -2,16 +2,15 @@
 body, html {
     font-family: sans-serif;
     background-color: #d3cbc4;
-    height: 97.3%;
+    height: 93%;
 }
 
 /* Main Content Area */
 .content {
     padding-top: 1%;
-    color: #3b2f3a;
     margin-left: 17%;
     margin-right: 9%;
-    height: 100%;
+    height: 100%;   
 }
 
 /* Header Section */
@@ -48,7 +47,6 @@ body, html {
 .form {
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
     background-color: #453836;
     padding-top: 2%;
     padding-right: 2%;
@@ -56,7 +54,7 @@ body, html {
     border-radius: 1%;
     color: #f0f0f0;
     min-width: 900px;
-    height: 92%;
+    height: 100%;   
 }
 
 /* Form Sections */
@@ -64,6 +62,7 @@ body, html {
     display: flex;
     width: 100%;
     padding: 2%;
+    max-height: 300px;
 }
 
 .top .left-side {
@@ -78,13 +77,12 @@ body, html {
 .bottom {
     display: flex;
     width: 100%;
-    padding: 2%;
-    height: 62%;
 }
 
 .bottom .left-side {
     flex: 1.5; 
     padding-right: 7%;
+    margin-bottom: 2%;
 }
 
 .bottom .right-side {
@@ -115,7 +113,7 @@ textarea {
     font-size: 16px;
     margin-bottom: 15px; 
     font-family: sans-serif;
-    background-color: #f0f0f0;
+    background-color: #F3F3F3;
     border-radius: 20px;
 }
 
@@ -127,7 +125,7 @@ textarea {
 .product-name label {
     font-size: 2em; 
     font-weight: bold;
-    color: #ffffff; 
+    color: #F3F3F3; 
 }
 
 .product-name input[type="text"] {
@@ -142,7 +140,7 @@ textarea {
 .product-id label {
     font-size: 2em; 
     font-weight: bold;
-    color: #ffffff; 
+    color: #F3F3F3; 
 }
 
 
@@ -169,17 +167,15 @@ textarea {
     font-size: 2em;
     margin-bottom: 5px; 
     font-weight: bold;
-    color: #ffffff;
+    color: #F3F3F3;
 }
 
 .description textarea {
     width: 100%; 
-    height: 100%;
-    min-width: fit-content;  
+    height: 80%; 
     font-size: 16px;
-    margin-bottom: 15px; 
     font-family: sans-serif;
-    background-color: #f0f0f0;
+    background-color: #F3F3F3;
     border-radius: 15px;
     resize: none;
     border: 0px;
@@ -211,15 +207,23 @@ textarea {
 
 /* Ingredients Section Styling */
 .ingredients {
-    float: right;
     background-color: #cecac1;
-    border-radius: 8px;
-    padding: 2%;
-    height: 100%;
+    border-radius: 8px 8px 0px 0px;
     width: 100%;
+    overflow-y: scroll;
+
+    height: 100%;
+
+}
+.ingredients .ingredLabel {
+    padding: 2%;
+    color: #4d413e;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 .ingredients label {
+    padding: 2%;
     color: #4d413e;
     font-size: 2em;
     font-weight: bold;
@@ -228,11 +232,11 @@ textarea {
 .ingredient-row {
     display: flex; 
     justify-content: space-between; 
-    margin-right: 2%;
+    margin-right: 4%;
+    margin-left: 2%;
 }
 
 .ingredient-row label {
-    margin-right: 2%;
     color: #4d413e;
     font-size: 0.8rem;
     font-weight:lighter;
@@ -248,10 +252,11 @@ textarea {
     font-weight: bold;
     border: none;
     outline: none;
+    
 }
 
 .ingredient-row div {
-    padding-top: 2%;
+    padding: 2%;
     width: 48%;
 }
 
@@ -270,7 +275,8 @@ textarea {
     border-radius: 5px;
     margin-top: 2%;
     display: block;
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
 }
 
 .add-ingredient:hover {
