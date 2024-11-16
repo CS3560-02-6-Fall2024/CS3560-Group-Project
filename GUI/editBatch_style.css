@@ -41,10 +41,6 @@ a {
     overflow-y: hidden;
 }
 
-::-webkit-scrollbar-button {
-    width: -50px; 
-  }
-
 .batches .add-batch-box {
     color: #453836;
     font-family: sans-serif;
