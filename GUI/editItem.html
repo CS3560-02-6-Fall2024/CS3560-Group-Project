@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Edit Item </title>
+        <link rel="stylesheet" href="addProduct_style.css">
+        <link rel="stylesheet" href="side_nav.css">
+    </head>
+    <body>
+        <!-- Side Navigation -->
+        <nav class="sidebar">
+            <div>
+                <button onclick="location.href='home.html'" class="button">Home</button><br/>
+                <button onclick="location.href='search.html'" class="button">Search</button><br/>
+                <button onclick="location.href='add.html'" class="button">Add</button><br/>
+                <button onclick="location.href='suppliers.html'" class="button">Suppliers</button><br/>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="content">
+           <!-- Header with back, save, and remove -->
+            <div class="header">
+                <a href="search.html" class="back-link">← Back to Search</a>
+                <button class="save-button">Save Changes</button>
+                <button class="save-button" style="background-color: #ff6b6b;" onclick="removeItem()">Remove Item</button>
+            </div>
+
+            <!-- Form Layout -->
+             <div class="form">
+                <div class="top">
+                    <div class="left-side">
+                        <div class="product-name">
+                            <label for="product-name">* Product Name</label>
+                            <input type="text" id="product-name" value="Sample Product Name">
+                        </div>
+
+                        <div class="product-id">
+                            <label for="product-id">Product ID</label>
+                            <input type="text" id="product-id" value="#892JF123" disabled>
+                        </div>
+                    </div>
+
+                    <div class="right-side">
+                        <div class="description">
+                            <label for="description">Description</label>
+                            <textarea id="description" rows="6">Sample description text...</textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bottom">
+                    <div class="left-side">
+                        <button class="add-photo">+</button>
+                        <label for="add-photo" class="add-photo-label">Update Photo</label>
+                    </div>
+
+                    <div class="right-side">
+                        <div class="ingredients">
+                            <div class="ingredLabel">*Ingredients</div>
+                                <div class="ingredient-row">
+                                    <div>
+                                        <label>quantity</label>
+                                        <input type="text" value="2">
+                                    </div>
+                                    <div>
+                                        <label>ingredient</label>
+                                        <input type="text" value="Sugar">
+                                    </div>
+                                </div>
+
+                                <div class="ingredient-row">
+                                    <div>
+                                        <label>quantity</label>
+                                        <input type="text" value="1">
+                                    </div>
+                                    <div>
+                                        <label>ingredient</label>
+                                        <input type="text" value="Flour">
+                                    </div>
+                                </div>
+                                <button class="add-ingredient">+ Add new ingredient</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <script>
+            function removeItem() {
+                if (confirm("Are you sure you want to remove this item?")) {
+                    alert("Item removed successfully.");
+                    window.location.href = "search.html";
+                }
+            }
+        </script>
+    </body>
+</html>
