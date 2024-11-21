@@ -27,14 +27,14 @@ body {
     cursor: pointer;
 }
 
-.save-button {
+.hbutton {
     background-color: #453836;
     color: white;
     border: none;
     padding: 1%;
     cursor: pointer;
     font-size: 2em;
-    border-radius: 20%;
+    border-radius: 20px;
 }
 
 .save-button:hover {
@@ -50,7 +50,6 @@ body {
     padding-right: 3%;
     padding-left: 3%;
     border-radius: 1%;
-    color: #f0f0f0;
     min-width: 900px;
 }
 
@@ -89,28 +88,8 @@ body {
 label {
     font-weight: bold;
     font-size: 0.9rem;
-    color: #dcd3ca;
+    color: #F3F3F3;
     margin-bottom: 5px;
-}
-
-.form-selection input[type="text"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    border-radius: 15px;
-}
-
-textarea {
-    width: 100%; 
-    max-width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 15px; 
-    font-family: sans-serif;
-    background-color: #F3F3F3;
-    border-radius: 20px;
 }
 
 /* Product Name Styling */
@@ -124,59 +103,27 @@ textarea {
     color: #F3F3F3; 
 }
 
-.product-name input[type="text"] {
-    padding: 3%;
-    color: #706661;
-    border: 0px;
-    width: 90%; 
-    outline: none;
-    border-radius: 15px;
-}
-
 .product-id label {
     font-size: 2em; 
     font-weight: bold;
     color: #F3F3F3; 
 }
 
-
-.product-id input[type="text"] {
-    padding: 10px;
-    border-radius: 15px;
-    width: 90%; 
+ input[type="text"] {
     padding: 3%;
-    background-color: #cecac1;
     color: #706661;
-    font-weight: bold;
     border: 0px;
+    width: 90%; 
+    outline: none;
+    border-radius: 15px;
 }
 
 /* Description Styling */
-.description {
-    margin-left: 2%;
-    margin-right: 2%;
-    height: 100%;
-    flex: 1;
-}
-
 .description label {
     font-size: 2em;
     margin-bottom: 5px; 
     font-weight: bold;
     color: #F3F3F3;
-}
-
-.description textarea {
-    width: 100%; 
-    height: 80%; 
-    font-size: 16px;
-    font-family: sans-serif;
-    background-color: #F3F3F3;
-    border-radius: 15px;
-    resize: none;
-    border: 0px;
-    color: #706661;
-    outline: none;
 }
 
 /* Add Photo Styling */
@@ -255,10 +202,6 @@ textarea {
 .ingredient-row div {
     padding: 2%;
     width: 48%;
-}
-
-.ingredient-row div:last-child {
-    margin-right: 0; 
 }
 
 /* Add New Ingredient Button Styling */

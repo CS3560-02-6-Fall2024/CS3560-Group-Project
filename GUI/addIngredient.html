@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Add Ingredient </title>
+        <link rel="stylesheet" href="addIngredient_style.css">
+        <link rel="stylesheet" href="side_nav.css">
+    </head>
+    <body>
+        <!-- Side Navigation -->
+        <nav class="sidebar">
+            <div>
+                <button onclick="location.href='home.html'" class="button">Home</button><br/>
+                <button onclick="location.href='search.html'" class="button">Search</button><br/>
+                <button onclick="location.href='add.html'" class="button">Add</button><br/>
+                <button onclick="location.href='suppliers.html'" class="button">Suppliers</button><br/>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="content">
+           <!-- Header with back and save-->
+            <div class="header">
+                <a href="add.html" class="back-link">← Back to Selection</a>
+                <button class="save-button">Save</button>
+            </div>
+
+            <!-- Form Layout-->
+             <div class="form">
+                <div class="left-side">
+                    <div class="fieldLabel">
+                        <label>* Ingredient Name</label>
+                        <input type="text" id="product-name" placeholder="Enter here">
+                    </div>
+                    <div class="fieldLabel">
+                        <label>Ingredient ID</label>
+                        <input type="text" id="product-id" value="#892JF123" style="background-color: #cecac1;" disabled>
+                    </div>
+                    
+                    <div class="fieldLabel">
+                        <label>Supplier</label>
+                        <input type="text" id="product-name" placeholder="Enter here">
+                    </div>
+
+                    <div class="fieldLabel">
+                        <label>Description</label>
+                        <input type="text" style="padding-bottom: 14em;" placeholder="Enter here">
+                    </div>
+                </div>
+                <div class="right-side">
+                    <button class="add-photo">+</button>
+                    <label for="add-photo" class="add-photo-label">Add Photo</label>
+                </div>
+            </div> 
+        </div>
+    </body>
+</html>
