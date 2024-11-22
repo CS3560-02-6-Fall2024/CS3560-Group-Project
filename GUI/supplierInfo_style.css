@@ -70,6 +70,7 @@ a {
         overflow-y: auto;
         scrollbar-width: none;
         overflow-x: hidden;
+        margin-left: 5%;
     }
     a {
         margin-left: 10%;
@@ -78,11 +79,13 @@ a {
 
     .container {
         min-width: 900px;
+        width: 30%;
     }
      .bottom {
         flex-direction: column;
         row-gap: 20px;
         align-items: center;
+        
     }
     .left {
         flex: 1;
@@ -91,5 +94,12 @@ a {
     .right {
         flex: 1;
         min-width: 80%;
+    }
+
+    .head {
+        font-size: 5em;
+    }
+    .box {
+        height: 100vh;
     }
   }
