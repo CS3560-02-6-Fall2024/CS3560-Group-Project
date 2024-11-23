@@ -7,6 +7,56 @@ a {
     padding-left: 10%;
     text-decoration: none;
 }
+.container {
+    display: flex;
+    padding: 1%;
+    gap: 2%;
+}
+
+.left {
+    flex:1;
+    flex-direction: column;
+    margin-left: 12%;   
+}
+
+.ingredient {
+    color: #453836;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 4rem;
+    margin-bottom: 2%;
+    
+}
+
+.image {
+    background-color: #453836;
+    width: 85%;
+    height: 30vh;
+    margin-bottom: 2%;
+    border-radius: 15px;
+}
+
+.price {
+    color: #453836;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 3rem;
+    
+}
+
+.radiobuttons {
+    flex-wrap: wrap;
+    
+}
+
+.right {
+    flex: 0.5;
+    padding: 2%;
+    height: 75vh;
+    background-color: #453836;
+    border-radius: 15px;
+}
+
 
 
 
