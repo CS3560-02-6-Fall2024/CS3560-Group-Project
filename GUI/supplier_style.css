@@ -29,7 +29,6 @@
     background: #ccc;
   }
 
-
   .add button
   {
     display:flex;
@@ -47,16 +46,6 @@
     cursor: pointer;
   }
 
-  .add i
-  {
-    
-  }
-
-  /* .add button div
-  {
-    justify-self: ;
-  } */
-
   /* Search result box (same as batch search for now) */
   .result {
     border:8px solid #453836;
@@ -71,9 +60,6 @@
     right: 11%;
     overflow-y: auto;
   }
-
-
-
 
   /* Result Box Components */
 
