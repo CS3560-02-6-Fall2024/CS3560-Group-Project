@@ -115,3 +115,13 @@ a {
     color: #453836;
     border: 3px solid #453836;
 }
+
+/* Batch Number Styling */
+.batch-box .batch-number {
+    text-align: center;
+    font-size: 30px;
+    color: #453836;
+    font-family: sans-serif;
+    margin-top: 10px;
+}
+

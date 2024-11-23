@@ -222,3 +222,20 @@ label {
 .add-ingredient:hover {
     background-color: #796f6b86;
 }
+
+/* Remove Ingredient Button Styling */
+.remove-ingredient {
+    background-color: #796f6b;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    cursor: pointer;
+    font-size: 0.8em;
+    border-radius: 5px;
+    margin-left: 5px;
+    align-self: center;
+}
+
+.remove-ingredient:hover {
+    background-color: #796f6b86;
+}
