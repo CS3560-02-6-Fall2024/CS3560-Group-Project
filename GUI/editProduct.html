@@ -2,7 +2,7 @@
 <html>
     <head>
         <title> Edit Product </title>
-        <link rel="stylesheet" href="addProduct_style.css">
+        <link rel="stylesheet" href="editProduct_style.css">
         <link rel="stylesheet" href="side_nav.css">
     </head>
     <body>
@@ -53,43 +53,70 @@
                     </div>
 
                     <div class="right-side">
-                        <div class="ingredients">
+                        <div class="ingredients" id="container">
                             <div class="ingredLabel">*Ingredients</div>
-                                <div class="ingredient-row">
-                                    <div>
-                                        <label>quantity</label>
-                                        <input type="text" value="2">
-                                    </div>
-                                    <div>
-                                        <label>ingredient</label>
-                                        <input type="text" value="Sugar">
-                                    </div>
-                                </div>
-
-                                <div class="ingredient-row">
-                                    <div>
+                            <div class="ingredient-row">
+                                <div class="top-row">
+                                    <div class="one">
                                         <label>quantity</label>
                                         <input type="text" value="1">
                                     </div>
-                                    <div>
+                                    <div class="two">
                                         <label>ingredient</label>
                                         <input type="text" value="Flour">
                                     </div>
                                 </div>
-                                <button class="add-ingredient">+ Add new ingredient</button>
+                                <div class="bottom-row">
+                                    <button class="remove" id="remove"> remove ingredient </button>
+                                </div>
+                            </div>
+                            <button class="add-ingredient" id="button">+ Add new ingredient</button>
                         </div>
                     </div>
                 </div>
             </div> 
         </div>
 
-        <!-- <script>
+        <script>
+            const remove = document.getElementById('remove');
+            remove.addEventListener ("click", function(event) {
+                remove.parentElement.parentElement.remove();
+            });
+        </script>
+
+        <script>
+            const container = document.getElementById("container");
+            const button = document.getElementById("button");
+            button.addEventListener('click', function(event) {
+                var newDiv = document.createElement('div');
+                newDiv.innerHTML = `
+                    <div class="ingredient-row">
+                        <div class="top-row">
+                            <div class="one">
+                                <label>quantity</label>
+                                <input type="text" value="1">
+                            </div>
+                            <div class="two">
+                                <label>ingredient</label>
+                                <input type="text" value="Flour">
+                            </div>
+                        </div>
+                        <div class="bottom-row">
+                            <button class="remove" id="remove"> remove ingredient </button>
+                        </div>
+                    </div>
+                `;
+                container.insertBefore(newDiv, container.lastChild.previousSibling);
+            });
+        </script>
+        
+        <script>
             function removeItem() {
                 if (confirm("Are you sure you want to remove this item?")) {
                     alert("Item removed successfully.");
                     window.location.href = "search.html";
                 }
             }
-        </script> -->
+        </script>
     </body>
 </html>
