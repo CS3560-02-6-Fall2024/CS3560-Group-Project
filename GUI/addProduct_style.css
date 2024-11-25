@@ -130,6 +130,15 @@ input[type="text"] {
     background-color: #cecac1;
     border: 0px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(37, 37, 37)
+}
+
+input[type="file"]
+{
+    display: none;
 }
 
 .add-photo:hover {
