@@ -113,12 +113,22 @@ input[type="text"] {
 
 /* Add Photo Styling */
 .add-photo {
-    height: 60vh;
     width: 100%;
-    font-size: 40px;
+    height: 20vh; 
+    font-size: 2em;
     border-radius: 15px;
     background-color: #cecac1;
     border: 0px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(37, 37, 37)
+}
+
+input[type="file"]
+{
+    display: none;
 }
 
 .add-photo:hover {
