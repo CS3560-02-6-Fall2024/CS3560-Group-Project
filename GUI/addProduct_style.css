@@ -6,9 +6,9 @@ body {
 
 /* Main Content Area */
 .content {
-    padding-top: 2%;
-    margin-left: 15%;
-    margin-right: 5%;
+    padding-top: 1%;
+    margin-left: 17%;
+    margin-right: 9%;
 }
 
 /* Header Section */
@@ -16,8 +16,25 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 }
+
+.hbuttons {
+    display: flex;
+    gap: 2%;
+}
+
+.hbutton {
+    background-color: #453836;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 2em;
+    border-radius: 20px;
+    padding: 15px
+}
+
+
 
 .back-link {
     color: #453836;
@@ -27,17 +44,7 @@ body {
     cursor: pointer;
 }
 
-.hbutton {
-    background-color: #453836;
-    color: white;
-    border: none;
-    padding: 2%;
-    cursor: pointer;
-    font-size: 2em;
-    border-radius: 20px;
-}
-
-.hbutton:hover {
+.save-button:hover {
     background-color: #4538367c;
 }
 
@@ -46,35 +53,38 @@ body {
     display: block;
     flex-wrap: wrap;
     background-color: #453836;
-    padding: 3% 5%;
+    padding-top: 3%;
+    padding-right: 3%;
+    padding-left: 3%;
     border-radius: 1%;
-    width: 90%; 
-    margin: 0 auto;
+    min-width: 900px;
 }
 
 /* Form Sections */
-.top {
+.form .top {
     display: flex;
     width: 100%;
-    max-height: 40%; 
-    margin-bottom: 3%;
+    max-height: 300px;
+    margin-bottom: 4%;
 }
 
-.top .left-side, .top .right-side {
+.top .left-side {
     flex: 1; 
-    margin-right: 2%; 
+}
+
+.top .right-side {
+    flex: 1;
 }
 
 .bottom {
     display: flex;
     width: 100%;
-    flex-wrap: wrap;
-    margin-top: 3%;
 }
 
 .bottom .left-side {
-    flex: 1.5;
-    margin-right: 3%;
+    flex: 1.5; 
+    padding-right: 7%;
+    margin-bottom: 2%;
 }
 
 .bottom .right-side {
@@ -84,48 +94,50 @@ body {
 /* Input Fields and Labels */
 label {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #F3F3F3;
-    margin-bottom: 2%;
+    margin-bottom: 5px;
 }
 
-.product-name, .product-id {
+/* Product Name Styling */
+.product-name {
     margin-bottom: 6%; 
 }
 
-.product-name label, .product-id label {
-    font-size: 1.5em;
+.product-name label {
+    font-size: 2em; 
+    font-weight: bold;
+    color: #F3F3F3; 
 }
 
-input[type="text"] {
-    padding: 2%;
+.product-id label {
+    font-size: 2em; 
+    font-weight: bold;
+    color: #F3F3F3; 
+}
+
+ input[type="text"] {
+    padding: 3%;
     color: #706661;
     border: 0px;
-    width: 100%; 
+    width: 90%; 
     outline: none;
     border-radius: 15px;
 }
 
 /* Description Styling */
 .description label {
-    font-size: 1.5em;
-}
-
-.description input {
-    padding: 3%;
-    width: 100%; 
-    height: 15vh; 
-    outline: none;
-    border-radius: 15px;
-    color: #706661;
-    font-size: 1em;
+    font-size: 2em;
+    margin-bottom: 5px; 
+    font-weight: bold;
+    color: #F3F3F3;
 }
 
 /* Add Photo Styling */
 .add-photo {
+    height: 90%;
     width: 100%;
-    height: 20vh; 
-    font-size: 2em;
+    font-size: 40px;
     border-radius: 15px;
     background-color: #cecac1;
     border: 0px;
@@ -133,14 +145,14 @@ input[type="text"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(37, 37, 37)
+    color: rgb(37, 37, 37);
+    
 }
-
 input[type="file"]
 {
     display: none;
+    
 }
-
 .add-photo:hover {
     background-color: #cecac196;
 }
@@ -148,38 +160,57 @@ input[type="file"]
 .add-photo-label {
     display: block;
     text-align: left;
-    margin-top: 5%;
-    font-size: 1.5em;
+    margin-top: 10px;
+    font-size: 2em;
     color: #fffefe;
 }
 
 /* Ingredients Section Styling */
 .ingredients {
+    align-items: center;
     background-color: #cecac1;
     border-radius: 8px 8px 0px 0px;
-    width: 100%;
-    height: 50vh; /* Adjusted for responsiveness */
-    overflow-y: auto;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    height: 60vh;
+    padding: 3%;
+}
+.ingredients .ingredLabel {
+    align-self: baseline;
+    color: #4d413e;
+    font-size: 2em;
+    font-weight: bold;
+    padding-bottom: 3%;
 }
 
-.ingredients .ingredLabel {
+.ingredients label {
     padding: 2%;
     color: #4d413e;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
 }
-
+/* Ensure the ingredient rows are displayed inline */
 .ingredient-row {
-    display: flex;
-    justify-content: space-between;
-    margin: 2% 0;
-    gap: 2%;
+    width: 100%;
+    margin-bottom: 2%;
 }
 
-.ingredient-row input[type="text"] {
-    padding: 5%;
+.ingredient-row .top-row {
+    display: flex;
+    gap: 4%;
+}
+
+.ingredient-row .top-row .one {
+    flex:1;
+}
+
+.ingredient-row .top-row .two {
+    flex:1;
+}
+
+.ingredient-row .top-row input[type="text"] {
     border-radius: 15px;
-    width: 100%;
+    height: 1.5em; 
     background-color: #f3f3f3;
     color: #796f6b;
     font-weight: bold;
@@ -187,35 +218,41 @@ input[type="file"]
     outline: none;
 }
 
+.ingredient-row .bottom-row .remove {
+    margin-top: 1%;   
+    color: #4d413e;
+    font-size: 1 rem;
+    font-weight:lighter;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    text-decoration:underline;
+}
+
+
+.ingredient-row label {
+    color: #4d413e;
+    font-size: 0.8rem;
+    font-weight:lighter;
+}
+
 /* Add New Ingredient Button Styling */
 .add-ingredient {
     background-color: #796f6b;
     color: white;
     border: none;
-    padding: 2%;
+    padding: 1%;
     cursor: pointer;
     font-size: 1em;
     border-radius: 5px;
     margin-top: 2%;
-    width: 90%;
-    margin-left: 5%;
+    display: block;
+    width: 100%;
 }
 
 .add-ingredient:hover {
-    background-color: #796f6b86;
-}
-
-/* Remove Ingredient Button Styling */
-.remove-ingredient {
-    background-color: #796f6b;
-    color: white;
-    border: none;
-    padding: 0.5em;
-    cursor: pointer;
-    font-size: 0.8em;
-    border-radius: 5px;
-}
-
-.remove-ingredient:hover {
     background-color: #796f6b86;
 }
