@@ -1,4 +1,4 @@
-25-Nov-2024 16:07:26.984 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.ContextListener]
+29-Nov-2024 21:27:58.712 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.ContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/listeners/ContextListener (wrong name: listeners/ContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -51,7 +51,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:07:26.985 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.SessionListener]
+29-Nov-2024 21:27:58.727 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.SessionListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/listeners/SessionListener (wrong name: listeners/SessionListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -104,7 +104,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:07:26.986 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [async.AsyncStockContextListener]
+29-Nov-2024 21:27:58.727 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [async.AsyncStockContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/async/AsyncStockContextListener (wrong name: async/AsyncStockContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -157,7 +157,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:07:26.987 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [websocket.drawboard.DrawboardContextListener]
+29-Nov-2024 21:27:58.733 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [websocket.drawboard.DrawboardContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardContextListener (wrong name: websocket/drawboard/DrawboardContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -210,8 +210,8 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:07:26.987 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Skipped installing application listeners due to previous error(s)
-25-Nov-2024 16:15:38.554 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.ContextListener]
+29-Nov-2024 21:27:58.733 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Skipped installing application listeners due to previous error(s)
+29-Nov-2024 21:30:09.603 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.ContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/listeners/ContextListener (wrong name: listeners/ContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -264,7 +264,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:15:38.554 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.SessionListener]
+29-Nov-2024 21:30:09.605 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.SessionListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/listeners/SessionListener (wrong name: listeners/SessionListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -317,7 +317,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:15:38.554 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [async.AsyncStockContextListener]
+29-Nov-2024 21:30:09.605 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [async.AsyncStockContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/async/AsyncStockContextListener (wrong name: async/AsyncStockContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -370,7 +370,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:15:38.554 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [websocket.drawboard.DrawboardContextListener]
+29-Nov-2024 21:30:09.605 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [websocket.drawboard.DrawboardContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardContextListener (wrong name: websocket/drawboard/DrawboardContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -423,8 +423,8 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:15:38.570 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Skipped installing application listeners due to previous error(s)
-25-Nov-2024 16:15:55.548 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.ContextListener]
+29-Nov-2024 21:30:09.605 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Skipped installing application listeners due to previous error(s)
+29-Nov-2024 21:34:16.486 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.ContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/listeners/ContextListener (wrong name: listeners/ContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -477,7 +477,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:15:55.548 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.SessionListener]
+29-Nov-2024 21:34:16.486 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.SessionListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/listeners/SessionListener (wrong name: listeners/SessionListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -530,7 +530,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:15:55.548 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [async.AsyncStockContextListener]
+29-Nov-2024 21:34:16.486 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [async.AsyncStockContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/async/AsyncStockContextListener (wrong name: async/AsyncStockContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -583,7 +583,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:15:55.548 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [websocket.drawboard.DrawboardContextListener]
+29-Nov-2024 21:34:16.486 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [websocket.drawboard.DrawboardContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardContextListener (wrong name: websocket/drawboard/DrawboardContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -636,8 +636,8 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:15:55.548 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Skipped installing application listeners due to previous error(s)
-25-Nov-2024 16:18:49.514 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.ContextListener]
+29-Nov-2024 21:34:16.486 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Skipped installing application listeners due to previous error(s)
+29-Nov-2024 21:37:44.843 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.ContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/listeners/ContextListener (wrong name: listeners/ContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -690,7 +690,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:18:49.530 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.SessionListener]
+29-Nov-2024 21:37:44.843 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [listeners.SessionListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/listeners/SessionListener (wrong name: listeners/SessionListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -743,7 +743,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:18:49.530 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [async.AsyncStockContextListener]
+29-Nov-2024 21:37:44.843 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [async.AsyncStockContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/async/AsyncStockContextListener (wrong name: async/AsyncStockContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -796,7 +796,7 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:18:49.530 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [websocket.drawboard.DrawboardContextListener]
+29-Nov-2024 21:37:44.843 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Error configuring application listener of class [websocket.drawboard.DrawboardContextListener]
 	java.lang.NoClassDefFoundError: webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardContextListener (wrong name: websocket/drawboard/DrawboardContextListener)
 		at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 		at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
@@ -849,4 +849,4 @@
 		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-25-Nov-2024 16:18:49.530 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Skipped installing application listeners due to previous error(s)
+29-Nov-2024 21:37:44.843 SEVERE [main] org.apache.catalina.core.StandardContext.listenerStart Skipped installing application listeners due to previous error(s)
