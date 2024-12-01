@@ -26,16 +26,16 @@
         <!-- Header with back and save -->
         <div class="header">
             <a href="add.html" class="back-link">← Back to Selection</a>
-            <button class="hbutton">Save</button>
+            <button type="submit" form="form" class="hbutton">Save</button>
         </div>
 
         <!-- Form Layout -->
-        <div class="form">
+        <form id="form" class="form">
             <div class="top">
                 <div class="left-side">
                     <div class="product-name">
                         <label for="product-name">* Product Name</label>
-                        <input type="text" id="product-name" placeholder="Enter here">
+                        <input type="text" id="product-name" placeholder="Enter here" name="productName">
                     </div>
                     <div class="product-id">
                         <label for="product-id">Product ID</label>
@@ -45,14 +45,14 @@
                 <div class="right-side">
                     <div class="description">
                         <label for="description">Description</label>
-                        <input type="text" style="padding-bottom: 14em; padding-right: 7%" placeholder="Enter here">
+                        <input type="text" style="padding-bottom: 14em; padding-right: 7%" placeholder="Enter here" name="productDescription">
                     </div>
                 </div>
             </div>
             <div class="bottom">
                 <div class="left-side">
                     <label for="file-upload" class="add-photo">+</label>
-                    <input type = "file" id="file-upload" class="add-photo">
+                    <input type = "file" id="file-upload" class="add-photo" name="photoFile">
                     <label for="add-photo" class="add-photo-label">Add Photo</label>
                 </div>
                 <div class="right-side">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     <script crossorigin  type="text/babel" src="addIngredient.js"></script>
 </body>
