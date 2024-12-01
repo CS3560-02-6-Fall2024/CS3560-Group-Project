@@ -16,7 +16,7 @@ public class SearchServlet extends HttpServlet {
 
     // Render html page (just copies the html of the page that you are using)
     File html = new File(System.getProperty("user.dir") + "/src/main/webapp/search.html");
-    Scanner scan = new Scanner(html);
+    Scanner scan = new Scanner(html, "UTF-8");
     response.setContentType("text/html;");
     PrintWriter out = response.getWriter();
     while(scan.hasNextLine())
@@ -36,7 +36,7 @@ public class SearchServlet extends HttpServlet {
           resultBoxHtml += nextLine + "\n";
         }
         // Add results box n times into the page
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 20; i++)
         {
           out.println(resultBoxHtml);
         }
