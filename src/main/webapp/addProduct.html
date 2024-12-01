@@ -1,51 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
     <link rel="stylesheet" href="addProduct_style.css">
     <link rel="stylesheet" href="side_nav.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-
-            // Add Ingredients
-            const addIngredientButton = document.querySelector('.add-ingredient');
-            const ingredientsContainer = document.querySelector('.ingredients');
-
-            addIngredientButton.addEventListener('click', function () {
-                const ingredientCount = ingredientsContainer.querySelectorAll('.ingredient-row').length + 1;
-
-                const ingredientRow = document.createElement('div');
-                ingredientRow.className = 'ingredient-row';
-                ingredientRow.innerHTML = `
-                    <div>
-                        <label for="quantity-${ingredientCount}">Quantity</label>
-                        <input type="text" id="quantity-${ingredientCount}" name="ingredient${ingredientCount}" placeholder="Enter here">
-                    </div>
-                    <div>
-                        <label for="ingredient-${ingredientCount}">Ingredient</label>
-                        <input type="text" id="ingredient-${ingredientCount}" name="ingredient${ingredientCount}" placeholder="Enter here">
-                    </div>
-                    <button class="remove-ingredient">Remove</button>
-                `;
-                ingredientsContainer.insertBefore(ingredientRow, addIngredientButton);
-
-                // Add remove functionality to the new row
-                ingredientRow.querySelector('.remove-ingredient').addEventListener('click', function () {
-                    ingredientRow.remove();
-                });
-            });
-            // Attach remove functionality to pre-existing rows
-            document.querySelectorAll('.remove-ingredient').forEach(button => {
-                button.addEventListener('click', function () {
-                    button.closest('.ingredient-row').remove();
-                });
-            });
-        });
-    </script>
-
-</head>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script crossorigin type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    </head>
 <body>
 
     <!-- Side Navigation -->
@@ -77,48 +39,30 @@
                     </div>
                     <div class="product-id">
                         <label for="product-id">Product ID</label>
-                        <input type="text" id="product-id" value="#892JF123" disabled>
+                        <input type="text" value="#892JF123" style="background-color: #cecac1;" disabled>
                     </div>
                 </div>
                 <div class="right-side">
                     <div class="description">
                         <label for="description">Description</label>
-                        <textarea id="description" placeholder="Enter here" name="productDescription"></textarea>
+                        <input type="text" style="padding-bottom: 14em; padding-right: 7%" placeholder="Enter here" name="productDescription">
                     </div>
                 </div>
             </div>
             <div class="bottom">
                 <div class="left-side">
-                    <label for="add-photo" class="add-photo-label">Add Photo</label>
-                    <!-- <button class="add-photo" id = "like_button_container">+</button> -->
                     <label for="file-upload" class="add-photo">+</label>
-                    <input type = "file" id="file-upload" class="add-photo" name="photoFile">
+                    <input type = "file" id="file-upload" class="add-photo">
+                    <label for="add-photo" class="add-photo-label">Add Photo</label>
                 </div>
                 <div class="right-side">
-                    <div class="ingredients">
-                        <label class="ingredLabel">* Ingredients</label>
-                        <div class="ingredient-row">
-                            <div>
-                                <label for="quantity-1">Quantity</label>
-                                <input type="text" id="quantity-1" placeholder="Enter here">
-                            </div>
-                            <div>
-                                <label for="ingredient-1">Ingredient</label>
-                                <input type="text" id="ingredient-1" placeholder="Enter here">
-                            </div>
-                            <button class="remove-ingredient">Remove</button>
-                        </div>
-                        <button type="button" class="add-ingredient">+ Add new ingredient</button>
+                    <div class="ingredients" id="ingredients">
                     </div>
                 </div>
             </div>
         </form>
     </div>
+    <script crossorigin  type="text/babel" src="addIngredient.js"></script>
 </body>
-<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
-<!-- Load our React component. -->
-<script src="like_button.js"></script>
 </html>
