@@ -80,7 +80,7 @@ background: #ccc;
   width: 70vw;
   height: 70vh;
   overflow-y: auto;
-  position: fixed;
+  position: sticky;
   bottom: 0;
 }
 
@@ -105,14 +105,12 @@ background: #ccc;
   margin-bottom: 1%;
 }
 
-.image {
-  text-align: center;
-  background-color: #453836;
-  color: #F3F3F3;
-  height: 50%;
-  width: 90%;
-  border-radius: 20px;
+img {
+  height: 18vh;
+  width: 13vw;
+  object-fit: cover;
   border: 3px solid #F3F3F3;
+  border-radius: 20px;
   margin-bottom: 5px;
 }
 
@@ -179,9 +177,6 @@ background: #ccc;
   }
   .result-box {
     min-width: 220px;
-  }
-  .image {
-    height: 40%;
   }
   .product-name {
     font-size: 1.2em;
