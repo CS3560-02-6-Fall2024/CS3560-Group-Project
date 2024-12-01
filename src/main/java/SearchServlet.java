@@ -44,6 +44,7 @@ public class SearchServlet extends HttpServlet {
       // Copy html if it is not part of results box
       else
       {
+        System.out.println(nextLine);
         out.println(nextLine);
       }
     }
