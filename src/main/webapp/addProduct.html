@@ -21,11 +21,11 @@
                 ingredientRow.innerHTML = `
                     <div>
                         <label for="quantity-${ingredientCount}">Quantity</label>
-                        <input type="text" id="quantity-${ingredientCount}" placeholder="Enter here">
+                        <input type="text" id="quantity-${ingredientCount}" name="ingredient${ingredientCount}" placeholder="Enter here">
                     </div>
                     <div>
                         <label for="ingredient-${ingredientCount}">Ingredient</label>
-                        <input type="text" id="ingredient-${ingredientCount}" placeholder="Enter here">
+                        <input type="text" id="ingredient-${ingredientCount}" name="ingredient${ingredientCount}" placeholder="Enter here">
                     </div>
                     <button class="remove-ingredient">Remove</button>
                 `;
@@ -64,16 +64,16 @@
         <!-- Header with back and save -->
         <div class="header">
             <a href="add.html" class="back-link">← Back to Selection</a>
-            <button class="hbutton">Save</button>
+            <button type="submit" form="form" class="hbutton">Save</button>
         </div>
 
         <!-- Form Layout -->
-        <div class="form">
+        <form id="form" class="form">
             <div class="top">
                 <div class="left-side">
                     <div class="product-name">
                         <label for="product-name">* Product Name</label>
-                        <input type="text" id="product-name" placeholder="Enter here">
+                        <input type="text" id="product-name" placeholder="Enter here" name="productName">
                     </div>
                     <div class="product-id">
                         <label for="product-id">Product ID</label>
@@ -83,7 +83,7 @@
                 <div class="right-side">
                     <div class="description">
                         <label for="description">Description</label>
-                        <textarea id="description" placeholder="Enter here"></textarea>
+                        <textarea id="description" placeholder="Enter here" name="productDescription"></textarea>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     <label for="add-photo" class="add-photo-label">Add Photo</label>
                     <!-- <button class="add-photo" id = "like_button_container">+</button> -->
                     <label for="file-upload" class="add-photo">+</label>
-                    <input type = "file" id="file-upload" class="add-photo">
+                    <input type = "file" id="file-upload" class="add-photo" name="photoFile">
                 </div>
                 <div class="right-side">
                     <div class="ingredients">
@@ -108,11 +108,11 @@
                             </div>
                             <button class="remove-ingredient">Remove</button>
                         </div>
-                        <button class="add-ingredient">+ Add new ingredient</button>
+                        <button type="button" class="add-ingredient">+ Add new ingredient</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </body>
 <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
