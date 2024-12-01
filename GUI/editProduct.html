@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Edit Product </title>
+        <link rel="stylesheet" href="editProduct_style.css">
+        <link rel="stylesheet" href="side_nav.css">
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+        <script crossorigin type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    </head>
+    <body>
+        <!-- Side Navigation -->
+        <nav class="sidebar">
+            <div>
+                <button onclick="location.href='home.html'" class="button">Home</button><br/>
+                <button onclick="location.href='search.html'" class="button">Search</button><br/>
+                <button onclick="location.href='add.html'" class="button">Add</button><br/>
+                <button onclick="location.href='suppliers.html'" class="button">Suppliers</button><br/>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="content">
+           <!-- Header with back, save, and remove -->
+            <div class="header">
+                <a href="search.html" class="back-link">← Back to Search</a>
+                <div class="hButtons">
+                    <button class="hbutton">Save Changes</button>
+                    <button class="hbutton">Remove Item</button>
+                </div>
+                
+            </div>
+
+            <!-- Form Layout -->
+             <div class="form">
+                <div class="top">
+                    <div class="left-side">
+                        <div class="product-name">
+                            <label>* Product Name</label>
+                            <input type="text" placeholder="Enter here">
+                        </div>
+                        <div class="product-id">
+                            <label>Product ID</label>
+                            <input type="text" value="#892JF123" style="background-color: #cecac1;" disabled>
+                        </div>
+                    </div>
+                    <div class="right-side">
+                        <div class="description">
+                            <label> Description</label>
+                            <input type="text" style="padding-bottom: 14em; padding-right: 7%" placeholder="Enter here">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bottom">
+                    <div class="left-side">
+                        <label for="file-upload" class="add-photo">+</label>
+                        <input type = "file" id="file-upload" class="add-photo">
+                        <label for="add-photo" class="add-photo-label">Update Photo</label>
+                    </div>
+
+                    <div class="right-side">
+                        <div class ="ingredients" id="ingredients">
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <script crossorigin  type="text/babel" src="addIngredient.js"></script>
+    </body>
+</html>
