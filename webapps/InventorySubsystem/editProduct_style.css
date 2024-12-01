@@ -17,6 +17,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1%;
+    min-width: 955px;
 }
 
 .back-link {
@@ -27,18 +28,24 @@ body {
     cursor: pointer;
 }
 
+.hbuttons {
+    display: flex;
+}
+
 .hbutton {
     background-color: #453836;
     color: white;
     border: none;
-    padding: 1%;
     cursor: pointer;
-    font-size: 2em;
+    font-size: 1.5em;
     border-radius: 20px;
+    padding: 10px;
+    margin-right: 2px;
 }
 
-.save-button:hover {
-    background-color: #4538367c;
+.hbutton:hover {
+    background-color: #F3F3F3;
+    color: #453836;
 }
 
 /* Form Layout */
@@ -103,7 +110,7 @@ label {
     color: #F3F3F3; 
 }
 
-.product-id label {
+.price label {
     font-size: 2em; 
     font-weight: bold;
     color: #F3F3F3; 
@@ -134,6 +141,17 @@ label {
     border-radius: 15px;
     background-color: #cecac1;
     border: 0px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(37, 37, 37);
+}
+
+input[type="file"]
+{
+    display: none;
+    
 }
 
 .add-photo:hover {

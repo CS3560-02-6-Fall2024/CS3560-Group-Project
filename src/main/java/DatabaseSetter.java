@@ -68,7 +68,7 @@ public class DatabaseSetter
 			statement.execute("INSERT IGNORE INTO product Values(" + 
 			product.getProductID() + ", " + 
 			"'" + product.getName() + "', 0, " + 
-			"'" + product.getDescription() + "', 10.99)");
+			"'" + product.getDescription() + "', " + product.getPrice() + ")");
         }
         
         catch(Exception e)

@@ -36,7 +36,7 @@ public class SearchServlet extends HttpServlet {
           if(nextLine.contains("END RESULT BOX"))
             break;
         }
-        DatabaseSetter.addProduct(new Product(1, "Pancake", "Better than a waffle?"));
+        // DatabaseSetter.addProduct(new Product(1, "Pancake", "Better than a waffle?"));
         ArrayList<Product> products = DatabaseGetter.getProducts();
         // Add results box n times into the page
         for(Product product : products)
@@ -59,7 +59,6 @@ public class SearchServlet extends HttpServlet {
       // Copy html if it is not part of results box
       else
       {
-        System.out.println(nextLine);
         out.println(nextLine);
       }
     }

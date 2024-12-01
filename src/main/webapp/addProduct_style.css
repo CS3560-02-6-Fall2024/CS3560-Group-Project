@@ -121,6 +121,15 @@ label {
     border-radius: 15px;
 }
 
+input[type="number"] {
+    padding: 3%;
+    color: #706661;
+    border: 0px;
+    width: 90%; 
+    outline: none;
+    border-radius: 15px;
+}
+
 /* Description Styling */
 .description label {
     font-size: 2em;

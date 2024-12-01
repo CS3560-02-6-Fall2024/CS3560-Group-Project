@@ -24,9 +24,7 @@ header {
     min-height: 35vh;
     min-width: 35vh;
     border: 1.5vh solid #453836;
-    outline:none;
-
-
+    outline: none;
 }
 
 .button:hover {

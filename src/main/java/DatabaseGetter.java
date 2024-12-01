@@ -18,6 +18,54 @@ public class DatabaseGetter
    
     //==============
 
+
+    public static int getLastProductID()
+    {
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM product");
+            int id = -1;
+            while(results.next())
+            {
+                id = results.getInt("productID");
+            }
+            return id;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return -1;
+        }
+       
+    }
+
+
+    // Return's true if there is no duplicates
+    // False otherwise
+    public static boolean checkForDuplicateProducts(String name)
+    {
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM product");
+            while(results.next())
+            {
+                String n = results.getString("name");
+                if(name.equalsIgnoreCase(n))
+                    return false;
+            }
+            return true;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public static ArrayList<Product> getProducts()
     {
         try
@@ -34,7 +82,8 @@ public class DatabaseGetter
                 int productID = results.getInt("productID");
                 String name= results.getString("name");
                 String description= results.getString("description");
-                products.add(new Product(productID, name, description));
+                float price = results.getFloat("standardPrice");
+                products.add(new Product(productID, name, description, price));
             } 
             return products;
         }

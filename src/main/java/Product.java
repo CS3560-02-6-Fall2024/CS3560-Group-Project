@@ -1,17 +1,23 @@
 public class Product
 {
-	public static int nextProductID = 0;
 	private int productID;
 	private String name; // The display name of the product
 	private String description; // Short description of the product
+	private float price;
 	private int totalQuantity; // Amount of this product in the order?
 
 
 	// Constructor for Product
-	public Product(int _productID, String _name, String _desc)
+	public Product(String _name, String _desc, float _price)
 	{
-		productID = _productID;
+		this(DatabaseGetter.getLastProductID() + 1, _name, _desc, _price);
+	}
+
+	public Product(int id, String _name, String _desc, float _price)
+	{
+		productID = id;
 		name = _name;
+		price = _price;
 		description = _desc;
 	}
 
@@ -29,7 +35,7 @@ public class Product
 		//destroy related batches
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
-
+	
 	// Method to Search for Product
 	public static Product searchProduct(String name)
 	{
@@ -53,6 +59,11 @@ public class Product
 	public String getDescription()
 	{
 		return description;
+	}
+
+	public float getPrice()
+	{
+		return price;
 	}
 
 	

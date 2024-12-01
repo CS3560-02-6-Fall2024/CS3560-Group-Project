@@ -44,10 +44,6 @@ body {
     cursor: pointer;
 }
 
-.save-button:hover {
-    background-color: #4538367c;
-}
-
 /* Form Layout */
 .form {
     display: block;
@@ -110,13 +106,22 @@ label {
     color: #F3F3F3; 
 }
 
-.product-id label {
+.price label {
     font-size: 2em; 
     font-weight: bold;
     color: #F3F3F3; 
 }
 
  input[type="text"] {
+    padding: 3%;
+    color: #706661;
+    border: 0px;
+    width: 90%; 
+    outline: none;
+    border-radius: 15px;
+}
+
+input[type="number"] {
     padding: 3%;
     color: #706661;
     border: 0px;

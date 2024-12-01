@@ -31,9 +31,11 @@
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.3.1</version>
+        <configuration>
+          <outputDirectory>webapps</outputDirectory>
+        </configuration>
       </plugin>
     </plugins>
-
     <!-- The output .war file's name, which will be the name of the webapp. -->
     <finalName>${project.artifactId}</finalName>
   </build>
