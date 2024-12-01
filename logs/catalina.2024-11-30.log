@@ -1,0 +1,171 @@
+30-Nov-2024 12:23:21.899 INFO [Thread-2] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 12:23:21.967 INFO [Thread-2] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+30-Nov-2024 12:23:22.070 INFO [Thread-2] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 12:23:22.123 INFO [Thread-2] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 12:24:15.259 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+30-Nov-2024 12:24:15.265 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+30-Nov-2024 12:24:15.266 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+30-Nov-2024 12:24:15.266 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+30-Nov-2024 12:24:15.266 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+30-Nov-2024 12:24:15.266 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Nov-2024 12:24:15.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-17
+30-Nov-2024 12:24:15.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.6+9-LTS-190
+30-Nov-2024 12:24:15.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+30-Nov-2024 12:24:15.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project
+30-Nov-2024 12:24:15.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project
+30-Nov-2024 12:24:15.281 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project
+30-Nov-2024 12:24:15.281 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project
+30-Nov-2024 12:24:15.282 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\temp
+30-Nov-2024 12:24:15.283 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Nov-2024 12:24:15.283 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\conf\logging.properties
+30-Nov-2024 12:24:15.283 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Nov-2024 12:24:15.285 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Nov-2024 12:24:15.285 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Nov-2024 12:24:15.285 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Nov-2024 12:24:15.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Nov-2024 12:24:15.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+30-Nov-2024 12:24:15.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: abort
+30-Nov-2024 12:24:15.287 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+30-Nov-2024 12:24:15.287 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+30-Nov-2024 12:24:15.633 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+30-Nov-2024 12:24:15.646 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+30-Nov-2024 12:24:16.098 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 12:24:16.161 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1246] milliseconds
+30-Nov-2024 12:24:16.252 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Nov-2024 12:24:16.252 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+30-Nov-2024 12:24:16.540 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\hello-world-maven.war]
+30-Nov-2024 12:24:17.926 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 12:24:18.094 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\hello-world-maven.war] has finished in [1,552] ms
+30-Nov-2024 12:24:18.097 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\docs]
+30-Nov-2024 12:24:18.765 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 12:24:18.771 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\docs] has finished in [675] ms
+30-Nov-2024 12:24:18.772 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\examples]
+30-Nov-2024 12:24:22.927 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 12:24:22.971 SEVERE [main] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+30-Nov-2024 12:24:22.972 SEVERE [main] org.apache.catalina.core.StandardContext.startInternal Context [/examples] startup failed due to previous errors
+30-Nov-2024 12:24:23.003 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\examples] has finished in [4,229] ms
+30-Nov-2024 12:24:23.005 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\hello]
+30-Nov-2024 12:24:23.437 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 12:24:23.445 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\hello] has finished in [441] ms
+30-Nov-2024 12:24:23.447 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\host-manager]
+30-Nov-2024 12:24:23.890 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 12:24:23.916 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\host-manager] has finished in [470] ms
+30-Nov-2024 12:24:23.917 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\manager]
+30-Nov-2024 12:24:24.403 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 12:24:24.410 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\manager] has finished in [493] ms
+30-Nov-2024 12:24:24.412 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\ROOT]
+30-Nov-2024 12:24:24.949 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 12:24:24.956 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\ROOT] has finished in [543] ms
+30-Nov-2024 12:24:24.971 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 12:24:25.069 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [8906] milliseconds
+30-Nov-2024 12:25:15.052 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/hello-world-maven]
+30-Nov-2024 12:26:05.197 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\hello-world-maven.war]
+30-Nov-2024 12:26:05.859 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 12:26:05.866 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\hello-world-maven.war] has finished in [670] ms
+30-Nov-2024 15:09:04.878 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/hello-world-maven]
+30-Nov-2024 15:22:47.859 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 15:22:48.678 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 15:22:48.685 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [825] ms
+30-Nov-2024 16:08:06.916 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:08:16.981 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:08:17.627 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:08:17.635 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [654] ms
+30-Nov-2024 16:10:07.760 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:10:07.792 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:10:08.374 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:10:08.374 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [582] ms
+30-Nov-2024 16:10:48.433 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:10:48.470 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:10:48.824 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:10:48.824 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [355] ms
+30-Nov-2024 16:12:38.994 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:12:49.037 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:12:49.485 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:12:49.502 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [465] ms
+30-Nov-2024 16:26:20.636 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:26:30.687 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:26:31.613 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:26:31.620 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [938] ms
+30-Nov-2024 16:35:02.263 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:35:12.309 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:35:12.837 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:35:12.845 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [536] ms
+30-Nov-2024 16:37:02.988 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:37:03.468 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:37:03.944 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:37:03.944 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [476] ms
+30-Nov-2024 16:43:28.344 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:43:28.376 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:43:28.757 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:43:28.757 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [381] ms
+30-Nov-2024 16:48:39.226 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:48:40.166 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:48:40.586 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:48:40.590 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [423] ms
+30-Nov-2024 16:49:20.656 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:49:30.726 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:49:31.050 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:49:31.053 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [328] ms
+30-Nov-2024 16:50:21.101 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:50:21.140 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:50:21.490 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:50:21.495 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [355] ms
+30-Nov-2024 16:52:21.690 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/InventorySubsystem]
+30-Nov-2024 16:52:21.699 INFO [Catalina-utility-2] org.apache.catalina.core.StandardWrapper.unload Waiting for [2] instance(s) to be deallocated for Servlet [HelloWorldServlet]
+30-Nov-2024 16:52:22.764 INFO [Catalina-utility-2] org.apache.catalina.core.StandardWrapper.unload Waiting for [2] instance(s) to be deallocated for Servlet [HelloWorldServlet]
+30-Nov-2024 16:52:23.867 INFO [Catalina-utility-2] org.apache.catalina.core.StandardWrapper.unload Waiting for [2] instance(s) to be deallocated for Servlet [HelloWorldServlet]
+30-Nov-2024 16:52:23.997 WARNING [Catalina-utility-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [InventorySubsystem] is still processing a request that has yet to finish. This is very likely to create a memory leak. You can control the time allowed for requests to finish by using the unloadDelay attribute of the standard Context implementation. Stack trace of request processing thread:[
+ HelloWorldServlet.doGet(HelloWorldServlet.java:20)
+ jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+ jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+ org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+ org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+ org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+ org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+ org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+ org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+ org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+ org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+ org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+ org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+ org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+ org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+ org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+ org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+ org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+ org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+ org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)]
+30-Nov-2024 16:52:24.007 WARNING [Catalina-utility-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [InventorySubsystem] is still processing a request that has yet to finish. This is very likely to create a memory leak. You can control the time allowed for requests to finish by using the unloadDelay attribute of the standard Context implementation. Stack trace of request processing thread:[
+ HelloWorldServlet.doGet(HelloWorldServlet.java:20)
+ jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+ jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+ org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+ org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+ org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+ org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+ org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+ org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+ org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+ org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+ org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+ org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+ org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+ org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+ org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+ org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+ org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+ org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+ org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)]
+30-Nov-2024 16:52:24.754 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war]
+30-Nov-2024 16:52:25.426 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 16:52:25.434 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\bjion\OneDrive\Documents\GitHub\CS3560-Group-Project\webapps\InventorySubsystem.war] has finished in [679] ms
