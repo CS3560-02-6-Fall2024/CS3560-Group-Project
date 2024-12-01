@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/search.html")
-public class HelloWorldServlet extends HttpServlet {
+public class SearchServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
@@ -47,8 +47,8 @@ public class HelloWorldServlet extends HttpServlet {
         out.println(nextLine);
       }
     }
-
     scan.close();
+    DatabaseGetter.testDatabaseGetter();
   }
 }
 

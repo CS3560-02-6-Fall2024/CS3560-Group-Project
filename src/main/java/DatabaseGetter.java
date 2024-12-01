@@ -7,19 +7,19 @@ public class DatabaseGetter
     //FILL IN YOUR MY SQL SERVER INFO HERE!!!! ==========
 
     //jbbc:mysql://localhost:[ENTERYOUR PORT NUMBER HERE]/[ENTER SCHEMA NAME HERE]
-    static final String DB_URL = "jdbc:mysql://localhost:####/schemaNameHere";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/groupassignment";
 
     //should be using root so don't need to change
     static final String USER = "root";
 
      //If you put a password for the MySQL server put it here
-    static final String PASSWORD = "12bucklemyshoes";
+    static final String PASSWORD = "12bucklemyshoe";
    
     //==============
 
-    public static void main(String[] args)
+    public static void testDatabaseGetter()
     {
-
+        System.out.println("Testing Database...");
         try
         {
             //get connector

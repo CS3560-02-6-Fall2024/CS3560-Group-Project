@@ -6,13 +6,13 @@
     version="3.1">
 
     <servlet>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <servlet-class>HelloWorldServlet</servlet-class>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>SearchServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <url-pattern>/InventorySubsystem/*</url-pattern>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/InventorySubsystem/search*</url-pattern>
     </servlet-mapping>
 
 </web-app>
