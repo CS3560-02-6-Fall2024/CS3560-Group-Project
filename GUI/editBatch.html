@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Edit Batch </title>
+        <link rel="stylesheet" href="editBatch_style.css">
+        <link rel="stylesheet" href="side_nav.css">
+    </head>
+    <body>
+        <!-- Side Navigation -->
+        <nav class="sidebar">
+            <div>
+                <button onclick="location.href='home.html'" class="button">Home</button><br/>
+                <button onclick="location.href='search.html'" class="button">Search</button><br/>
+                <button onclick="location.href='add.html'" class="button">Add</button><br/>
+                <button onclick="location.href='suppliers.html'" class="button">Suppliers</button><br/>
+            </div>
+        </nav>
+        
+        <header>
+            <a href="search.html"> &#8592; Back to Search </a> <br/>
+            <div class="head"> Strawberry Croissant </div>
+            <div class="batchNum"> Number of Batches: 64 </div>
+        </header>
+
+        <div class="batches" onwheel="this.scrollLeft+=event.deltaY>0?100:-100">
+                <!-- replace add button in script -->
+                <div class="box">
+                <button type="submit" class="add-batch-box">+</button> 
+                </div>
+            <div class="box">
+                <div class="batchID">#892JFI123</div>
+                <div class="text">Quantity</div>
+                <input type="text" placeholder="Enter here...">
+                <div class="text">Expiration Date</div>
+                <input type="text" placeholder="Enter here...">
+                <div class="text">Creation Date</div>
+                <input type="text" placeholder="Enter here...">
+                <button type="submit" class="remove">Remove</button>
+                <div class="batch-number">Batch Number: 1</div>
+            </div>  
+
+            <div class="box">
+                <div class="batchID">#892JFI123</div>
+                <div class="text">Quantity</div>
+                <input type="text" placeholder="Enter here...">
+                <div class="text">Expiration Date</div>
+                <input type="text" placeholder="Enter here...">
+                <div class="text">Creation Date</div>
+                <input type="text" placeholder="Enter here...">
+                <button type="submit" class="remove">Remove</button>
+                <div class="batch-number">Batch Number: 1</div>
+            </div>  
+            <div class="box">
+                <div class="batchID">#892JFI123</div>
+                <div class="text">Quantity</div>
+                <input type="text" placeholder="Enter here...">
+                <div class="text">Expiration Date</div>
+                <input type="text" placeholder="Enter here...">
+                <div class="text">Creation Date</div>
+                <input type="text" placeholder="Enter here...">
+                <button type="submit" class="remove">Remove</button>
+                <div class="batch-number">Batch Number: 1</div>
+            </div>
+            <div class="box">
+                <div class="batchID">#892JFI123</div>
+                <div class="text">Quantity</div>
+                <input type="text" placeholder="Enter here...">
+                <div class="text">Expiration Date</div>
+                <input type="text" placeholder="Enter here...">
+                <div class="text">Creation Date</div>
+                <input type="text" placeholder="Enter here...">
+                <button type="submit" class="remove">Remove</button>
+                <div class="batch-number">Batch Number: 1</div>
+            </div>
+        </div>
+    </body>
+    </html>
