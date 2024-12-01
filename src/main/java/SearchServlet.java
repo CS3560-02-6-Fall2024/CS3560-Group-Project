@@ -1,7 +1,9 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,18 +28,31 @@ public class SearchServlet extends HttpServlet {
       // Copy the result box html so we can to populate page
       if(nextLine.contains("START RESULT BOX"))
       {
-        String resultBoxHtml = "";
+        // Skip past this result box section
         while(scan.hasNextLine())
         {
           nextLine = scan.nextLine();
           // Break out of result box loop if we reach the end of the result box
           if(nextLine.contains("END RESULT BOX"))
             break;
-          resultBoxHtml += nextLine + "\n";
         }
+        DatabaseSetter.addProduct(new Product(1, "Pancake", "Better than a waffle?"));
+        ArrayList<Product> products = DatabaseGetter.getProducts();
         // Add results box n times into the page
-        for(int i = 0; i < 20; i++)
+        for(Product product : products)
         {
+          
+        String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
+        "                    <div class=\"product-ID\"> #" + product.getProductID() + "</div>\r\n" + //
+        "                    <div class=\"image\"> image </div>\r\n" + //
+        "                    <div class=\"product-name\">" + product.getName() + "</div>\r\n" + //
+        "                    <div class=\"batch-quantity\"> Number of batches: 64  </div>\r\n" + //
+        "                    <div class=\"buttons\">\r\n" + //
+        "                        <button onclick=\"location.href='editProduct.html'\" class=\"edit-button\">Edit Item</button><br/>\r\n" + //
+        "                        <button onclick=\"location.href='editBatch.html'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
+        "                        <button onclick=\"location.href='info.html'\" class=\"edit-button\">Info</button><br/>\r\n" + //
+        "                    </div>               \r\n" + //
+        "                </div>";
           out.println(resultBoxHtml);
         }
       }
@@ -49,8 +64,7 @@ public class SearchServlet extends HttpServlet {
       }
     }
     scan.close();
-    // DatabaseGetter.testDatabaseGetter();
-    DatabaseSetter.addProduct(new Product(0, "Waffles", "WAFFLES ARE YUMMY"));
+    // DatabaseSetter.addProduct(new Product(0, "Waffles", "WAFFLES ARE YUMMY"));
   }
 }
 

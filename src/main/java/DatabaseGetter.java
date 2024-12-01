@@ -1,5 +1,6 @@
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DatabaseGetter 
 {
@@ -16,6 +17,34 @@ public class DatabaseGetter
     static final String PASSWORD = "12bucklemyshoe";
    
     //==============
+
+    public static ArrayList<Product> getProducts()
+    {
+        try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ArrayList<Product> products = new ArrayList<Product>();
+            // READ QUERY FOR ingredient, TESTING
+            ResultSet results = statement.executeQuery("SELECT * FROM product");
+            while (results.next())
+            {
+                //get result info (reads the column name in get string)
+                int productID = results.getInt("productID");
+                String name= results.getString("name");
+                String description= results.getString("description");
+                products.add(new Product(productID, name, description));
+            } 
+            return products;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        
+    }
 
     public static void testDatabaseGetter()
     {
