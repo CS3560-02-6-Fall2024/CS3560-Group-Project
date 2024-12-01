@@ -102,3 +102,6 @@
 0:0:0:0:0:0:0:1 - - [30/Nov/2024:18:37:21 -0800] "GET /InventorySubsystem/search.html HTTP/1.1" 200 3661
 0:0:0:0:0:0:0:1 - - [30/Nov/2024:18:42:15 -0800] "GET /InventorySubsystem/search.html HTTP/1.1" 200 3661
 0:0:0:0:0:0:0:1 - - [30/Nov/2024:18:42:22 -0800] "GET /InventorySubsystem/search.html HTTP/1.1" 200 3661
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:19:04:15 -0800] "GET /InventorySubsystem/search.html HTTP/1.1" 200 3661
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:19:04:18 -0800] "GET /GUI/images/Bread.png HTTP/1.1" 404 780
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:19:19:58 -0800] "GET /InventorySubsystem/search.html HTTP/1.1" 200 3661

@@ -1,5 +1,6 @@
 public class Product
 {
+	public static int nextProductID = 0;
 	private int productID;
 	private String name; // The display name of the product
 	private String description; // Short description of the product
@@ -37,4 +38,22 @@ public class Product
 		// If successful, return ingredient, if not, return null
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	// Getter methods
+	public int getProductID()
+	{
+		return productID;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	
 }

@@ -48,7 +48,8 @@ public class SearchServlet extends HttpServlet {
       }
     }
     scan.close();
-    DatabaseGetter.testDatabaseGetter();
+    // DatabaseGetter.testDatabaseGetter();
+    DatabaseSetter.addProduct(new Product(0, "Waffles", "WAFFLES ARE YUMMY"));
   }
 }
 
