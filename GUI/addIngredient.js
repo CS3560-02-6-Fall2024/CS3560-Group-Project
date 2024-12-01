@@ -1,5 +1,64 @@
 const { useState, useEffect } = React
 
+// const App = () => {    
+//     const [inputFields, setInputFields] = useState([{ value: '' }]);
+
+//     const handleInputChange = (index, event) => {
+//     const values = [...inputFields];
+//     values[index].value = event.target.value;
+//     setInputFields(values);
+//     };
+
+//     const handleAddInput = () => {
+//     setInputFields([...inputFields, { value: '' }]);
+//     };
+
+//     const handleRemoveInput = (index) => {
+//     const values = [...inputFields];
+//     values.splice(index, 1);
+//     setInputFields(values);
+//     };
+
+//     return (
+//     <div>
+//         <div class="ingredLabel">*Ingredients</div>
+//         {inputFields.map((inputField, index) => (
+//         <div key={index}>
+//             <div class="ingredient-row">
+//                 <div class="top-row">
+//                     <div class="one">
+//                         <label>quantity</label>
+//                         <input
+//                         type="text"
+//                         placeholder='Enter quantity...'
+//                         value={inputField.value}
+//                         onChange={(event) => handleFormChange(index, event)}
+//                         />
+//                     </div>
+//                     <div class="two">
+//                         <label>ingredient</label>
+//                         <input
+//                         type="text"
+//                         placeholder='Enter ingredient...'
+//                         value={inputField.value}
+//                         onChange={(event) => handleInputChange(index, event)}
+//                         />
+//                     </div>
+//                 </div>
+//                 <div class="bottom-row">
+//                     <button  class="remove" type="button" onClick={() => handleRemoveInput(index)}>
+//                     Remove
+//                     </button>
+//                 </div>
+//             </div>
+//         </div>
+//         ))}
+//         <button class="add-ingredient" type="button" onClick={handleAddInput}>
+//         Add Ingredient
+//         </button>
+//     </div>
+//     );}
+
 function App() {
     const [formFields, setFormFields] = useState([
       { quantity: '', ingredient: '' },
