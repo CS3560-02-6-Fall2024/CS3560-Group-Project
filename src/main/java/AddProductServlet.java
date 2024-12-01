@@ -16,7 +16,7 @@ public class AddProductServlet extends HttpServlet {
 
     // Render html page (just copies the html of the page that you are using)
     File html = new File(System.getProperty("user.dir") + "/src/main/webapp/addProduct.html");
-    Scanner scan = new Scanner(html);
+    Scanner scan = new Scanner(html, "UTF-8");
     response.setContentType("text/html;");
     PrintWriter out = response.getWriter();
     while(scan.hasNextLine())
