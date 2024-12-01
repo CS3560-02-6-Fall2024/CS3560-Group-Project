@@ -49,7 +49,7 @@ public class SearchServlet extends HttpServlet {
         "                    <div class=\"buttons\">\r\n" + //
         "                        <button onclick=\"location.href='editProduct.html'\" class=\"edit-button\">Edit Item</button><br/>\r\n" + //
         "                        <button onclick=\"location.href='editBatch.html'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
-        "                        <button onclick=\"location.href='info.html'\" class=\"edit-button\">Info</button><br/>\r\n" + //
+        "                        <button onclick=\"location.href='info.html?productID=" + product.getProductID() +"'\" class=\"edit-button\">Info</button><br/>\r\n" + //
         "                    </div>               \r\n" + //
         "                </div>";
           out.println(resultBoxHtml);
