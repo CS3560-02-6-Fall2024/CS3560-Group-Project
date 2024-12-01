@@ -5,8 +5,8 @@ USE GroupAssignment;
 Create Table IF NOT EXISTS Image(
 productID int,
 imagePath VARCHAR(100),
-description VARCHAR(300),
-FOREIGN KEY (productID) REFERENCES Product(productID)
+FOREIGN KEY (productID) REFERENCES Product(productID),
+PRIMARY KEY (productID)
 );
 
 Create Table IF NOT EXISTS Product(

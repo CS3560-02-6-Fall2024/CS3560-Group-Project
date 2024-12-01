@@ -23,7 +23,7 @@
 
     <servlet-mapping>
         <servlet-name>AddProductServlet</servlet-name>
-        <url-pattern>/InventorySubsystem/addProduct*</url-pattern>
+        <url-pattern>/InventorySubsystem/addProduct.html*</url-pattern>
     </servlet-mapping>
 
 </web-app>
