@@ -65,7 +65,7 @@ function App() {
               </div>
             )
           })}
-          <button class="add-ingredient" onClick={addFields}> Add Ingredient </button>
+          <button type="button" class="add-ingredient" onClick={addFields}> Add Ingredient </button>
       </div>
     );
   }
