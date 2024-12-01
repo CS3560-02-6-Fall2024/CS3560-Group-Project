@@ -19,29 +19,22 @@ body {
     margin-bottom: 1%;
 }
 
-.hbuttons {
-    display: flex;
-    gap: 2%;
-}
-
-.hbutton {
-    background-color: #453836;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 2em;
-    border-radius: 20px;
-    padding: 15px
-}
-
-
-
 .back-link {
     color: #453836;
     font-size: 2.5em;
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
+}
+
+.hbutton {
+    background-color: #453836;
+    color: white;
+    border: none;
+    padding: 1%;
+    cursor: pointer;
+    font-size: 2em;
+    border-radius: 20px;
 }
 
 .save-button:hover {
@@ -141,18 +134,8 @@ label {
     border-radius: 15px;
     background-color: #cecac1;
     border: 0px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(37, 37, 37);
-    
 }
-input[type="file"]
-{
-    display: none;
-    
-}
+
 .add-photo:hover {
     background-color: #cecac196;
 }

@@ -75,3 +75,11 @@
 0:0:0:0:0:0:0:1 - - [30/Nov/2024:16:52:32 -0800] "GET /InventorySubsystem/home.html HTTP/1.1" 200 640
 0:0:0:0:0:0:0:1 - - [30/Nov/2024:16:52:34 -0800] "GET /GUI/images/Bread.png HTTP/1.1" 404 780
 0:0:0:0:0:0:0:1 - - [30/Nov/2024:16:52:44 -0800] "GET /InventorySubsystem/home.html HTTP/1.1" 200 640
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:17:07:05 -0800] "GET /InventorySubsystem/home.html HTTP/1.1" 200 640
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:17:09:14 -0800] "GET / HTTP/1.1" 200 11437
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:17:09:24 -0800] "GET /InventorySubsystem/home HTTP/1.1" 404 779
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:17:09:27 -0800] "GET /InventorySubsystem HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:17:09:27 -0800] "GET /InventorySubsystem/ HTTP/1.1" 404 775
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:17:09:31 -0800] "GET /InventorySubsystem/home.html HTTP/1.1" 200 638
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:17:26:57 -0800] "GET /InventorySubsystem/search.html HTTP/1.1" 200 3661
+0:0:0:0:0:0:0:1 - - [30/Nov/2024:17:26:58 -0800] "GET /InventorySubsystem/search.html HTTP/1.1" 200 3661
