@@ -10,13 +10,6 @@ public class Image
 		imagePath = _path;
 	}
 
-
-	public static String getImageFromID(int _id)
-	{
-		String result = DatabaseGetter.getImageFromID(_id);
-		return result;
-	}
-
 	// Update image description
 	public void updateImage()
 	{

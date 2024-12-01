@@ -95,6 +95,38 @@ public class DatabaseGetter
         
     }
 
+
+    public static Product getProductFromID(int id)
+    {
+        System.out.println("Getting Image...");
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM product WHERE productID=" + id +";");
+            
+            //System.out.println("IMAGE ROW: " + results.getRow() + " ID " + id + " IS BEFORE FIRST" + results.isBeforeFirst());
+            
+            // if the ResultSet is not empty then get the imagePath
+            if(results.next())
+            {
+                //get result info (reads the column name in get string)
+                int productID = results.getInt("productID");
+                String name= results.getString("name");
+                String description= results.getString("description");
+                float price = results.getFloat("standardPrice");
+                return new Product(productID, name, description, price);
+            }
+            return null;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
     public static String getImageFromID(int id)
     {
         System.out.println("Getting Image...");
