@@ -4,6 +4,9 @@
         <title> Edit Batch </title>
         <link rel="stylesheet" href="editBatch_style.css">
         <link rel="stylesheet" href="side_nav.css">
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+        <script crossorigin type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     </head>
     <body>
         <!-- Side Navigation -->
@@ -22,56 +25,10 @@
             <div class="batchNum"> Number of Batches: 64 </div>
         </header>
 
-        <div class="batches" onwheel="this.scrollLeft+=event.deltaY>0?100:-100">
-                <!-- replace add button in script -->
-                <div class="box">
-                <button type="submit" class="add-batch-box">+</button> 
-                </div>
-            <div class="box">
-                <div class="batchID">#892JFI123</div>
-                <div class="text">Quantity</div>
-                <input type="text" placeholder="Enter here...">
-                <div class="text">Expiration Date</div>
-                <input type="text" placeholder="Enter here...">
-                <div class="text">Creation Date</div>
-                <input type="text" placeholder="Enter here...">
-                <button type="submit" class="remove">Remove</button>
-                <div class="batch-number">Batch Number: 1</div>
-            </div>  
-
-            <div class="box">
-                <div class="batchID">#892JFI123</div>
-                <div class="text">Quantity</div>
-                <input type="text" placeholder="Enter here...">
-                <div class="text">Expiration Date</div>
-                <input type="text" placeholder="Enter here...">
-                <div class="text">Creation Date</div>
-                <input type="text" placeholder="Enter here...">
-                <button type="submit" class="remove">Remove</button>
-                <div class="batch-number">Batch Number: 1</div>
-            </div>  
-            <div class="box">
-                <div class="batchID">#892JFI123</div>
-                <div class="text">Quantity</div>
-                <input type="text" placeholder="Enter here...">
-                <div class="text">Expiration Date</div>
-                <input type="text" placeholder="Enter here...">
-                <div class="text">Creation Date</div>
-                <input type="text" placeholder="Enter here...">
-                <button type="submit" class="remove">Remove</button>
-                <div class="batch-number">Batch Number: 1</div>
-            </div>
-            <div class="box">
-                <div class="batchID">#892JFI123</div>
-                <div class="text">Quantity</div>
-                <input type="text" placeholder="Enter here...">
-                <div class="text">Expiration Date</div>
-                <input type="text" placeholder="Enter here...">
-                <div class="text">Creation Date</div>
-                <input type="text" placeholder="Enter here...">
-                <button type="submit" class="remove">Remove</button>
-                <div class="batch-number">Batch Number: 1</div>
-            </div>
+        <div class="l">Scroll with "Shift + Scroll wheel" </div>
+        <div class="batches" id="batches" onwheel="this.scrollLeft+=event.deltaY>0?100:-100">
+            
         </div>
+        <script crossorigin  type="text/babel" src="addBatch.js"></script>
     </body>
     </html>
