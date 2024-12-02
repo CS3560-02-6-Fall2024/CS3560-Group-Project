@@ -2,10 +2,14 @@
 body {
     font-family: sans-serif;
     background-color: #d3cbc4;
+    overflow-y: hidden;
+
 }
 
 /* Main Content Area */
 .content {
+    display: flex;
+    flex-direction: column;
     padding-top: 1%;
     margin-left: 17%;
     margin-right: 9%;
@@ -50,14 +54,18 @@ body {
 
 /* Form Layout */
 .form {
-    display: block;
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     background-color: #453836;
+    margin-top: 4%;
     padding-top: 3%;
     padding-right: 3%;
     padding-left: 3%;
     border-radius: 1%;
     min-width: 900px;
+    position: sticky;
+    bottom: 0;
 }
 
 /* Form Sections */
@@ -84,7 +92,6 @@ body {
 .bottom .left-side {
     flex: 1.5; 
     padding-right: 7%;
-    margin-bottom: 2%;
 }
 
 .bottom .right-side {
@@ -150,8 +157,7 @@ label {
 
 input[type="file"]
 {
-    display: none;
-    
+    display: none;   
 }
 
 .add-photo:hover {
@@ -173,7 +179,7 @@ input[type="file"]
     border-radius: 8px 8px 0px 0px;
     overflow-y: scroll;
     scrollbar-width: none;
-    height: 60vh;
+    height: 55vh;
     padding: 3%;
 }
 .ingredients .ingredLabel {
