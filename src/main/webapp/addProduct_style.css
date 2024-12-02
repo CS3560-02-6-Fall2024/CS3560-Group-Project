@@ -2,10 +2,14 @@
 body {
     font-family: sans-serif;
     background-color: #d3cbc4;
+    overflow-y: hidden;
+
 }
 
 /* Main Content Area */
 .content {
+    display: flex;
+    flex-direction: column;
     padding-top: 1%;
     margin-left: 17%;
     margin-right: 9%;
@@ -17,6 +21,15 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1%;
+    min-width: 955px;
+}
+
+.back-link {
+    color: #453836;
+    font-size: 2.5em;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .hbuttons {
@@ -34,26 +47,25 @@ body {
     padding: 15px
 }
 
-
-
-.back-link {
+.hbutton:hover {
+    background-color: #F3F3F3;
     color: #453836;
-    font-size: 2.5em;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 /* Form Layout */
 .form {
-    display: block;
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     background-color: #453836;
+    margin-top: 4%;
     padding-top: 3%;
     padding-right: 3%;
     padding-left: 3%;
     border-radius: 1%;
     min-width: 900px;
+    position: sticky;
+    bottom: 0;
 }
 
 /* Form Sections */
@@ -80,7 +92,6 @@ body {
 .bottom .left-side {
     flex: 1.5; 
     padding-right: 7%;
-    margin-bottom: 2%;
 }
 
 .bottom .right-side {
@@ -112,16 +123,7 @@ label {
     color: #F3F3F3; 
 }
 
- input[type="text"] {
-    padding: 3%;
-    color: #706661;
-    border: 0px;
-    width: 90%; 
-    outline: none;
-    border-radius: 15px;
-}
-
-input[type="number"] {
+input[type="text"], input[type="number"]  {
     padding: 3%;
     color: #706661;
     border: 0px;
@@ -151,13 +153,12 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     color: rgb(37, 37, 37);
-    
 }
-input[type="file"]
-{
-    display: none;
-    
+
+input[type="file"] {
+    display: none;   
 }
+
 .add-photo:hover {
     background-color: #cecac196;
 }
@@ -177,7 +178,7 @@ input[type="file"]
     border-radius: 8px 8px 0px 0px;
     overflow-y: scroll;
     scrollbar-width: none;
-    height: 60vh;
+    height: 55vh;
     padding: 3%;
 }
 .ingredients .ingredLabel {
@@ -260,13 +261,4 @@ input[type="file"]
 
 .add-ingredient:hover {
     background-color: #796f6b86;
-}
-
-.message
-{
-    padding: 2%;
-    font-size: 2em;
-    font-weight: bold;
-    align-self: center;
-    justify-self: center;
 }
