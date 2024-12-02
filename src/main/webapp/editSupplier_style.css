@@ -1,0 +1,24 @@
+body {
+    font-family: sans-serif;
+    background-color: #d3cbc4;
+    overflow-y: hidden;
+    margin-left: 18%;
+}
+
+/* Header Section */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1%;
+    margin-right: 7%;
+    margin-top: 1%;
+}
+
+.back-link {
+    color: #453836;
+    font-size: 2.5em;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}

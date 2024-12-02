@@ -3,7 +3,6 @@ body {
     font-family: sans-serif;
     background-color: #d3cbc4;
     overflow-y: hidden;
-
 }
 
 /* Main Content Area */
@@ -13,10 +12,12 @@ body {
     padding-top: 1%;
     margin-left: 17%;
     margin-right: 9%;
+    min-height: 100vh;    
 }
 
 /* Header Section */
 .header {
+    flex: 0.1;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,6 +55,7 @@ body {
 
 /* Form Layout */
 .form {
+    flex: 1;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -123,7 +125,7 @@ label {
     color: #F3F3F3; 
 }
 
- input[type="text"] {
+input[type="text"], input[type="number"]  {
     padding: 3%;
     color: #706661;
     border: 0px;
@@ -176,7 +178,7 @@ input[type="file"]
 .ingredients {
     align-items: center;
     background-color: #cecac1;
-    border-radius: 8px 8px 0px 0px;
+    border-radius: 8px;
     overflow-y: scroll;
     scrollbar-width: none;
     height: 55vh;
