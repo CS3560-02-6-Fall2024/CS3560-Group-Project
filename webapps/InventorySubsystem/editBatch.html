@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Edit Batch </title>
+        <link rel="stylesheet" href="editBatch_style.css">
+        <link rel="stylesheet" href="side_nav.css">
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+        <script crossorigin type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    </head>
+    <body>
+        <!-- Side Navigation -->
+        <nav class="sidebar">
+            <div>
+                <button onclick="location.href='home.html'" class="button">Home</button><br/>
+                <button onclick="location.href='search.html'" class="button">Search</button><br/>
+                <button onclick="location.href='add.html'" class="button">Add</button><br/>
+                <button onclick="location.href='suppliers.html'" class="button">Suppliers</button><br/>
+            </div>
+        </nav>
+        
+        <header>
+            <a href="search.html"> &#8592; Back to Search </a> <br/>
+            <div class="head"> Strawberry Croissant </div>
+            <div class="batchNum"> Number of Batches: 64 </div>
+        </header>
+
+        <div class="l">Scroll with "Shift + Scroll wheel" </div>
+        <div class="batches" id="batches" onwheel="this.scrollLeft+=event.deltaY>0?100:-100">
+            
+        </div>
+        <script crossorigin  type="text/babel" src="addBatch.js"></script>
+    </body>
+    </html>
