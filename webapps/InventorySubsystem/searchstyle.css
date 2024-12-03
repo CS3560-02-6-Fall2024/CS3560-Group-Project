@@ -3,29 +3,48 @@ body {
   overflow-y: hidden;
   margin-left: 13%;
 }
+
 .center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;    
 }
 
 /* Search Bar */
-.search-bar {
+
+.search {
+  width: 100%;
+  flex: 0.1;
   display: flex;
   justify-content: center;
-  margin-top: 4%;
+  align-items: center;
+  margin-top: 1%;
+  gap: 2%;
+}
+
+.search-bar {
+  flex: 4;
+  display: flex;
+  margin-left: 20%;
 }
 
 .search-bar input[type=text] {
-  width: 40%;
+  flex: 16;
+  height: 5vh;
+  width: 90%;
   border-radius: 20px 0 0 20px;
   padding-left: 1%;
   border: none;
-  font-size: 1.5em;
+  font-size: 1.75em;
   outline: none;
+  min-height: 50px;
 }
+
 .search-bar button {
+  margin-right: 22%;
+  flex:1;
   padding: 1%;
   border-radius: 0 20px 20px 0;
   background: #ddd;
@@ -34,11 +53,12 @@ body {
 }
 
 .search-bar button:hover {
-background: #ccc;
+  background: #ccc;
 }
 
 /* Result Backdrop */
 .result-grid {
+  flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap:2%;
@@ -51,12 +71,8 @@ background: #ccc;
   background-color: #F3F3F3;
   border-bottom: none;
   border-radius: 30px 30px 0 0;
-  margin-top: 8%;
   width: 70vw;
-  height: 70vh;
   overflow-y: auto;
-  position: fixed;
-  bottom: 0;
 }
 
 /* Result Box Components */
@@ -80,14 +96,12 @@ background: #ccc;
   margin-bottom: 1%;
 }
 
-.image {
-  text-align: center;
-  background-color: #453836;
-  color: #F3F3F3;
-  height: 50%;
-  width: 90%;
-  border-radius: 20px;
+img {
+  height: 18vh;
+  width: 13vw;
+  object-fit: cover;
   border: 3px solid #F3F3F3;
+  border-radius: 20px;
   margin-bottom: 5px;
 }
 
@@ -98,6 +112,7 @@ background: #ccc;
   font-family: sans-serif;
   margin-bottom: 1%;
 }
+
 .batch-quantity{
   color: #453836;
   font-size: 1em;
@@ -143,18 +158,16 @@ background: #ccc;
   /* Results */
   .result-grid {
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 8%;
-    width: 65vw;
-    height: 80vh;
   }
   .result-box {
     min-width: 220px;
   }
-  .image {
-    height: 40%;
-  }
   .product-name {
     font-size: 1.2em;
+  }
+
+  img {
+    width: 19vw;
   }
   
   .batch-quantity{
@@ -166,9 +179,8 @@ background: #ccc;
     min-width: 65px;
     height: 3vh;
     font-size: 0.75em;
-    margin:1%;
+    margin: 1%;
   }
-
 }
 
 @media screen and (max-width: 1200px) {
@@ -180,5 +192,9 @@ background: #ccc;
   /* Results */
   .result-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  img {
+    width: 30vw;
   }
 }

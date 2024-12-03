@@ -21,7 +21,7 @@
            <!-- Header with back and save-->
             <div class="header">
                 <a href="add.html" class="back-link">← Back to Selection</a>
-                <button class="save-button">Save</button>
+                <button type="submit" form="form" class="hbutton">Save</button>
             </div>
 
             <!-- Form Layout-->
@@ -32,8 +32,8 @@
                         <input type="text" id="product-name" placeholder="Enter here">
                     </div>
                     <div class="fieldLabel">
-                        <label>Ingredient ID</label>
-                        <input type="text" id="product-id" value="#892JF123" style="background-color: #cecac1;" disabled>
+                        <label for="price">Price</label>
+                        <input type="number" step="0.01" value="0.00" name="price">
                     </div>
                     
                     <div class="fieldLabel">
@@ -48,9 +48,9 @@
                 </div>
                 <div class="right-side">
                     <!-- <button class="add-photo">+</button> -->
-                    <label for="add-photo" class="add-photo-label">Add Photo</label>
                     <label for="file-upload" class="add-photo">+</label>
                     <input type = "file" id="file-upload" class="add-photo">
+                    <label for="add-photo" class="add-photo-label">Add Photo</label>
                 </div>
             </div> 
         </div>

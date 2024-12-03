@@ -20,6 +20,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1%;
+    min-width: 955px;
 }
 
 .back-link {
@@ -32,7 +33,6 @@ body {
 
 .hbuttons {
     display: flex;
-    gap: 2%;
 }
 
 .hbutton {
@@ -40,9 +40,10 @@ body {
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 2em;
+    font-size: 1.5em;
     border-radius: 20px;
-    padding: 15px;
+    padding: 10px;
+    margin-right: 2px;
 }
 
 .hbutton:hover {
