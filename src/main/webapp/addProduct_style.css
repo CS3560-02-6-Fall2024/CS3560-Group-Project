@@ -262,3 +262,12 @@ input[type="file"] {
 .add-ingredient:hover {
     background-color: #796f6b86;
 }
+
+.message
+{
+    padding: 2%;
+    font-size: 2em;
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+}
