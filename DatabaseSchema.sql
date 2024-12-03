@@ -64,3 +64,14 @@ FOREIGN KEY (productID) REFERENCES Product(productID),
 FOREIGN KEY (batchNumber) REFERENCES Batch(batchNumber),
 PRIMARY KEY (batchNumber)
 );
+
+Create Table IF NOT EXISTS RecipeIngredient(
+id int,
+productID int,
+ingredientID int,
+quantity float,
+units varchar(10),
+FOREIGN KEY (productID) REFERENCES Product(productID),
+FOREIGN KEY (ingredientID) REFERENCES Ingredient(ingredientID),
+PRIMARY KEY(id)
+);
