@@ -4,6 +4,7 @@ body {
   margin-left: 13%;
 }
 
+
 .center {
   display: flex;
   flex-direction: column;
@@ -54,6 +55,7 @@ body {
 
 .search-bar button:hover {
   background: #ccc;
+  background: #ccc;
 }
 
 /* Result Backdrop */
@@ -73,6 +75,8 @@ body {
   border-radius: 30px 30px 0 0;
   width: 70vw;
   overflow-y: auto;
+  position: sticky;
+  bottom: 0;
 }
 
 /* Result Box Components */
@@ -100,7 +104,12 @@ img {
   height: 18vh;
   width: 13vw;
   object-fit: cover;
+img {
+  height: 18vh;
+  width: 13vw;
+  object-fit: cover;
   border: 3px solid #F3F3F3;
+  border-radius: 20px;
   border-radius: 20px;
   margin-bottom: 5px;
 }
