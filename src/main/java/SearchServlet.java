@@ -41,16 +41,15 @@ public class SearchServlet extends HttpServlet {
         // Add results box n times into the page
         for(Product product : products)
         {
-          
         String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
-        "                    <div class=\"product-ID\"> #" + product.getProductID() + "</div>\r\n" + //
-        "                    <div class=\"image\"> image </div>\r\n" + //
+        "                    <div class=\"product-ID\"> #P" + product.getProductID() + "</div>\r\n" + //
+        "                    <div class=\"image\"><img src=\"Images/" + DatabaseGetter.getImageFromID(product.getProductID()) + "\" alt=\"No Image\"></div>\r\n" + //
         "                    <div class=\"product-name\">" + product.getName() + "</div>\r\n" + //
         "                    <div class=\"batch-quantity\"> Number of batches: 64  </div>\r\n" + //
         "                    <div class=\"buttons\">\r\n" + //
         "                        <button onclick=\"location.href='editProduct.html'\" class=\"edit-button\">Edit Item</button><br/>\r\n" + //
         "                        <button onclick=\"location.href='editBatch.html'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
-        "                        <button onclick=\"location.href='info.html'\" class=\"edit-button\">Info</button><br/>\r\n" + //
+        "                        <button onclick=\"location.href='info.html?itemID=P" + product.getProductID() +"'\" class=\"edit-button\">Info</button><br/>\r\n" + //
         "                    </div>               \r\n" + //
         "                </div>";
           out.println(resultBoxHtml);

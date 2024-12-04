@@ -16,7 +16,7 @@
     </servlet-mapping>
 
 
-        <servlet>
+    <servlet>
         <servlet-name>AddProductServlet</servlet-name>
         <servlet-class>AddProductServlet</servlet-class>
     </servlet>
@@ -24,6 +24,16 @@
     <servlet-mapping>
         <servlet-name>AddProductServlet</servlet-name>
         <url-pattern>/InventorySubsystem/addProduct.html*</url-pattern>
+    </servlet-mapping>
+
+        <servlet>
+        <servlet-name>InfoServlet</servlet-name>
+        <servlet-class>InfoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>InfoServlet</servlet-name>
+        <url-pattern>/InventorySubsystem/info.html*</url-pattern>
     </servlet-mapping>
 
 </web-app>
