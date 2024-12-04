@@ -8,8 +8,8 @@ body {
 header {
     text-align: center;
     padding: 20px;
-    background-color: #d3cbc4; /* Same as the background color */
-    color: #453836; /* Text color to ensure readability */
+    background-color: #d3cbc4; 
+    color: #453836; 
     font-size: 2.5em;
     font-weight: bold;
 }
@@ -19,7 +19,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 20px; /* Add uniform spacing around the main section */
+    margin: 40px 20px; 
 }
 
 /* Form Container */
@@ -30,10 +30,10 @@ form {
     padding: 3%;
     border-radius: 1%;
     min-width: 600px;
-    max-width: 800px; /* Limit the width for better layout */
+    max-width: 800px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    margin: 0 auto; /* Center the form horizontally */
-    margin-top: 20px; /* Space it from the header */
+    margin: 0 auto; 
+    margin-top: 20px;
 }
 
 /* Form Labels */
