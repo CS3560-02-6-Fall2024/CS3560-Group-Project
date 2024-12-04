@@ -41,6 +41,28 @@ public class DatabaseGetter
        
     }
 
+    public static int getLastIngredientID()
+    {
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM ingredient");
+            int id = -1;
+            while(results.next())
+            {
+                id = results.getInt("ingredientID");
+            }
+            return id;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return -1;
+        }
+       
+    }
+
 
     // Return's true if there is no duplicates
     // False otherwise

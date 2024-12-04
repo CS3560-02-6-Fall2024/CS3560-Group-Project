@@ -1,22 +1,19 @@
 import java.util.ArrayList;
 public class Ingredient
 {
-	private static int idCounter = 1; // Counter for unique IDs
-	private static ArrayList<Ingredient> ingredients = new ArrayList<>(); // List of Ingredients
-
 	private int ingredientID;
 	private String name; // Name of the ingredient
+	private String storageIntructions;
 	private String description; // Short description of the ingredient
 	private int totalQuantity; // Amount of this ingredient that we have (All batches of an item combined)
 
 	// Constructor for Ingredient
-	public Ingredient(String name, String description)
+	public Ingredient(String name, String storageInstructions, String description)
 	{
-		this.ingredientID = idCounter++;
+		this.ingredientID = DatabaseGetter.getLastIngredientID() + 1;
 		this.name = name;
+		this.storageIntructions = storageInstructions;
 		this.description = description;
-		this.totalQuantity = 0;
-		ingredients.add(this);
 	}
 
 	// Update Methods
@@ -54,5 +51,25 @@ public class Ingredient
 		// Print headers to each attribute
 		// Will also print corresponding batch information 
 		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	// Getter methods
+	public int getIngredientID()
+	{
+		return ingredientID;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public String getStorageIntructions() {
+		return storageIntructions;
+	}
+
+	public String getDescription()
+	{
+		return description;
 	}
 }
