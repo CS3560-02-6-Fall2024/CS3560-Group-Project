@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class EditBatchServlet extends HttpServlet {
     @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
     // Retrieve batches from the database
     List<Batch> batches = DatabaseGetter.getAllBatches();
 
