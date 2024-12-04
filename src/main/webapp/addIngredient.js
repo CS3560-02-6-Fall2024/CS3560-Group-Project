@@ -59,7 +59,7 @@ function App() {
                         </div>
                     </div>
                     <div class="bottom-row">
-                        <button class="remove" onClick={() => removeFields(index)}> Remove </button>
+                        <button type="reset" class="remove" onClick={() => removeFields(index)}> Remove </button>
                     </div>
                 </div>
               </div>
