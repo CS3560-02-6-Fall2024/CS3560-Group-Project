@@ -39,23 +39,26 @@ public class SupplierServlet extends HttpServlet {
                         break;
                 }
                 
-                ArrayList<Supplier> suppliers = DatabaseGetter.getSuppliers();
+                ArrayList<SupplierBatch> supplierBatchArray = DatabaseGetter.getSupplierBatch();
                 //so i need a getter for the product
                 
                 // Add results box n times into the page
-                for(Supplier supplier : suppliers)
+                for(SupplierBatch supplierBatch : supplierBatchArray)
                 {
+
+                    
                     // until ben gets up the company batch thingy i will put mock data
                     //TODO: updateh when it done
-                    String price = "$123.20"; //use getter for batch price
-                    int productID = 1; // use product.getProductID()
-                    String productName = "LAWL!"; // use product.getName()
+                    String price = "$123.20"; // use the getter for supplierBatch when implemented into database
+                    int ingredientID = supplierBatch.getIngredientId();
+                    Ingredient ingredient = DatabaseGetter.getIngredientFromId(ingredientID);
+                    String ingredientName = ingredient.getName(); // use product.getName()
 
-                    //int supplierID = supplier.getSupplierId();
+                    
                     String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
                     "                    <div class=\"product-ID\"> #P" + price + "</div>\r\n" + //
-                    "                    <div class=\"image\"><img src=\"Images/" + DatabaseGetter.getImageFromID(productID) + "\" alt=\"No Image\"></div>\r\n" + //
-                    "                    <div class=\"product-name\">" + productName + "</div>\r\n" + //
+                    "                    <div class=\"image\"><img src=\"Images/" + DatabaseGetter.getImageFromID(ingredientID) + "\" alt=\"No Image\"></div>\r\n" + //
+                    "                    <div class=\"product-name\">" + ingredientName + "</div>\r\n" + //
                     "                    <div class=\"buttons\">\r\n" + //
                     "                        <button onclick=\"location.href='order.html'\" class=\"edit-button\">Order</button>" + //
                     "                        <button onclick=\"location.href='supplierInfo.html'\" class=\"edit-button\">Supplier</button>" + //

@@ -218,6 +218,7 @@ public class DatabaseGetter
                 int supplierID = results.getInt("supplierID");
                 int ingredientID = results.getInt("ingredientID");
                 returnSupplierBatch.add(new SupplierBatch(supplierID, ingredientID));
+                //TODO: add price when ben creates it
             } 
             return returnSupplierBatch;
         }
@@ -229,6 +230,35 @@ public class DatabaseGetter
 
     }
 
+    public static Ingredient getIngredientFromId(int id)
+    {
+        System.out.println("Getting Ingredient...");
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM ingredient WHERE ingredientID=" + id +";");
+            
+            //System.out.println("IMAGE ROW: " + results.getRow() + " ID " + id + " IS BEFORE FIRST" + results.isBeforeFirst());
+            
+            // if the ResultSet is not empty then get the imagePath
+            if(results.next())
+            {
+                //get result info (reads the column name in get string)
+                String name= results.getString("name");
+                String storageInstruction= results.getString("storageInstruction");
+                String description = results.getString("description");
+                return new Ingredient(name, storageInstruction, description);
+            }
+            return null;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
     public static void testDatabaseGetter()
     {
         System.out.println("Testing Database...");
