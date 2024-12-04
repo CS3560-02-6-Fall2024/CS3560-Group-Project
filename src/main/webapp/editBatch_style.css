@@ -183,6 +183,7 @@ input[type="text"] {
     /* Batch Container */
 
     .App {
+        height: 45vh;
         min-height: 500px;
         margin-left: 20%;
         padding: 1em;
