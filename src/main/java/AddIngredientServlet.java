@@ -16,16 +16,17 @@ public class AddIngredientServlet extends HttpServlet {
     // Get parameters
     String name = request.getParameter("ingredientName");
     String description = request.getParameter("description");
+    String storageInstructions = request.getParameter("storageInstructions");
     String photoFile = request.getParameter("photoFile");
     System.out.println("Add Next Product:" +
-                        "\n Product Name: " + name +
-                        "\n Product Description: " + description +
+                        "\n Ingredient Name: " + name +
+                        "\n Ingredient Description: " + description +
                         "\n Photofile: " + photoFile);
 
 
 
     // Try to add product to database
-    String message = verifyInput(name, description, photoFile);
+    String message = verifyInput(name, storageInstructions, description, photoFile);
     // Render html page (just copies the html of the page that you are using)
     File html = new File(System.getProperty("user.dir") + "/src/main/webapp/addIngredient.html");
     Scanner scan = new Scanner(html, "UTF-8");
@@ -54,7 +55,7 @@ public class AddIngredientServlet extends HttpServlet {
   }
   
   // Verifies the input from webapp and returns a message to display
-  private String verifyInput(String name, String description, String photoFile)
+  private String verifyInput(String name, String storageInstructions, String description, String photoFile)
   {
     if(name == null)
     {
@@ -64,18 +65,22 @@ public class AddIngredientServlet extends HttpServlet {
     {
       return "Missing Name";
     }
+    if(storageInstructions == null || storageInstructions.equals(""))
+    {
+      return "Missing storage instructions.";
+    }
     if(description == null || description.equals(""))
     {
       return "Missing description.";
     }
     if(!DatabaseGetter.checkForDuplicateProducts(name))
     {
-      return "Duplicate product found.";
+      return "Duplicate ingredient found.";
     }
     
     // Add Product
-    // Product prod = new Product(name, description, Float.parseFloat(price));
-    // DatabaseSetter.insertProduct(prod);
+    Ingredient prod = new Ingredient(name, storageInstructions, description);
+    DatabaseSetter.insertProduct(prod);
 
     // Check for photo file (optional file)
     // if(photoFile != null && !photoFile.equals(""))
@@ -88,7 +93,7 @@ public class AddIngredientServlet extends HttpServlet {
 
 
 
-    return "Product added successfully";
+    return "Ingredient added successfully";
   }
 }
 
