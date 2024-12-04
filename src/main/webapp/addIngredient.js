@@ -53,6 +53,16 @@ function App() {
                                     />
                                 </div>
                                 <div className="two">
+                                    <label>Unit</label>
+                                    <input
+                                        type="text"
+                                        name="unit"
+                                        placeholder="Enter unit..."
+                                        value={form.unit}
+                                        onChange={(event) => handleFormChange(event, index)}
+                                    />
+                                </div>
+                                <div className="three">
                                     <label>Ingredient</label>
                                     <select
                                         name="ingredient"
