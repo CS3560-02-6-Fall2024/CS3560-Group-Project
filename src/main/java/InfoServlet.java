@@ -72,6 +72,18 @@ public class InfoServlet extends HttpServlet {
 	  {
 		out.println("<div class=\"batchNum\" id=\"batchNum\"> Number of Batches: " + numBatches + " </div>");
 	  }
+	  else if(nextLine.contains("Start Ingredients Box"))
+	  {
+		// Skip ingredients list if we are showing an ingredient
+		if(!product)
+		{
+			while(!scan.nextLine().contains("End Ingredients Box"))
+			{
+				//We are "eating" lines in the condition of the while loop, searching for the end of the div
+			}
+		}
+
+	  }
 	  // Copy all static html
 	  else
 	  {
