@@ -48,10 +48,8 @@ PRIMARY KEY(batchNumber)
 Create Table IF NOT EXISTS IngredientBatch(
 batchNumber int,
 ingredientID int,
-supplierID int,
 expirationDate DATETIME,
 FOREIGN KEY (ingredientID) REFERENCES Ingredient(ingredientID),
-FOREIGN KEY (supplierID) REFERENCES Supplier(supplierID),
 FOREIGN KEY (batchNumber) REFERENCES Batch(batchNumber),
 PRIMARY KEY (batchNumber)
 );
@@ -74,4 +72,15 @@ units varchar(10),
 FOREIGN KEY (productID) REFERENCES Product(productID),
 FOREIGN KEY (ingredientID) REFERENCES Ingredient(ingredientID),
 PRIMARY KEY(id)
+);
+
+Create Table IF NOT EXISTS SupplierBatch(
+batchNumber int,
+supplierID int,
+ingredientID int,
+expirationDate DATETIME,
+FOREIGN KEY (ingredientID) REFERENCES Ingredient(ingredientID),
+FOREIGN KEY (supplierID) REFERENCES Supplier(supplierID),
+FOREIGN KEY (batchNumber) REFERENCES Batch(batchNumber),
+PRIMARY KEY (batchNumber)
 );
