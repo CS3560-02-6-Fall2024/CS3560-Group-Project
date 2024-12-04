@@ -4,6 +4,10 @@
         <title>Add Supplier</title>
         <link rel="stylesheet" href="addSupplier_style.css">
         <link rel="stylesheet" href="side_nav.css">
+        <!-- React and Babel -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     </head>
     <body>
         <!-- Side Navigation -->
@@ -17,21 +21,28 @@
         </nav>
         <!-- Add Supplier Page Content -->
         <header>
-            <h1>Add Supplier</h1>
+            <h1></h1>
         </header>
         <main>
             <form>
                 <label for="supplier-name">Supplier Name:</label><br>
-                <input type="text" id="supplier-name" name="supplier-name"><br>
-
-                <label for="supplier-contact">Contact Info:</label><br>
-                <input type="text" id="supplier-contact" name="supplier-contact"><br>
-
+                <input type="text" id="supplier-name" name="supplier-name" placeholder="Enter name..."><br>
+            
+                <label for="supplier-phone">Phone:</label><br>
+                <input type="text" id="supplier-phone" name="supplier-phone" placeholder="Enter phone..."><br>
+            
+                <label for="supplier-email">Email:</label><br>
+                <input type="text" id="supplier-email" name="supplier-email" placeholder="Enter email..."><br>
+            
                 <label for="supplier-address">Address:</label><br>
-                <input type="text" id="supplier-address" name="supplier-address"><br>
-
+                <input type="text" id="supplier-address" name="supplier-address" placeholder="Enter address..."><br>
+            
                 <button type="submit">Submit</button>
-            </form>
+            </form>            
         </main>
+        
+        <!-- Include React Functionality -->
+        <script type="text/babel" src="AddSupplier.js"></script>
     </body>
 </html>
+
