@@ -3,19 +3,23 @@ body {
   overflow-y: hidden;
   margin-left: 13%;
 }
+
 .center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;    
 }
 
 /* Search Bar */
 .search {
+  width: 100%;
+  flex: 0.1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4%;
+  margin-top: 1%;
   gap: 2%;
 }
 .search-bar {
@@ -33,6 +37,7 @@ body {
   border: none;
   font-size: 1.75em;
   outline: none;
+  min-height: 50px;
 }
 .search-bar button {
   flex:1;
@@ -53,7 +58,8 @@ background: #ccc;
   border-radius: 20px;
   border: 2px solid transparent;
   height: 5vh;
-  color:#453836
+  color:#453836;
+  min-height: 50px;
 }
 
 .addSupplier:hover {
@@ -61,9 +67,9 @@ background: #ccc;
   border: 2px solid #453836;
 }
 
-
 /* Result Backdrop */
 .result-grid {
+  flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap:2%;
@@ -76,12 +82,8 @@ background: #ccc;
   background-color: #F3F3F3;
   border-bottom: none;
   border-radius: 30px 30px 0 0;
-  margin-top: 8%;
   width: 70vw;
-  height: 70vh;
   overflow-y: auto;
-  position: sticky;
-  bottom: 0;
 }
 
 /* Result Box Components */
@@ -93,7 +95,7 @@ background: #ccc;
   align-items: center;
   background-color: #D9D9D9;
   border-radius: 20px;
-  height: 40vh;
+  height: 35vh;
   min-height: 250px;
 }
 
@@ -152,9 +154,9 @@ img {
     overflow-x: hidden;
     overflow-y: hidden;
     margin-left: 23%;
+    
   }
 
-  
   /* Search Bar */
   .search-bar input[type=text] {
     font-size: 1.25em;
@@ -171,15 +173,17 @@ img {
   /* Results */
   .result-grid {
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 8%;
-    width: 65vw;
-    height: 80vh;
+    
   }
   .result-box {
     min-width: 220px;
   }
   .product-name {
     font-size: 1.2em;
+  }
+
+  img {
+    width: 19vw;
   }
   
   .batch-quantity{
@@ -191,7 +195,7 @@ img {
     min-width: 65px;
     height: 3vh;
     font-size: 0.75em;
-    margin:1%;
+    margin: 1%;
   }
 
 }
@@ -205,6 +209,10 @@ img {
   /* Results */
   .result-grid {
     grid-template-columns: 1fr 1fr;
+    
+  }
+  img {
+    width: 30vw;
   }
 
 }

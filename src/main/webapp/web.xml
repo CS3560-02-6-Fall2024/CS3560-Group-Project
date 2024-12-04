@@ -36,4 +36,15 @@
         <url-pattern>/InventorySubsystem/info.html*</url-pattern>
     </servlet-mapping>
 
+
+        <servlet>
+        <servlet-name>AddIngredientServlet</servlet-name>
+        <servlet-class>AddIngredientServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddIngredientServlet</servlet-name>
+        <url-pattern>/InventorySubsystem/addIngredient.html*</url-pattern>
+    </servlet-mapping>
+
 </web-app>

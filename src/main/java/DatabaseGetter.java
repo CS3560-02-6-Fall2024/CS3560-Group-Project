@@ -95,6 +95,34 @@ public class DatabaseGetter
         
     }
 
+    public static ArrayList<Supplier> getSuppliers()
+    {
+        try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ArrayList<Supplier> allSuppliers = new ArrayList<>();
+            // READ QUERY FOR ingredient, TESTING
+            ResultSet results = statement.executeQuery("SELECT * FROM supplier");
+            while (results.next())
+            {
+                //get result info (reads the column name in get string)
+                String name = results.getString("name");
+                String phoneNumber = results.getString("phoneNumber");
+                String email = results.getString("email");
+                String description = results.getString("description");
+                allSuppliers.add(new Supplier(name,phoneNumber,email,description));
+            } 
+            return allSuppliers;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
 
     public static Product getProductFromID(int id)
     {
