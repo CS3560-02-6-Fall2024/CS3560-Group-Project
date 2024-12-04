@@ -1,73 +1,95 @@
-const { useState, useEffect } = React
+const { useState, useEffect } = React;
 
 function App() {
     const [formFields, setFormFields] = useState([
-      { quantity: '', ingredient: '' },
-    ])
-  
+        { quantity: '', ingredient: '' },
+    ]);
+
     const handleFormChange = (event, index) => {
-      let data = [...formFields];
-      data[index][event.target.name] = event.target.value;
-      setFormFields(data);
-    }
-  
+        let data = [...formFields];
+        data[index][event.target.name] = event.target.value;
+        setFormFields(data);
+    };
+
     const submit = (e) => {
-      e.preventDefault();
-      console.log(formFields)
-    }
-  
+        e.preventDefault();
+        console.log(formFields);
+    };
+
     const addFields = () => {
-      let object = {
-        quantity: '',
-        ingredient: ''
-      }
-  
-      setFormFields([...formFields, object])
-    }
-  
+        let object = {
+            quantity: '',
+            ingredient: ''
+        };
+
+        setFormFields([...formFields, object]);
+    };
+
     const removeFields = (index) => {
-      let data = [...formFields];
-      data.splice(index, 1)
-      setFormFields(data)
-    }
-  
+        let data = [...formFields];
+        data.splice(index, 1);
+        setFormFields(data);
+    };
+
+    // Placeholder ingredient options 
+    const ingredientOptions = ["Sugar", "Flour", "Butter", "Eggs"];
+
     return (
-      <div className="App">
-        <div class="ingredLabel">*Ingredients</div>
-          {formFields.map((form, index) => {
-            return (
-              <div key={index}>
-                <div class="ingredient-row">
-                    <div class="top-row">
-                        <div class="one">
-                            <label>quantity</label>
-                            <input type="text"
-                            name="quantity"
-                            placeholder='Enter quantity...'
-                            value={form.quantity}
-                            onChange={event => handleFormChange(event, index)}
-                            />
-                        </div>
-                        <div class="two">
-                            <label>ingredient</label>
-                            <input type="text"
-                            name="ingredient"
-                            placeholder='Enter ingredient...'
-                            value={form.ingredient}
-                            onChange={event => handleFormChange(event, index)}
-                            />
+        <div className="App">
+            <div className="ingredLabel">*Ingredients</div>
+            {formFields.map((form, index) => {
+                return (
+                    <div key={index}>
+                        <div className="ingredient-row">
+                            <div className="top-row">
+                                <div className="one">
+                                    <label>Quantity</label>
+                                    <input
+                                        type="text"
+                                        name="quantity"
+                                        placeholder="Enter quantity..."
+                                        value={form.quantity}
+                                        onChange={(event) => handleFormChange(event, index)}
+                                    />
+                                </div>
+                                <div className="two">
+                                    <label>Ingredient</label>
+                                    <select
+                                        name="ingredient"
+                                        value={form.ingredient}
+                                        onChange={(event) => handleFormChange(event, index)}
+                                    >
+                                        <option value="" disabled>Select an ingredient</option>
+                                        {ingredientOptions.map((option, optIndex) => (
+                                            <option key={optIndex} value={option.toLowerCase()}>
+                                                {option}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="bottom-row">
+                                <button
+                                    className="remove"
+                                    onClick={() => removeFields(index)}
+                                >
+                                    Remove
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="bottom-row">
-                        <button class="remove" onClick={() => removeFields(index)}> Remove </button>
-                    </div>
-                </div>
-              </div>
-            )
-          })}
-          <button type="button" class="add-ingredient" onClick={addFields}> Add Ingredient </button>
-      </div>
+                );
+            })}
+            <button
+                type="button"
+                className="add-ingredient"
+                onClick={addFields}
+            >
+                Add Ingredient
+            </button>
+        </div>
     );
-  }
-const appElement = document.getElementById('ingredients')
-ReactDOM.render(<App/>, appElement)
+}
+
+const appElement = document.getElementById('ingredients');
+ReactDOM.render(<App />, appElement);
