@@ -2,7 +2,7 @@ const { useState, useEffect } = React
 
 function App() {
     const [formFields, setFormFields] = useState([
-      { quantity: '', expirationDate: '' , creationDate: ''},
+      { quantity: '', expirationDate: '' , creationDate: '', orderStatus: ''},
     ])
   
     const handleFormChange = (event, index) => {
@@ -42,7 +42,6 @@ function App() {
               <div key={index}>
                 <div class="box">
                     <div class="batchID">#{index + 1}</div>
-
                     <div class="text">Quantity</div>
                     <input type="text"
                     name="quantity"
@@ -64,6 +63,14 @@ function App() {
                     name="creationDate"
                     placeholder='Enter here...'
                     value={form.creationDate}
+                    onChange={event => handleFormChange(event, index)}
+                    />
+
+                    <div class="text">Order Status</div>
+                    <input type="text"
+                    name="orderStatus"
+                    placeholder='Enter here...'
+                    value={form.orderStatus}
                     onChange={event => handleFormChange(event, index)}
                     />
                     <button class="remove" onClick={() => removeFields(index)}> Remove </button>
