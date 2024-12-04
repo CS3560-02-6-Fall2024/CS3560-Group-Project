@@ -12,7 +12,6 @@ body {
     padding-top: 1%;
     margin-left: 17%;
     margin-right: 9%;
-    min-height: 100vh;    
 }
 
 /* Header Section */
@@ -21,7 +20,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1%;
+    margin-bottom: 5%;
     min-width: 955px;
 }
 
@@ -46,6 +45,7 @@ body {
     border-radius: 20px;
     padding: 10px;
     margin-right: 2px;
+    margin-bottom: 2vh;
 }
 
 .hbutton:hover {
@@ -64,7 +64,7 @@ body {
     padding-top: 3%;
     padding-right: 3%;
     padding-left: 3%;
-    border-radius: 1%;
+    border-radius: 8px 8px 0 0;
     min-width: 900px;
     position: sticky;
     bottom: 0;
@@ -157,8 +157,7 @@ input[type="text"], input[type="number"]  {
     color: rgb(37, 37, 37);
 }
 
-input[type="file"]
-{
+input[type="file"] {
     display: none;   
 }
 
@@ -217,12 +216,15 @@ input[type="file"]
     flex:1;
 }
 
+.ingredient-row .top-row .three {
+    flex:2;
+}
+
 .ingredient-row .top-row input[type="text"] {
     border-radius: 15px;
-    height: 1.5em; 
+    height: 2.5em; 
     background-color: #f3f3f3;
     color: #796f6b;
-    font-weight: bold;
     border: none;
     outline: none;
 }
@@ -230,7 +232,7 @@ input[type="file"]
 .ingredient-row .bottom-row .remove {
     margin-top: 1%;   
     color: #4d413e;
-    font-size: 1 rem;
+    font-size: .9rem;
     font-weight:lighter;
     background-color: transparent;
     background-repeat: no-repeat;
@@ -264,4 +266,64 @@ input[type="file"]
 
 .add-ingredient:hover {
     background-color: #796f6b86;
+}
+
+.message {
+    position: absolute;
+    padding: 2%;
+    font-size: 2em;
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+}
+
+/* Dropdown Styling */
+select {
+    padding: 3%;
+    color: #706661;
+    width: 90%; 
+    outline: none;
+    border-radius: 15px;
+    background-color: #F3F3F3;
+    font-size: 1em;
+    font-family: sans-serif;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+select:hover {
+    background-color: #eae8e5;
+}
+
+select:focus {
+    border: 2px solid #453836;
+}
+
+option {
+    color: #706661;
+    background-color: #F3F3F3;
+    font-size: 1em;
+    font-family: sans-serif;
+}
+
+@media screen and (max-width: 1400px) {
+    .form {
+        border-radius: 1%;
+    }
+
+    /* Add Photo Styling */
+    .add-photo {
+        height: 80%;
+        margin-bottom: 2vh;
+    }
+
+    /* Ingredients Section Styling */
+    .ingredients {
+        height: 35vh;
+        margin-bottom: 2vh;
+    }
+
+    .message {
+        margin-top:5vh;
+    }
 }
