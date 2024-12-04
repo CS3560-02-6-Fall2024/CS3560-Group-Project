@@ -24,35 +24,38 @@
                 <button type="submit" form="form" class="hbutton">Save</button>
             </div>
 
+            <!-- Message Handling -->
+            <div class="message" style="color:green">Test</div>
+
             <!-- Form Layout-->
-             <div class="form">
+             <form id="form" class="form">
                 <div class="left-side">
                     <div class="fieldLabel">
                         <label>* Ingredient Name</label>
-                        <input type="text" id="product-name" placeholder="Enter here">
+                        <input type="text" id="product-name" placeholder="Enter here"  name="ingredientName">
                     </div>
-                    <div class="fieldLabel">
+                    <!-- <div class="fieldLabel">
                         <label for="price">Price</label>
                         <input type="number" step="0.01" value="0.00" name="price">
-                    </div>
+                    </div> -->
                     
                     <div class="fieldLabel">
-                        <label>Supplier</label>
-                        <input type="text" id="product-name" placeholder="Enter here">
+                        <label>Storage Instructions</label>
+                        <input type="text" id="product-name" placeholder="Enter here" name="storageInstructions">
                     </div>
 
                     <div class="fieldLabel">
                         <label>Description</label>
-                        <input type="text" style="padding-bottom: 14em;" placeholder="Enter here">
-                    </div>
+                        <input type="text" style="padding-bottom: 14em;" placeholder="Enter here" name="description">
+                    </div>   
                 </div>
                 <div class="right-side">
                     <!-- <button class="add-photo">+</button> -->
                     <label for="file-upload" class="add-photo">+</label>
-                    <input type = "file" id="file-upload" class="add-photo">
+                    <input type = "file" id="file-upload" class="add-photo" name="photoFile">
                     <label for="add-photo" class="add-photo-label">Add Photo</label>
-                </div>
-            </div> 
+                </div>            
+            </form> 
         </div>
     </body>
 </html>

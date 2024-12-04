@@ -262,3 +262,41 @@ input[type="file"] {
 .add-ingredient:hover {
     background-color: #796f6b86;
 }
+
+.message
+{
+    padding: 2%;
+    font-size: 2em;
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+}
+
+/* Dropdown Styling */
+select {
+    padding: 3%;
+    color: #706661;
+    border: 0px;
+    width: 90%; 
+    outline: none;
+    border-radius: 15px;
+    background-color: #F3F3F3;
+    font-size: 1em;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+select:hover {
+    background-color: #eae8e5;
+}
+
+select:focus {
+    border: 2px solid #453836;
+}
+
+option {
+    color: #706661;
+    background-color: #F3F3F3;
+    font-size: 1em;
+    font-family: sans-serif;
+}
