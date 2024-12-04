@@ -2,28 +2,34 @@ CREATE DATABASE IF NOT EXISTS GroupAssignment;
 USE GroupAssignment;
 
 
+
+
+Create Table IF NOT EXISTS Item(
+itemID int,
+name VARCHAR(40),
+description VARCHAR(400),
+PRIMARY KEY(itemID)
+);
+
 Create Table IF NOT EXISTS Image(
-productID int,
+itemID int,
 imagePath VARCHAR(100),
-FOREIGN KEY (productID) REFERENCES Product(productID),
-PRIMARY KEY (productID)
+FOREIGN KEY (itemID) REFERENCES Item(itemID),
+PRIMARY KEY (itemID)
 );
 
 Create Table IF NOT EXISTS Product(
-productID int,
-name VARCHAR(40),
-calories int,
-description VARCHAR(400),
+itemID int,
 standardPrice float,
-PRIMARY KEY(productID)
+FOREIGN KEY(itemID) REFERENCES Item(itemID),
+PRIMARY KEY(itemID)
 );
 
 Create Table IF NOT EXISTS Ingredient(
-ingredientID int,
-name VARCHAR(40),
-description VARCHAR(400),
+itemID int,
 storageInstructions VARCHAR(400),
-PRIMARY KEY(ingredientID)
+FOREIGN KEY(itemID) REFERENCES Item(itemID),
+PRIMARY KEY(itemID)
 );
 
 
@@ -42,23 +48,23 @@ quantity float,
 units VARCHAR(10),
 batchStatus VARCHAR(20),
 dateAdded DATETIME,
+expirationDate DATETIME,
 PRIMARY KEY(batchNumber)
 );
 
 Create Table IF NOT EXISTS IngredientBatch(
 batchNumber int,
-ingredientID int,
-expirationDate DATETIME,
-FOREIGN KEY (ingredientID) REFERENCES Ingredient(ingredientID),
+itemID int,
+status VARCHAR(20),
+FOREIGN KEY (itemID) REFERENCES Ingredient(itemID),
 FOREIGN KEY (batchNumber) REFERENCES Batch(batchNumber),
 PRIMARY KEY (batchNumber)
 );
 
 Create Table IF NOT EXISTS ProductBatch(
 batchNumber int,
-productID int,
-expirationDate DATETIME,
-FOREIGN KEY (productID) REFERENCES Product(productID),
+itemID int,
+FOREIGN KEY (itemID) REFERENCES Product(itemID),
 FOREIGN KEY (batchNumber) REFERENCES Batch(batchNumber),
 PRIMARY KEY (batchNumber)
 );
@@ -69,17 +75,18 @@ productID int,
 ingredientID int,
 quantity float,
 units varchar(10),
-FOREIGN KEY (productID) REFERENCES Product(productID),
-FOREIGN KEY (ingredientID) REFERENCES Ingredient(ingredientID),
+FOREIGN KEY (productID) REFERENCES Product(itemID),
+FOREIGN KEY (ingredientID) REFERENCES Ingredient(itemID),
 PRIMARY KEY(id)
 );
 
 Create Table IF NOT EXISTS SupplierBatch(
 batchNumber int,
 supplierID int,
-ingredientID int,
+itemID int,
+batchPrice float,
 expirationDate DATETIME,
-FOREIGN KEY (ingredientID) REFERENCES Ingredient(ingredientID),
+FOREIGN KEY (itemID) REFERENCES Ingredient(itemID),
 FOREIGN KEY (supplierID) REFERENCES Supplier(supplierID),
 FOREIGN KEY (batchNumber) REFERENCES Batch(batchNumber),
 PRIMARY KEY (batchNumber)

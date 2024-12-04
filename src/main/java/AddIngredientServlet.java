@@ -79,8 +79,8 @@ public class AddIngredientServlet extends HttpServlet {
     }
     
     // Add Product
-    Ingredient prod = new Ingredient(name, storageInstructions, description);
-    DatabaseSetter.insertProduct(prod);
+    Ingredient ingredient = new Ingredient(name, storageInstructions, description);
+    DatabaseSetter.insertIngredient(ingredient);
 
     // Check for photo file (optional file)
     // if(photoFile != null && !photoFile.equals(""))
