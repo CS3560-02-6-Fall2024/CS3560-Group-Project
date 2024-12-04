@@ -202,6 +202,32 @@ public class DatabaseGetter
        
     }
 
+    public static ArrayList<SupplierBatch> getSupplierBatch()
+    {
+        try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ArrayList<SupplierBatch> returnSupplierBatch = new ArrayList<>();
+            // READ QUERY FOR ingredient, TESTING
+            ResultSet results = statement.executeQuery("SELECT * FROM supplierbatch");
+            while (results.next())
+            {
+                //get result info (reads the column name in get string)
+                int supplierID = results.getInt("supplierID");
+                int ingredientID = results.getInt("ingredientID");
+                returnSupplierBatch.add(new SupplierBatch(supplierID, ingredientID));
+            } 
+            return returnSupplierBatch;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
 
     public static void testDatabaseGetter()
     {
