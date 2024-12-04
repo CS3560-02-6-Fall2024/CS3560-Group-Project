@@ -40,10 +40,30 @@ public class SupplierServlet extends HttpServlet {
                 }
                 
                 ArrayList<Supplier> suppliers = DatabaseGetter.getSuppliers();
+                //so i need a getter for the product
+                
                 // Add results box n times into the page
                 for(Supplier supplier : suppliers)
                 {
-                    out.println(supplier); //I'm not sure how to set up html boxes so for now it'll be this
+                    // until ben gets up the company batch thingy i will put mock data
+                    //TODO: updateh when it done
+                    String price = "$123.20"; //use getter for batch price
+                    int productID = 1; // use product.getProductID()
+                    String productName = "LAWL!"; // use product.getName()
+
+                    //int supplierID = supplier.getSupplierId();
+                    String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
+                    "                    <div class=\"product-ID\"> #P" + price + "</div>\r\n" + //
+                    "                    <div class=\"image\"><img src=\"Images/" + DatabaseGetter.getImageFromID(productID) + "\" alt=\"No Image\"></div>\r\n" + //
+                    "                    <div class=\"product-name\">" + productName + "</div>\r\n" + //
+                    "                    <div class=\"buttons\">\r\n" + //
+                    "                        <button onclick=\"location.href='order.html'\" class=\"edit-button\">Order</button>" + //
+                    "                        <button onclick=\"location.href='supplierInfo.html'\" class=\"edit-button\">Supplier</button>" + //
+                    "                    </div>               \r\n" + //
+                    "                </div>";
+                      out.println(resultBoxHtml);
+
+
                 }
             }
             // Copy html if it is not part of results box
@@ -62,3 +82,27 @@ public class SupplierServlet extends HttpServlet {
 
 
 }
+
+/*
+ * In hmtl there is result thing
+ *Needs to change w/ data in database
+ * 
+ * "div class" - ctrl shift i
+ * "divider"
+ * insert text name as string into the value
+ * (results box specifically)
+ * also shows style sheet
+ * 
+ * Populate result box w/ info 
+ * html copy cant work
+ * 
+ * 1st part get relative path (everyone's computer will be different
+ * 2nd part scanner then goes to read html
+ * 3rd line : response httpservlet response (passed back to front end)
+ *  used to display after api calls
+ * "text.html" specificall
+ * 5th is writing
+ * overall: allow us to rewrite html?
+ *  servlets are a webpage maker
+ *  servlet would overwrite, so we rewrite html
+ */
