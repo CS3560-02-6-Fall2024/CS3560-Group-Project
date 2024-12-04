@@ -25,7 +25,7 @@ public class Image
 	}
 
 	// Getter methods
-	public int getProductID()
+	public int getItemID()
 	{
 		return productID;
 	}

@@ -108,7 +108,7 @@ public class AddProductServlet extends HttpServlet {
     // Check for photo file (optional file)
     if(photoFile != null && !photoFile.equals(""))
     {
-      DatabaseSetter.insertImage(new Image(prod.getProductID(), photoFile));
+      DatabaseSetter.insertImage(new Image(prod.getItemID(), photoFile));
     }
 
 

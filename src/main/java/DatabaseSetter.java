@@ -26,7 +26,7 @@ public class DatabaseSetter
 
             // Insert query for product
 			statement.execute("INSERT IGNORE INTO image Values(" + 
-			image.getProductID() + ", '" + image.getPath() + "')");
+			image.getItemID() + ", '" + image.getPath() + "')");
         }
         
         catch(Exception e)
@@ -45,11 +45,17 @@ public class DatabaseSetter
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
             Statement statement = connection.createStatement();
 
+            // Insert query for Item
+            statement.execute("INSERT IGNORE INTO Item Values(" + 
+			product.getItemID() + ", " + 
+			"'" + product.getName() + "', " + 
+			"'" + product.getDescription() + "')");
+
             // Insert query for product
-			statement.execute("INSERT IGNORE INTO product Values(" + 
-			product.getProductID() + ", " + 
-			"'" + product.getName() + "', 0, " + 
-			"'" + product.getDescription() + "', " + product.getPrice() + ")");
+			statement.execute("INSERT IGNORE INTO Product Values(" + 
+			product.getItemID() + ", " + product.getPrice() + ")");
+
+
         }
         
         catch(Exception e)
@@ -67,11 +73,18 @@ public class DatabaseSetter
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
             Statement statement = connection.createStatement();
 
-            // Insert query for product
-			statement.execute("INSERT IGNORE INTO ingredient Values(" + 
-			ingredient.getIngredientID() + ", " + 
-			"'" + ingredient.getName() + "', 0, " + 
+
+            // Insert query for item
+            statement.execute("INSERT IGNORE INTO Item Values(" + 
+			ingredient.getItemID() + ", " + 
+			"'" + ingredient.getName() + "', " + 
 			"'" + ingredient.getDescription() + "')");
+
+            // Insert query for product
+			statement.execute("INSERT IGNORE INTO Ingredient Values(" + 
+			ingredient.getItemID() + ", '" + ingredient.getStorageIntructions() + "')");
+
+
         }
         
         catch(Exception e)

@@ -10,7 +10,7 @@ public class Product
 	// Constructor for Product
 	public Product(String _name, String _desc, float _price)
 	{
-		this(DatabaseGetter.getLastProductID() + 1, _name, _desc, _price);
+		this(DatabaseGetter.getLastItemID() + 1, _name, _desc, _price);
 	}
 
 	public Product(int id, String _name, String _desc, float _price)
@@ -46,7 +46,7 @@ public class Product
 	}
 
 	// Getter methods
-	public int getProductID()
+	public int getItemID()
 	{
 		return productID;
 	}

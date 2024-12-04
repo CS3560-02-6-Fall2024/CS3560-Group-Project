@@ -1,30 +1,25 @@
 import java.util.ArrayList;
-public class Ingredient
+public class Ingredient extends Item
 {
-	private int ingredientID;
-	private String name; // Name of the ingredient
 	private String storageIntructions;
-	private String description; // Short description of the ingredient
 	private int totalQuantity; // Amount of this ingredient that we have (All batches of an item combined)
 
 	// Constructor for Ingredient
 	public Ingredient(String name, String storageInstructions, String description)
 	{
-		this.ingredientID = DatabaseGetter.getLastIngredientID() + 1;
+		this.itemID = DatabaseGetter.getLastItemID() + 1;
 		this.name = name;
 		this.storageIntructions = storageInstructions;
 		this.description = description;
 	}
 
-	// Update Methods
-	public void updateName(String newName)
+	// Constructor for Ingredient that exists in database
+	public Ingredient(int id, String name, String storageInstructions, String description)
 	{
-		this.name = newName;
-	}
-
-	public void updateDescription(String newDescription)
-	{
-		this.description = newDescription;
+		this.itemID = id;
+		this.name = name;
+		this.storageIntructions = storageInstructions;
+		this.description = description;
 	}
 
 	// Method to Remove Ingredient
@@ -54,9 +49,9 @@ public class Ingredient
 	}
 
 	// Getter methods
-	public int getIngredientID()
+	public int getItemID()
 	{
-		return ingredientID;
+		return itemID;
 	}
 
 	public String getName()

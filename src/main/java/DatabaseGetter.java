@@ -19,17 +19,18 @@ public class DatabaseGetter
     //==============
 
 
-    public static int getLastProductID()
+    // Returns the ID of the last item in the item table
+    public static int getLastItemID()
     {
         try 
         {
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
             Statement statement = connection.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM product");
+            ResultSet results = statement.executeQuery("SELECT * FROM Item");
             int id = -1;
             while(results.next())
             {
-                id = results.getInt("productID");
+                id = results.getInt("itemID");
             }
             return id;
         }
@@ -40,29 +41,6 @@ public class DatabaseGetter
         }
        
     }
-
-    public static int getLastIngredientID()
-    {
-        try 
-        {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
-            Statement statement = connection.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM ingredient");
-            int id = -1;
-            while(results.next())
-            {
-                id = results.getInt("ingredientID");
-            }
-            return id;
-        }
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-            return -1;
-        }
-       
-    }
-
 
     // Return's true if there is no duplicates
     // False otherwise
@@ -72,7 +50,7 @@ public class DatabaseGetter
         {
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
             Statement statement = connection.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM product");
+            ResultSet results = statement.executeQuery("SELECT * FROM Item");
             while(results.next())
             {
                 String n = results.getString("name");
@@ -97,17 +75,45 @@ public class DatabaseGetter
             Statement statement = connection.createStatement();
             ArrayList<Product> products = new ArrayList<Product>();
             // READ QUERY FOR ingredient, TESTING
-            ResultSet results = statement.executeQuery("SELECT * FROM product");
+            ResultSet results = statement.executeQuery("SELECT * FROM Product INNER JOIN Item ON product.itemID=item.itemID;");
             while (results.next())
             {
                 //get result info (reads the column name in get string)
-                int productID = results.getInt("productID");
+                int productID = results.getInt("itemID");
                 String name= results.getString("name");
                 String description= results.getString("description");
                 float price = results.getFloat("standardPrice");
                 products.add(new Product(productID, name, description, price));
             } 
             return products;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        
+    }
+    public static ArrayList<Ingredient> getIngredients()
+    {
+        try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+            // READ QUERY FOR ingredient, TESTING
+            ResultSet results = statement.executeQuery("SELECT * FROM Product INNER JOIN Item ON product.itemID=item.itemID;");
+            while (results.next())
+            {
+                //get result info (reads the column name in get string)
+                int productID = results.getInt("itemID");
+                String name= results.getString("name");
+                String description= results.getString("description");
+                String price = results.getString("storageInstruction");
+                ingredients.add(new Ingredient(productID, name, description, price));
+            } 
+            return ingredients;
         }
         catch(Exception e)
         {
@@ -153,7 +159,7 @@ public class DatabaseGetter
         {
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
             Statement statement = connection.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM product WHERE productID=" + id +";");
+            ResultSet results = statement.executeQuery("SELECT * FROM product WHERE itemID=" + id +";");
             
             //System.out.println("IMAGE ROW: " + results.getRow() + " ID " + id + " IS BEFORE FIRST" + results.isBeforeFirst());
             
@@ -161,7 +167,7 @@ public class DatabaseGetter
             if(results.next())
             {
                 //get result info (reads the column name in get string)
-                int productID = results.getInt("productID");
+                int productID = results.getInt("itemID");
                 String name= results.getString("name");
                 String description= results.getString("description");
                 float price = results.getFloat("standardPrice");
@@ -184,7 +190,7 @@ public class DatabaseGetter
         {
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
             Statement statement = connection.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM image WHERE productID=" + id +";");
+            ResultSet results = statement.executeQuery("SELECT * FROM image WHERE itemID=" + id +";");
             
             //System.out.println("IMAGE ROW: " + results.getRow() + " ID " + id + " IS BEFORE FIRST" + results.isBeforeFirst());
             
@@ -216,7 +222,7 @@ public class DatabaseGetter
             {
                 //get result info (reads the column name in get string)
                 int supplierID = results.getInt("supplierID");
-                int ingredientID = results.getInt("ingredientID");
+                int ingredientID = results.getInt("itemID");
                 returnSupplierBatch.add(new SupplierBatch(supplierID, ingredientID));
                 //TODO: add price when ben creates it
             } 
@@ -259,42 +265,4 @@ public class DatabaseGetter
         }
     }
     
-    public static void testDatabaseGetter()
-    {
-        System.out.println("Testing Database...");
-        try
-        {
-            //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
-            Statement statement = connection.createStatement();
-
-            // INSERT QUERY FOR CARROT, TESTING
-            statement.execute("INSERT IGNORE INTO ingredient Values(1, 'Carrot', 'Sourced from #farmnamehere', 'Keep refrigerated.')");
-
-            // INSERT QUERY FOR STRAWBERRY, TESTING
-            statement.execute("INSERT IGNORE INTO ingredient Values(2, 'Strawberry', 'Sourced from #farmnamehere ', 'Keep refrigerated.')");
-                
-            // READ QUERY FOR ingredient, TESTING
-            ResultSet results = statement.executeQuery("SELECT * FROM ingredient");
-            while (results.next())
-            {
-                //get result info (reads the column name in get string)
-                String resultInfo1 = results.getString("name");
-                String resultInfo2 = results.getString("description");
-                String resultInfo3 = results.getString("storageInstructions");
-
-                //print info
-                System.out.println(resultInfo1);
-                System.out.println(resultInfo2);
-                System.out.println(resultInfo3);
-            } 
-
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        
-    }
-
 }
