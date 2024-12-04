@@ -54,6 +54,26 @@ public class SearchServlet extends HttpServlet {
         "                </div>";
           out.println(resultBoxHtml);
         }
+
+        ArrayList<Ingredient> ingredients = DatabaseGetter.getIngredients();
+        // Add results box n times into the page for ingredients
+        for(Ingredient ingredient : ingredients)
+        {
+        String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
+        "                    <div class=\"product-ID\"> #I" + ingredient.getItemID() + "</div>\r\n" + //
+        "                    <div class=\"image\"><img src=\"Images/" + DatabaseGetter.getImageFromID(ingredient.getItemID()) + "\" alt=\"No Image\"></div>\r\n" + //
+        "                    <div class=\"product-name\">" + ingredient.getName() + "</div>\r\n" + //
+        "                    <div class=\"batch-quantity\"> Number of batches: 64  </div>\r\n" + //
+        "                    <div class=\"buttons\">\r\n" + //
+        "                        <button onclick=\"location.href='editIngredient.html'\" class=\"edit-button\">Edit Item</button><br/>\r\n" + //
+        "                        <button onclick=\"location.href='editBatch.html'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
+        "                        <button onclick=\"location.href='info.html?itemID=I" + ingredient.getItemID() +"'\" class=\"edit-button\">Info</button><br/>\r\n" + //
+        "                    </div>               \r\n" + //
+        "                </div>";
+          out.println(resultBoxHtml);
+        }
+
+
       }
       // Copy html if it is not part of results box
       else

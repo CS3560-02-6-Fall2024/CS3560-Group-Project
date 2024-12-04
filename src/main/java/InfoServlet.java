@@ -27,11 +27,19 @@ public class InfoServlet extends HttpServlet {
 	String description = "";
 	int numBatches = 0;
 
+	// If the item is a product
 	if(product)
 	{
 		Product prod = DatabaseGetter.getProductFromID(id);
 		name = prod.getName();
 		description = prod.getDescription();
+	}
+	// else if the item is an ingredient
+	else
+	{
+		Ingredient ingredient = DatabaseGetter.getIngredientFromID(id);
+		name = ingredient.getName();
+		description = ingredient.getDescription();
 	}
 	
 

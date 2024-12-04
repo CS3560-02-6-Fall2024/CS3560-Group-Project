@@ -51,7 +51,7 @@ public class SupplierServlet extends HttpServlet {
                     //TODO: updateh when it done
                     String price = "$123.20"; // use the getter for supplierBatch when implemented into database
                     int ingredientID = supplierBatch.getIngredientId();
-                    Ingredient ingredient = DatabaseGetter.getIngredientFromId(ingredientID);
+                    Ingredient ingredient = DatabaseGetter.getIngredientFromID(ingredientID);
                     String ingredientName = ingredient.getName(); // use product.getName()
 
                     

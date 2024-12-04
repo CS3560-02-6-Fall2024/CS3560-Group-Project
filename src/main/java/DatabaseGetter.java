@@ -103,15 +103,15 @@ public class DatabaseGetter
             Statement statement = connection.createStatement();
             ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
             // READ QUERY FOR ingredient, TESTING
-            ResultSet results = statement.executeQuery("SELECT * FROM Product INNER JOIN Item ON product.itemID=item.itemID;");
+            ResultSet results = statement.executeQuery("SELECT * FROM Ingredient INNER JOIN Item ON Ingredient.itemID=item.itemID;");
             while (results.next())
             {
                 //get result info (reads the column name in get string)
                 int productID = results.getInt("itemID");
                 String name= results.getString("name");
                 String description= results.getString("description");
-                String price = results.getString("storageInstruction");
-                ingredients.add(new Ingredient(productID, name, description, price));
+                String storageInstructions = results.getString("storageInstructions");
+                ingredients.add(new Ingredient(productID, name, storageInstructions, description));
             } 
             return ingredients;
         }
@@ -159,7 +159,7 @@ public class DatabaseGetter
         {
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
             Statement statement = connection.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM product WHERE itemID=" + id +";");
+            ResultSet results = statement.executeQuery("SELECT * FROM product INNER JOIN Item ON product.itemID=item.itemID WHERE product.itemID=" + id +";");
             
             //System.out.println("IMAGE ROW: " + results.getRow() + " ID " + id + " IS BEFORE FIRST" + results.isBeforeFirst());
             
@@ -236,14 +236,14 @@ public class DatabaseGetter
 
     }
 
-    public static Ingredient getIngredientFromId(int id)
+    public static Ingredient getIngredientFromID(int id)
     {
         System.out.println("Getting Ingredient...");
         try 
         {
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
             Statement statement = connection.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM ingredient WHERE ingredientID=" + id +";");
+            ResultSet results = statement.executeQuery("SELECT * FROM ingredient INNER JOIN Item ON Ingredient.itemID=item.itemID WHERE ingredient.itemID=" + id +";");
             
             //System.out.println("IMAGE ROW: " + results.getRow() + " ID " + id + " IS BEFORE FIRST" + results.isBeforeFirst());
             
@@ -252,9 +252,9 @@ public class DatabaseGetter
             {
                 //get result info (reads the column name in get string)
                 String name= results.getString("name");
-                String storageInstruction= results.getString("storageInstruction");
+                String storageInstructions = results.getString("storageInstructions");
                 String description = results.getString("description");
-                return new Ingredient(name, storageInstruction, description);
+                return new Ingredient(name, storageInstructions, description);
             }
             return null;
         }
