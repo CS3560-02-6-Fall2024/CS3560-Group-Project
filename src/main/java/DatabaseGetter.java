@@ -194,7 +194,7 @@ public class DatabaseGetter
             {
                 //get result info (reads the column name in get string)
                 int supplierID = results.getInt("supplierID");
-                int ingredientID = results.getInt("productID");
+                int ingredientID = results.getInt("ingredientID");
                 returnSupplierBatch.add(new SupplierBatch(supplierID, ingredientID));
             } 
             return returnSupplierBatch;
