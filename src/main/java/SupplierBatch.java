@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+
 public class SupplierBatch 
 {
     private static int idCounter = 1; //used for pk
 
     //i am not used to new line bracklet lo
+    private static ArrayList<SupplierBatch> everySupplierBatch = new ArrayList<>();
 
     int supplierBatchId;
     int supplierId;
@@ -19,6 +22,7 @@ public class SupplierBatch
         supplierBatchId = idCounter++;
         supplierId = _supplierId;
         ingredientId = _ingredientId;
+        everySupplierBatch.add(this);
     }
     
     /**
@@ -37,6 +41,15 @@ public class SupplierBatch
     public int getIngredientId()
     {
         return ingredientId;
+    }
+
+    /**
+     * Removes the given SupplierBatch from data
+     * @param reqingredientId The ID of the SupplierBatch
+     */
+    public boolean removeSupplierBatch(int reqSupplierBatch)
+    {
+        throw new UnsupportedOperationException("NOT YET IMPLEMENTED!!!");
     }
 
 }
