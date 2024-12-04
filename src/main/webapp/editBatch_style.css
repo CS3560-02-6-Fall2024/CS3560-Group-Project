@@ -207,51 +207,10 @@ input[type="text"] {
   }
 
 
-  @media screen and (max-height: 1200px) {
-    /* Batch Container */
-
-    .App {
-        height: 30vh;
-        margin-left: 20%;
-        margin-bottom: 20%;
-        margin-top: 5%;
-        padding: 1em;
-        padding-left: 5%;
-        font-size: 2.5em;
-    }
-
-    input[type="text"] {
-        font-size: 1.5rem; 
-        margin-bottom: 2.2%;
-    }
-
-    /* Batch Box Text Styling */
-    .batchID {
-        font-size: 2rem; 
-    }
-
-    .remove {
-        margin-top: 0.2%;
-        margin-bottom: 1%;
-        padding: 1%;
-        font-size: 1.5rem;
-    }
-
-    .batch-number {
-        line-height: 1em;
-        font-size: 1.3rem; 
-    }
-    .batchNum {
-        line-height: 0.4em;
-        font-size: 2rem; 
-    }
-  }
-
   @media screen and (max-height: 1200px) and (max-width: 4000px){
     /* Batch Container */
     .App {
-        height: 35vh;
-        min-height: 510px;
+        min-height: 450px;
         margin-left: 20%;
         margin-bottom: 20%;
         margin-top: 5%;
@@ -259,9 +218,15 @@ input[type="text"] {
         padding-left: 5%;
         font-size: 2.5em;
     }
-
+    
+    .add-batch-box {
+        padding: 9.5vh;
+    }
+    .text {
+        font-size: 1.4rem;
+    }
     input[type="text"] {
-        font-size: 1.5rem; 
+        font-size: 1.3rem; 
         margin-bottom: 2.2%;
     }
 
