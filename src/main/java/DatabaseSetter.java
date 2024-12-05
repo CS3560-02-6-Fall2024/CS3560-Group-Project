@@ -94,6 +94,32 @@ public class DatabaseSetter
             e.printStackTrace();
         }
 	}
+    public static void insertSupplier(Supplier supplier)
+	{
+		System.out.println("Adding supplier into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+
+            // Insert query for item
+            statement.execute("INSERT IGNORE INTO Supplier Values(" + 
+			supplier.getID() + ", " + 
+			"'" + supplier.getName() + "', " + 
+            "'" + supplier.getPhoneNumber() + "', " + 
+            "'" + supplier.getEmail() + "', " + 
+			"'" + supplier.getAddress() + "')");
+
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
 
     public static void insertRecipeIngredient(RecipeIngredient ingredient)
 	{

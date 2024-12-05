@@ -15,6 +15,13 @@ public class AddSupplierServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        
+         // Get parameters
+        String name = request.getParameter("supplier-name");
+        String phone = request.getParameter("supplier-phone");
+        String email = request.getParameter("supplier-email");
+        String address = request.getParameter("supplier-address");
+
         // Set up the response to be HTML
         response.setContentType("text/html;");
         PrintWriter out = response.getWriter();
@@ -23,27 +30,22 @@ public class AddSupplierServlet extends HttpServlet {
         File html = new File(System.getProperty("user.dir") + "/src/main/webapp/addSupplier.html");
         Scanner scan = new Scanner(html, "UTF-8");
 
-        // Fetch the list of ingredients from the database (or other data source)
-        ArrayList<Ingredient> ingredients = DatabaseGetter.getIngredients();
-
-        // Build the query string with all the ingredients
-        StringBuilder ingredientListBuilder = new StringBuilder();
-        for (int i = 0; i < ingredients.size(); i++) {
-            ingredientListBuilder.append("ingredientList=" + ingredients.get(i).getName());
-            if (i != ingredients.size() - 1) {
-                ingredientListBuilder.append("&");
-            }
-        }
-
+        String message = verifyInput(name, phone, email, address);
         // Read the HTML file line by line and output to the response
         while (scan.hasNextLine()) {
             String nextLine = scan.nextLine();
 
-            // Look for the line containing "Add Supplier" and modify it dynamically
-            if (nextLine.contains("Add Supplier")) {
-                // Create the button with the dynamic ingredient list query parameters
-                out.println("<button onclick=\"location.href='addSupplierForm.html?" + ingredientListBuilder + "'\" class=\"button\">Add Supplier<img src='Images\\Supplier.png'></button>");
-            } else {
+             // Add message html
+            if(nextLine.contains("div class=\"message\""))
+            {
+                String color = "red";
+                if(message.contains("successfully"))
+                {
+                color="green";
+                }
+                out.println("<div class=\"message\" style=\"color:" + color + "\">" + message + "</div>");
+            }
+            else {
                 // Output the other lines as-is
                 out.println(nextLine);
             }
@@ -52,6 +54,40 @@ public class AddSupplierServlet extends HttpServlet {
         // Close the scanner
         scan.close();
     }
+
+    // Verifies the input from webapp and returns a message to display
+  private String verifyInput(String name, String phone, String email, String address)
+  {
+    if(name == null)
+    {
+      return "";
+    }
+    if(name.equals(""))
+    {
+      return "Missing Name";
+    }
+    if(phone == null || phone.equals(""))
+    {
+      return "Missing phone.";
+    }
+    if(email == null || email.equals(""))
+    {
+      return "Missing email.";
+    }
+    if(address == null || address.equals(""))
+    {
+      return "Missing address.";
+    }
+    if(!DatabaseGetter.checkForDuplicateProducts(name))// CHANGE THIS
+    {
+      return "Duplicate supplier found.";
+    }
+    // Add Supplier
+    Supplier supplier = new Supplier(name, phone, email, address);
+    DatabaseSetter.insertSupplier(supplier);
+    // Insert supplier here
+    return "Supplier added successfully";
+  }
 }
 
 

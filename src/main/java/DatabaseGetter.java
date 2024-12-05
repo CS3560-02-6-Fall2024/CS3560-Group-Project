@@ -341,11 +341,12 @@ public class DatabaseGetter
             while (results.next())
             {
                 //get result info (reads the column name in get string)
+                int id = results.getInt("supplierID");
                 String name = results.getString("name");
                 String phoneNumber = results.getString("phoneNumber");
                 String email = results.getString("email");
                 String address = results.getString("address");
-                allSuppliers.add(new Supplier(name,phoneNumber,email,address));
+                allSuppliers.add(new Supplier(id, name,phoneNumber,email,address));
             } 
             return allSuppliers;
         }

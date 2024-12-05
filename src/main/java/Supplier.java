@@ -11,7 +11,17 @@ public class Supplier
 	// Constructor for Supplier
 	public Supplier(String _name, String _phoneNumber, String _email, String address)
 	{
-		this.supplierID = DatabaseGetter.getLastSupplierID();
+		this.supplierID = DatabaseGetter.getLastSupplierID() + 1;
+		this.name = _name;
+		this.phoneNumber = _phoneNumber;
+		this.email = _email;
+		this.address = address;
+	}
+
+	// Constructor for Supplier
+	public Supplier(int id, String _name, String _phoneNumber, String _email, String address)
+	{
+		this.supplierID = id;
 		this.name = _name;
 		this.phoneNumber = _phoneNumber;
 		this.email = _email;
