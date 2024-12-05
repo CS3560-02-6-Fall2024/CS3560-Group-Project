@@ -77,10 +77,26 @@ public class SupplierBatch extends Batch
             {
                 // take away the batch amount from this if its the same ingredientID
                 // and has stuff to remove
-                if ((thisSupplierBatch.getIngredientId() == ingredientToRemove) &&
-                    thisSupplierBatch.getQuantity() > 0)
+                int thisBatchQuantity = thisSupplierBatch.getQuantity();
+
+                if ((thisBatchQuantity > 0) &&
+                    thisSupplierBatch.getIngredientId() == ingredientToRemove)
                 {
+                    
+                    int amountToTake = remainingQuanity - thisBatchQuantity;
+
+                    if (amountToTake <= 0)
+                    {
+                        thisSupplierBatch.removeFromBatch(thisBatchQuantity);
+                        remainingQuanity = amountToTake;
+                    }
+                    else //if you can take the amount shown
+                    {
+                        thisSupplierBatch.removeFromBatch(amountToTake);
+                        remainingQuanity = 0;
+                    }
                     thisSupplierBatch.removeFromBatch(remainingQuanity);
+
                 }
             }
         }
