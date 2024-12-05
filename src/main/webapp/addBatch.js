@@ -42,14 +42,33 @@ function App() {
               <div key={index}>
                 <div class="box">
                     <div class="batchID">#{index + 1}</div>
-                    <div class="text">Quantity</div>
-                    <input type="text"
-                    name="quantity"
-                    placeholder='Enter here...'
-                    value={form.quantity}
-                    onChange={event => handleFormChange(event, index)}
-                    />
+                    <div className="top-row">
+                      <div className="input-row">
+                        {/* Quantity Field */}
+                        <div className="input-container">
+                          <div className="text">Quantity</div>
+                          <input
+                            type="text"
+                            name="quantity"
+                            placeholder="Enter here..."
+                            value={form.quantity}
+                            onChange={(event) => handleFormChange(event, index)}
+                          />
+                        </div>
 
+                        {/* Units Field */}
+                        <div className="input-container">
+                          <div className="text">Units</div>
+                          <input
+                            type="text"
+                            name="unit"
+                            placeholder="Enter here..."
+                            value={form.unit}
+                            onChange={(event) => handleFormChange(event, index)}
+                          />
+                        </div>
+                      </div>
+                    </div>
                     <div class="text">Expiration Date</div>
                     <input type="text"
                     name="expirationDate"
