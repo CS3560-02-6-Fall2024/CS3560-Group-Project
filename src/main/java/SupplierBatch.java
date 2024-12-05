@@ -56,6 +56,10 @@ public class SupplierBatch extends Batch
         return quantity;
     }
 
+    public int getSupplierBatchId()
+    {
+        return supplierBatchId;
+    }
     //Abstract methods
 
 	// Removes from this batch's quantity after using "amount" number of items
@@ -121,7 +125,18 @@ public class SupplierBatch extends Batch
     @Override
 	public boolean deleteBatch(int _batchID)
     {
-        throw new UnsupportedOperationException();
+       boolean hasDeletedID = false;
+        for (SupplierBatch supplierBatch : everySupplierBatch)
+        {
+            if (supplierBatch.getSupplierBatchId() == _batchID)
+            {
+                everySupplierBatch.remove(supplierBatch);
+                break;
+            }
+        }
+
+        return hasDeletedID;
+        
     }
 
 	// Search for a batch by ingredientID
