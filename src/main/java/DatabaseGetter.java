@@ -297,10 +297,10 @@ public class DatabaseGetter
             {
                 //get result info (reads the column name in get string)
                 int ingredientID = results.getInt("itemID");
-                String name= results.getString("name");
-                String description= results.getString("description");
-                String price = results.getString("storageInstructions");
-                return new Ingredient(ingredientID, name, description, price);
+                String name = results.getString("name");
+                String description = results.getString("description");
+                String storageInstructions = results.getString("storageInstructions");
+                return new Ingredient(ingredientID, name, storageInstructions, description);
             }
             return null;
         }

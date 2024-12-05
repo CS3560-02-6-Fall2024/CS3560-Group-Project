@@ -18,7 +18,7 @@ public class EditIngredientServlet extends HttpServlet {
     
       // Get parameters
       String name = request.getParameter("ingredientName");
-      String description = request.getParameter("description");
+      String description = request.getParameter("ingredientDescription");
       String storageInstructions = request.getParameter("storageInstructions");
       String photoFile = request.getParameter("photoFile");
       System.out.println("Add Next Product:" +
@@ -33,14 +33,14 @@ public class EditIngredientServlet extends HttpServlet {
     // Update in database
     if(request.getParameter("save") != null)
     {
-      ing = new Ingredient(Integer.parseInt(request.getParameter("itemID")), name, description, Float.parseFloat(price));
+      ing = new Ingredient(Integer.parseInt(request.getParameter("itemID")), name, storageInstructions, description);
       pname = ing.getName();
       pdescription = ing.getDescription();
       pstorageInstructions = ing.getStorageIntructions();
     }
     else if(request.getParameter("delete") != null)
     {
-      ing = DatabaseGetter.getProductFromID(Integer.parseInt(request.getParameter("itemID")));
+      ing = DatabaseGetter.getIngredientFromID(Integer.parseInt(request.getParameter("itemID")));
       DatabaseSetter.deleteIngredient(ing);
       // Reset values
       name=null;
@@ -53,12 +53,12 @@ public class EditIngredientServlet extends HttpServlet {
     // Populate fields with current data
     else
     {
-      ing = DatabaseGetter.getIngredientFromID(Integer.parseInt(request.getParameter("itemID"))); //CHANGE
+      ing = DatabaseGetter.getIngredientFromID(Integer.parseInt(request.getParameter("itemID")));
       pname = ing.getName();
       pdescription = ing.getDescription();
       pstorageInstructions = ing.getStorageIntructions();
     }
-    
+    System.out.println("DEBUG: pdescription " + pdescription + " pinst " + pstorageInstructions);
     // Try to add product to database
     String message = verifyInput(name, storageInstructions, description,  photoFile, request.getParameter("save") != null, request.getParameter("delete") != null, ing);
     // Render html page (just copies the html of the page that you are using)
@@ -88,34 +88,26 @@ public class EditIngredientServlet extends HttpServlet {
         {
           out.println("<input type=\"hidden\" name=\"ingredientList\" value=\"" + ingredients2.get(i).getName() + "\">");
         }
-        out.println("<div class=\"top\">\r\n" + //
-                    "                    <div class=\"left-side\">\r\n" + //
-                    "                        <div class=\"product-name\">\r\n" + //
-                    "                            <label>* Product Name</label>\r\n" + //
-                    "                            <input type=\"text\" placeholder=\"Enter here\" value=\"" + pname + "\" name=\"productName\">\r\n" + //
-                    "                        </div>\r\n" + //
-                    "                        <div class=\"price\">\r\n" + //
-                    "                            <label for=\"price\">Price</label>\r\n" + //
-                    "                            <input type=\"number\" step=\"0.01\" name=\"price\"  value=\"" + pprice + "\" >\r\n" + //
-                    "                        </div>\r\n" + //
+        out.println("<div class=\"left-side\">\r\n" + //
+                    "                    <div class=\"fieldLabel\">\r\n" + //
+                    "                        <label>* Ingredient Name</label>\r\n" + //
+                    "                        <input type=\"text\" id=\"product-name\" placeholder=\"Enter here\"  value=\"" + pname + "\" name=\"ingredientName\">\r\n" + //
                     "                    </div>\r\n" + //
-                    "                    <div class=\"right-side\">\r\n" + //
-                    "                        <div class=\"description\">\r\n" + //
-                    "                            <label> Description</label>\r\n" + //
-                    "                            <input type=\"text\" style=\"padding-bottom: 14em; padding-right: 7%\" placeholder=\"Enter here\" name=\"productDescription\"  value=\"" + pdescription + "\" >\r\n" + //
-                    "                        </div>\r\n" + //
+                    "                    <div class=\"fieldLabel\">\r\n" + //
+                    "                        <label for=\"price\">Storage Instructions</label>\r\n" + //
+                    "                        <input type=\"text\" value=\"" + pstorageInstructions + "\" name=\"storageInstructions\">\r\n" + //
+                    "                    </div>\r\n" + //
+                    "                    \r\n" + //
+                    "                    <div class=\"fieldLabel\">\r\n" + //
+                    "                        <label>Description</label>\r\n" + //
+                    "                        <input type=\"text\" style=\"padding-bottom: 14em;\" placeholder=\"Enter here\" value=\"" + pdescription + "\" name=\"ingredientDescription\">\r\n" + //
                     "                    </div>\r\n" + //
                     "                </div>\r\n" + //
-                    "                <div class=\"bottom\">\r\n" + //
-                    "                    <div class=\"left-side\">\r\n" + //
-                    "                        <label for=\"add-photo\" class=\"add-photo-label\">Update Photo</label>\r\n" + //
-                    "                        <label for=\"file-upload\" class=\"add-photo\">+</label>\r\n" + //
-                    "                        <input type = \"file\" id=\"file-upload\" class=\"add-photo\" name=\"photoFile\">\r\n" + //
-                    "                    </div>\r\n" + //
-                    "                    <div class=\"right-side\">\r\n" + //
-                    "                        <div class=\"ingredients\" id=\"ingredients\">\r\n" + //
-                    "                        </div>\r\n" + //
-                    "                    </div>\r\n" + //
+                    "                <div class=\"right-side\">\r\n" + //
+                    "                    <!-- <button class=\"add-photo\">+</button> -->\r\n" + //
+                    "                    <label for=\"file-upload\" class=\"add-photo\">+</label>\r\n" + //
+                    "                    <input type = \"file\" id=\"file-upload\" class=\"add-photo\" name=\"photoFile\">\r\n" + //
+                    "                    <label for=\"add-photo\" class=\"add-photo-label\">Add Photo</label>\r\n" + //
                     "                </div>");
         while(!scan.nextLine().contains("</form>"))
         {
