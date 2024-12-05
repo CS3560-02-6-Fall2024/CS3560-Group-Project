@@ -19,7 +19,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 20px; 
+    margin: 2%; 
 }
 
 /* Form Container */
@@ -41,7 +41,7 @@ form label {
     font-weight: bold;
     font-size: 1.2em;
     color: #F3F3F3;
-    margin-bottom: 5px;
+    margin-bottom: -10px;
     display: block;
 }
 
@@ -55,6 +55,8 @@ form input {
     background-color: #f3f3f3;
     color: #706661;
     font-size: 1em;
+    margin-top: 2px; 
+    margin-bottom: 25px;
 }
 
 /* Submit Button Styling */
