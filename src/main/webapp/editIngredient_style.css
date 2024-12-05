@@ -62,7 +62,7 @@ body {
     padding-left: 3%;
     border-radius: 1%;
     min-width: 900px;
-    height: 85vh;
+    height: 70vh;
     position: sticky;
     bottom: 0;
 }
@@ -158,5 +158,16 @@ input[type="file"]
     font-size: 2em;
     color: #fffefe;
     margin-bottom: 2%;
+}
+
+.message {
+    display:flex;
+    position:absolute;
+    margin-top: 5vh;
+    padding: 2%;
+    font-size: 2em;
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
 }
 
