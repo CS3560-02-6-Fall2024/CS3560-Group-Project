@@ -57,7 +57,6 @@ a {
     position: fixed;
     height: 50vh; 
     padding: 1em;
-    padding-left: 5%;
     gap: 3%;
     font-family: sans-serif;
     font-weight: bold;
@@ -93,62 +92,80 @@ a {
 
 /* Batch Box Text Styling */
 .batchID {
-    font-size: 3.5rem; 
+    font-size: 3rem; 
     text-align: center;
     margin-bottom: 1%;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
-.text {
-    font-size: 1.7rem;
-    margin-left: 8%;
+.top-row {
+    display: flex;
+    justify-content: center;
+    gap: 1vw
 }
 
 /* Input Field Styling */
-input[type="text"] {
-    align-self: center;
-    font-size: 2rem; 
+.top-row input[type="text"] {
+    width: 11.2vw;
     margin-bottom: 4%;
-    padding: 1.5%; 
-    width: 80%;    
+    padding: 0.3rem; 
     border-radius: 10px; 
     border: none;
     outline: none;
     background-color: #D9D9D9;
 }
 
-/* Remove Button Styling */
-.remove {
-    margin: auto;
-    margin-top: 2%;
-    padding: 3%; 
-    font-size: 2rem; 
-    border-radius: 15px;
-    background-color: #453836;
-    color: #D9D9D9;
-    cursor: pointer;
-    border: 3px solid transparent;
-    width: 6vw;
+.bottom {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.text {
+    font-size: 1.7rem;
 }
 
-.save {
-    margin: auto;
-    padding: 3%; 
-    margin-top: 2%;
-    font-size: 2rem; 
-    border-radius: 15px;
-    background-color: #453836;
-    color: #D9D9D9;
-    cursor: pointer;
-    border: 3px solid transparent;
-    margin-right: -70px;
-    width: 6vw;
+/* Input Field Styling */
+.bottom input[type="text"] {
+    align-self: center;
+    margin-bottom: 4%;
+    padding: 1.5%; 
+    width: 24vw;    
+    border-radius: 10px; 
+    border: none;
+    outline: none;
+    background-color: #D9D9D9;
 }
+
+/* Button Styling */
 
 .buttons{
     text-align: center;
     display: flex;
+    align-items: center;
+    font-size: 2rem; 
+    gap: 2%;
+    margin: 3%;
+    margin-left: 1em;
+    margin-right: 1em;
 }
+.remove {
+    flex: 1;
+    border-radius: 15px;
+    background-color: #453836;
+    color: #D9D9D9;
+    cursor: pointer;
+    border: 3px solid transparent;
+}
+
+.save {
+    flex: 1;
+    border-radius: 15px;
+    background-color: #453836;
+    color: #D9D9D9;
+    cursor: pointer;
+    border: 3px solid transparent;
+}
+
 
 .remove:hover {
     background-color: #D9D9D9;
@@ -170,35 +187,7 @@ input[type="text"] {
     margin-bottom: 4%;
 }
 
-.input-row {
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1.7rem;
-    width: 91%; 
-  }
-  
-  .input-container {
-    display: flex;
-    flex-direction: column; 
-    align-items: left; 
-    flex: 1;
-    font-size: 1.7rem;
-  }
-  
-  .input-container input[type="text"] {
-    align-items: center;
-    font-size: 1.33rem; 
-    margin-bottom: 4%;
-    padding: 1.5%; 
-    width: 80%;    
-    border-radius: 10px; 
-    border: none;
-    outline: none;
-    background-color: #D9D9D9;
-  }
+
   
 @media screen and (max-width: 2000px){
     body {
@@ -288,21 +277,24 @@ input[type="text"] {
 
     /* Batch Box Text Styling */
     .batchID {
-        font-size: 2rem; 
+        font-size: 1.7rem; 
+        margin-bottom: 2%;
+    }
+
+    .buttons {
+        margin-top: 0.1%;
     }
 
     .remove {
-        margin-top: 0.2%;
         margin-bottom: 1%;
         padding: 1%;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .save {
-        margin-top: 0.2%;
         margin-bottom: 1%;
         padding: 1%;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .batch-number {
