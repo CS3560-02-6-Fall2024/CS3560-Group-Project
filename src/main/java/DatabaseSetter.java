@@ -143,6 +143,29 @@ public class DatabaseSetter
         }
 	}
 
+    public static void updateIngredient(Ingredient ingredient)
+	{
+		System.out.println("Update ingredient into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for Item
+            statement.execute("UPDATE Item SET name = '" + ingredient.getName() + "', description = '" + ingredient.getDescription() + "' WHERE itemID = " + ingredient.getItemID() + ";");
+
+            // Insert query for ingredient
+			statement.execute("UPDATE Ingredient SET storageInstructions = " + ingredient.getStorageIntructions() + " WHERE itemID = " + ingredient.getItemID() + ";");
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
     public static void updateRecipe(Product product, ArrayList<RecipeIngredient> ingredients)
 	{
 		System.out.println("Update recipe into database...");
@@ -198,6 +221,38 @@ public class DatabaseSetter
 
             // Delete query for Item
             statement.execute("DELETE FROM item WHERE itemID = " + product.getItemID() + ";");
+
+            
+
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+    
+    public static void deleteIngredient(Ingredient ingredient)
+	{
+		System.out.println("Delete ingredient from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for recipeIngredient
+            statement.execute("DELETE FROM recipeIngredient WHERE ingredientID = " + ingredient.getItemID() + ";");
+
+            // Delete query for image
+            statement.execute("DELETE FROM image WHERE itemID = " + ingredient.getItemID() + ";");
+
+            // Delete query for product
+			statement.execute("DELETE FROM ingredient WHERE itemID = " + ingredient.getItemID() + ";");
+
+            // Delete query for Item
+            statement.execute("DELETE FROM item WHERE itemID = " + ingredient.getItemID() + ";");
 
             
 
