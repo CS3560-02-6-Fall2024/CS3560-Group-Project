@@ -39,19 +39,29 @@ public class SearchServlet extends HttpServlet {
         // DatabaseSetter.addProduct(new Product(1, "Pancake", "Better than a waffle?"));
         ArrayList<Product> products = DatabaseGetter.getProducts();
         // Add results box n times into the page
+        ArrayList<Ingredient> ings = DatabaseGetter.getIngredients();
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < ings.size(); i++) 
+        {
+          str.append("ingredientList=" + ings.get(i).getName());
+          if(i != ings.size() - 1)
+          {
+            str.append("&");
+          }
+        }
         for(Product product : products)
         {
-        String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
-        "                    <div class=\"product-ID\"> #P" + product.getItemID() + "</div>\r\n" + //
-        "                    <div class=\"image\"><img src=\"Images/" + DatabaseGetter.getImageFromID(product.getItemID()) + "\" alt=\"No Image\"></div>\r\n" + //
-        "                    <div class=\"product-name\">" + product.getName() + "</div>\r\n" + //
-        "                    <div class=\"batch-quantity\"> Number of batches: 64  </div>\r\n" + //
-        "                    <div class=\"buttons\">\r\n" + //
-        "                        <button onclick=\"location.href='editProduct.html'\" class=\"edit-button\">Edit Item</button><br/>\r\n" + //
-        "                        <button onclick=\"location.href='editBatch.html'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
-        "                        <button onclick=\"location.href='info.html?itemID=P" + product.getItemID() +"'\" class=\"edit-button\">Info</button><br/>\r\n" + //
-        "                    </div>               \r\n" + //
-        "                </div>";
+          String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
+          "                    <div class=\"product-ID\"> #P" + product.getItemID() + "</div>\r\n" + //
+          "                    <div class=\"image\"><img src=\"Images/" + DatabaseGetter.getImageFromID(product.getItemID()) + "\" alt=\"No Image\"></div>\r\n" + //
+          "                    <div class=\"product-name\">" + product.getName() + "</div>\r\n" + //
+          "                    <div class=\"batch-quantity\"> Number of batches: 64  </div>\r\n" + //
+          "                    <div class=\"buttons\">\r\n" + //
+          "                        <button onclick=\"location.href='editProduct.html?" + str + "'\" class=\"edit-button\">Edit Item</button><br/>\r\n" + //
+          "                        <button onclick=\"location.href='editBatch.html'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
+          "                        <button onclick=\"location.href='info.html?itemID=P" + product.getItemID() +"'\" class=\"edit-button\">Info</button><br/>\r\n" + //
+          "                    </div>               \r\n" + //
+          "                </div>";
           out.println(resultBoxHtml);
         }
 
