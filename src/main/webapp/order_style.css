@@ -39,7 +39,9 @@ body {
   outline: none;
   min-height: 50px;
 }
+
 .search-bar button {
+  margin-right: 22%;
   flex:1;
   padding: 1%;
   border-radius: 0 20px 20px 0;
@@ -52,20 +54,6 @@ body {
 background: #ccc;
 }
 
-.addSupplier{
-  flex: 0.5;
-  margin-right: 8%;
-  border-radius: 20px;
-  border: 2px solid transparent;
-  height: 5vh;
-  color:#453836;
-  min-height: 50px;
-}
-
-.addSupplier:hover {
-  background: #ccc;
-  border: 2px solid #453836;
-}
 
 /* Result Backdrop */
 .result-grid {
