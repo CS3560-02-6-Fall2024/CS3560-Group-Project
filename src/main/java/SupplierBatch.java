@@ -7,9 +7,10 @@ public class SupplierBatch
     //i am not used to new line bracklet lo
     private static ArrayList<SupplierBatch> everySupplierBatch = new ArrayList<>();
 
-    int supplierBatchId;
-    int supplierId;
-    int ingredientId;
+    private int supplierBatchId;
+    private int supplierId;
+    private int ingredientId;
+    private float batchPrice;
     //expirationDate; do we need this?
 
     /**
@@ -17,11 +18,12 @@ public class SupplierBatch
      * @param _supplierId The Supplier ID
      * @param _ingredientId The Ingredient ID
      */
-    public SupplierBatch(int _supplierId, int _ingredientId)
+    public SupplierBatch(int _supplierId, int _ingredientId, float _batchPrice)
     {
         supplierBatchId = idCounter++;
         supplierId = _supplierId;
         ingredientId = _ingredientId;
+        batchPrice = _batchPrice;
         everySupplierBatch.add(this);
     }
     
@@ -41,6 +43,14 @@ public class SupplierBatch
     public int getIngredientId()
     {
         return ingredientId;
+    }
+
+    /**
+     * Returns the price of the supplier batch
+     * @return Price of the supplierBatch
+     */
+    public float getBatchPrice(){
+        return batchPrice;
     }
 
     /**

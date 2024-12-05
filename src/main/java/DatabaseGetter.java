@@ -223,8 +223,9 @@ public class DatabaseGetter
                 //get result info (reads the column name in get string)
                 int supplierID = results.getInt("supplierID");
                 int ingredientID = results.getInt("itemID");
-                returnSupplierBatch.add(new SupplierBatch(supplierID, ingredientID));
-                //TODO: add price when ben creates it
+                float batchPrice = results.getInt("batchPrice");
+                returnSupplierBatch.add(new SupplierBatch(supplierID, ingredientID, batchPrice));
+                
             } 
             return returnSupplierBatch;
         }
