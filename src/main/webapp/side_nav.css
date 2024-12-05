@@ -10,9 +10,10 @@ body {
     left: 0;
     background-color: #453836;
     padding-top: 200px;
+    box-shadow: 0 4px 9px 9px rgba(0, 0, 0, 0.2); 
 }
 
-.sidebar .button {
+.sidebar button {
     background-color: #453836;
     color: white;
     font-family: monospace; 
@@ -26,7 +27,7 @@ body {
     margin-bottom: 10%;
 }
 
-.sidebar .button:hover {
+.sidebar button:hover {
     background-color: antiquewhite;
     color:#453836;
     width: 100%;
