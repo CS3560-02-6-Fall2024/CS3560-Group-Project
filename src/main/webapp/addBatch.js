@@ -73,7 +73,10 @@ function App() {
                     value={form.orderStatus}
                     onChange={event => handleFormChange(event, index)}
                     />
-                    <button class="remove" onClick={() => removeFields(index)}> Remove </button>
+                    <div class="buttons">
+                      <button class="save" onClick={() => removeFields(index)}> Save </button>
+                      <button class="remove" onClick={() => removeFields(index)}> Remove </button>
+                      </div>
                     <div class="batch-number">Batch Number: {index + 1}</div>
                 </div>
               </div>
