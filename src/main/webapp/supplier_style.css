@@ -181,10 +181,6 @@ body {
     .product-name {
       font-size: 1.2em;
     }
-  
-    img {
-      width: 19vw;
-    }
     
     .batch-quantity{
       font-size: 1em;
@@ -211,8 +207,4 @@ body {
       grid-template-columns: 1fr 1fr;
       
     }
-    img {
-      width: 30vw;
-    }
-  
   }
