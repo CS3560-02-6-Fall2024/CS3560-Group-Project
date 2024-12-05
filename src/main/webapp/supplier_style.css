@@ -69,10 +69,10 @@ body {
   
   /* Result Backdrop */
   .result-grid {
-    margin-top: 3%;
     flex: 1;
     display: grid;
     gap: 2%;
+    row-gap: 2%;
     grid-template-columns: 1fr 1fr;
     padding: 2%;
     scrollbar-width: none; 
