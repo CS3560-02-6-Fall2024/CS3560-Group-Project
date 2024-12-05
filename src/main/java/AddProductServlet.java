@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -28,7 +29,11 @@ public class AddProductServlet extends HttpServlet {
                         "\n quantitys: " + quantities +
                         "\n ingredients: " + ingredients);
 
-
+    // String [] debug = request.getParameterValues("ingredientList");  
+    // for (String string : debug) {
+    //   System.out.println("ingredient: " + string);
+    // }                  
+    
 
     // Try to add product to database
     String message = verifyInput(name, description, price, photoFile, quantities, ingredients);
@@ -49,6 +54,15 @@ public class AddProductServlet extends HttpServlet {
           color="green";
         }
         out.println("<div class=\"message\" style=\"color:" + color + "\">" + message + "</div>");
+      }
+      else if(nextLine.contains("form id=\"form\""))
+      {
+        out.println(nextLine);
+        ArrayList<Ingredient> ingredients2 = DatabaseGetter.getIngredients();
+        for (int i = 0; i < ingredients2.size(); i++) 
+        {
+          out.println("<input type=\"hidden\" name=\"ingredientList\" value=\"" + ingredients2.get(i).getName() + "\">");
+        }
       }
       else
       {

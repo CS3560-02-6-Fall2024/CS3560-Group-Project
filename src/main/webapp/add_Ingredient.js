@@ -32,8 +32,10 @@ function App() {
     };
 
     // Placeholder ingredient options 
-    const ingredientOptions = ["Sugar", "Flour", "Butter", "Eggs"];
-
+    const urlParams = new URLSearchParams(window.location.search);
+    const ingredientOptions = urlParams.getAll('ingredientList');
+    console.log(ingredientOptions);
+    
     return (
         <div className="App">
             <div className="ingredLabel">*Ingredients</div>
