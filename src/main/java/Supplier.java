@@ -6,16 +6,16 @@ public class Supplier
 	private String name; // Name of the supplier
 	private String phoneNumber; // Number of the supplier 
 	private String email; // Email of the supplier
-	private String description; // Information user wants to note down, such as ingredients sold 
+	private String address; // Information user wants to note down, such as ingredients sold 
 
 	// Constructor for Supplier
-	public Supplier(String _name, String _phoneNumber, String _email, String _description)
+	public Supplier(String _name, String _phoneNumber, String _email, String address)
 	{
 		this.supplierID = DatabaseGetter.getLastSupplierID();
 		this.name = _name;
 		this.phoneNumber = _phoneNumber;
 		this.email = _email;
-		this.description = _description;
+		this.address = address;
 	}
 
 	// Getter methods
@@ -35,9 +35,9 @@ public class Supplier
 	{
 		return email;
 	}
-	public String getDescription()
+	public String getAddress()
 	{
-		return name;
+		return address;
 	}
 
 	// Method to Remove Supplier

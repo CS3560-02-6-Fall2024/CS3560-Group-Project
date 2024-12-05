@@ -10,68 +10,52 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 //when suppliers.html is accessed
-@WebServlet("/suppliers.html")
+@WebServlet("/supplier.html")
 public class SupplierServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
-
+        System.out.println("Supplier page");
         // Render html page (just copies the html of the page that you are using)
-        File html = new File(System.getProperty("user.dir") + "/src/main/webapp/suppliers.html");
+        File html = new File(System.getProperty("user.dir") + "/src/main/webapp/supplier.html");
         Scanner scan = new Scanner(html, "UTF-8");
         response.setContentType("text/html;");
         PrintWriter out = response.getWriter();
-
         while(scan.hasNextLine())
         {
-            String nextLine = scan.nextLine();
-
-            // Copy the result box html so we can to populate page
-            if(nextLine.contains("START RESULT BOX"))
+        String nextLine = scan.nextLine();
+        if(nextLine.contains("START RESULT BOX"))
+        {
+            // Skip past this result box section
+            while(scan.hasNextLine())
             {
-                // Skip past this result box section
-                while(scan.hasNextLine())
-                {
-                    nextLine = scan.nextLine();
-                    // Break out of result box loop if we reach the end of the result box
-                    if(nextLine.contains("END RESULT BOX"))
-                        break;
-                }
-                
-                ArrayList<SupplierBatch> supplierBatchArray = DatabaseGetter.getSupplierBatch();
-                //so i need a getter for the product
-                
-                // Add results box n times into the page
-                for(SupplierBatch supplierBatch : supplierBatchArray)
-                {
-                    
-                    String price = String.valueOf(supplierBatch.getBatchPrice()); // use the getter for supplierBatch when implemented into database
-                    int ingredientID = supplierBatch.getIngredientId();
-                    Ingredient ingredient = DatabaseGetter.getIngredientFromID(ingredientID);
-                    String ingredientName = ingredient.getName(); // use product.getName()
-                    String imagePath = DatabaseGetter.getImageFromID(ingredientID);
-                    
-                    String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
-                    "                    <div class=\"product-ID\"> #P" + price + "</div>\r\n" + //
-                    "                    <div class=\"image\"><img src=\"Images/" + imagePath + "\" alt=\"No Image\"></div>\r\n" + //
-                    "                    <div class=\"product-name\">" + ingredientName + "</div>\r\n" + //
-                    "                    <div class=\"buttons\">\r\n" + //
-                    "                        <button onclick=\"location.href='order.html'\" class=\"edit-button\">Order</button>" + //
-                    "                        <button onclick=\"location.href='supplierInfo.html'\" class=\"edit-button\">Supplier</button>" + //
-                    "                    </div>               \r\n" + //
-                    "                </div>";
-                      out.println(resultBoxHtml);
-
-                }
+            nextLine = scan.nextLine();
+            // Break out of result box loop if we reach the end of the result box
+            if(nextLine.contains("END RESULT BOX"))
+                break;
             }
-            // Copy html if it is not part of results box
-            else
+            
+            ArrayList<Supplier> suppilers = DatabaseGetter.getSuppliers();
+            for (Supplier supplier : suppilers) 
             {
-                out.println(nextLine);
+            System.out.println("Result box html start");
+            String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
+                                "                    <div class=\"supplier-info\">\r\n" + //
+                                "                        <div><strong>Name:</strong> " + supplier.getName() + "</div>\r\n" + //
+                                "                        <div><strong>Phone:</strong> " + supplier.getPhoneNumber() + "</div>\r\n" + //
+                                "                        <div><strong>Email:</strong> " + supplier.getEmail() + "</div>\r\n" + //
+                                "                        <div><strong>Address:</strong> " + supplier.getAddress() + "</div>\r\n" + //
+                                "                    </div>\r\n" + //
+                                "                    <div class=\"buttons\">\r\n" + //
+                                "                        <button onclick=\"location.href='editSupplier.html'\" class=\"edit-button\">Edit</button><br/>\r\n" + //
+                                "                    </div>\r\n" + //
+                                "                </div>";
+            out.println(resultBoxHtml);
             }
         }
-
+        out.println(nextLine);
+        }
         scan.close();
 
         

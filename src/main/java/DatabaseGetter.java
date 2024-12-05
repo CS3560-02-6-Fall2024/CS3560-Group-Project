@@ -344,8 +344,8 @@ public class DatabaseGetter
                 String name = results.getString("name");
                 String phoneNumber = results.getString("phoneNumber");
                 String email = results.getString("email");
-                String description = results.getString("description");
-                allSuppliers.add(new Supplier(name,phoneNumber,email,description));
+                String address = results.getString("address");
+                allSuppliers.add(new Supplier(name,phoneNumber,email,address));
             } 
             return allSuppliers;
         }
