@@ -65,10 +65,18 @@ input[type="text"] {
 }
 
 /* Submit Button Styling */
+.buttons {
+    display: flex;
+    gap: 10%;
+    margin-left:3em;
+    margin-right:3em;
+
+}
+
 form button {
-    width: 30%; 
-    padding: 2%; 
+    flex: 1;
     border: none;
+    padding: 2%;
     border-radius: 5px;
     background-color: #6b4f47; 
     color: white;
@@ -82,21 +90,3 @@ form button:hover {
     background-color: #8c6757;
 }
 
-
-/* Remove Button Styling */
-#remove-button {
-    width: 30%; 
-    padding: 2%; 
-    border: none;
-    border-radius: 5px;
-    background-color: #6b4f47; 
-    color: white;
-    font-size: 16px; 
-    cursor: pointer;
-    margin: 10px auto; 
-    display: block;
-}
-
-#remove-button:hover{
-     background-color: #8c6757;
-}
