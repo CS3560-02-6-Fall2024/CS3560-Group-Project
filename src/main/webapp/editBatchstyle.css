@@ -306,3 +306,25 @@ a {
         font-size: 2rem; 
     }
   }
+
+  .message
+{
+    display:flex;
+    position:absolute;
+    margin-top: -5vh;
+    padding: 2%;
+    font-family: sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+}
+
+/* Main Content Area */
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1%;
+    margin-left: 17%;
+    margin-right: 9%;
+}

@@ -3,7 +3,7 @@
     <head>
         <title> Edit Ingredient </title>
         <link rel="stylesheet" href="editIngredient_style.css">
-        <link rel="stylesheet" href="side_nav.css">
+        <link rel="stylesheet" href="sidenav.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
@@ -28,17 +28,20 @@
             <div class="header">
                 <a href="search.html" class="back-link">&larr; Back to Selection</a>
                 <div class="hButtons">
-                    <button class="hbutton">Save Changes</button>
-                    <button class="hbutton">Remove Item</button>
+                    <button type="submit" form="form" name="save" value="true" class="hbutton">Save Changes</button>
+                    <button type="submit" form="form" name="delete" value="true" class="hbutton">Remove Item</button>
                 </div>
             </div>
 
+            <!-- Message Handling -->
+            <div class="message" style="color:green">Test</div>
+
             <!-- Form Layout-->
-             <div class="form">
+             <form class="form" id="form">
                 <div class="left-side">
                     <div class="fieldLabel">
                         <label>* Ingredient Name</label>
-                        <input type="text" id="product-name" placeholder="Enter here">
+                        <input type="text" id="product-name" placeholder="Enter here" name="ingredientName">
                     </div>
                     <div class="fieldLabel">
                         <label>Storage Instructions</label>
@@ -47,16 +50,16 @@
                     
                     <div class="fieldLabel">
                         <label>Description</label>
-                        <input type="text" style="padding-bottom: 14em;" placeholder="Enter here">
+                        <input type="text" style="padding-bottom: 14em;" placeholder="Enter here" name="ingredientDescription">
                     </div>
                 </div>
                 <div class="right-side">
                     <!-- <button class="add-photo">+</button> -->
                     <label for="file-upload" class="add-photo">+</label>
-                    <input type = "file" id="file-upload" class="add-photo">
+                    <input type = "file" id="file-upload" class="add-photo" name="photoFile">
                     <label for="add-photo" class="add-photo-label">Add Photo</label>
                 </div>
-            </div> 
+            </form> 
         </div>
     </body>
 </html>

@@ -83,16 +83,10 @@ public class AddIngredientServlet extends HttpServlet {
     DatabaseSetter.insertIngredient(ingredient);
 
     // Check for photo file (optional file)
-    // if(photoFile != null && !photoFile.equals(""))
-    // {
-    //   DatabaseSetter.insertImage(new Image(prod.getProductID(), photoFile));
-    // }
-
-
-    // Add ingredients into recipe table
-
-
-
+    if(photoFile != null && !photoFile.equals(""))
+    {
+      DatabaseSetter.insertImage(new Image(ingredient.getItemID(), photoFile));
+    }
     return "Ingredient added successfully";
   }
 }

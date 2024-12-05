@@ -2,10 +2,6 @@ import java.util.ArrayList;
 
 public class SupplierBatch extends Batch
 {
-    
-    public static ArrayList<SupplierBatch> everySupplierBatch = new ArrayList<>();
-    public static int idCounter = 1;
-    private int supplierBatchId;
     private int supplierId;
     private int ingredientId;
     private float batchPrice;
@@ -16,13 +12,27 @@ public class SupplierBatch extends Batch
      * @param _supplierId The Supplier ID
      * @param _ingredientId The Ingredient ID
      */
-    public SupplierBatch(int _supplierId, int _ingredientId, float _batchPrice)
+    public SupplierBatch(float quantity, String units, String expirationDate, int _supplierId, int _ingredientId, float _batchPrice)
     {
-        supplierBatchId = idCounter++;
+        batchNumber = DatabaseGetter.getLastBatchNumber() + 1;
+        this.quantity= quantity;
+        this.units=units;
+        this.expirationDate = expirationDate;
         supplierId = _supplierId;
         ingredientId = _ingredientId;
         batchPrice = _batchPrice;
-        everySupplierBatch.add(this);
+       
+    }
+
+    public SupplierBatch(int batchNumber, float quantity, String units, String expirationDate, int _supplierId, int _ingredientId, float _batchPrice)
+    {
+        this.batchNumber = batchNumber;
+        this.quantity= quantity;
+        this.units=units;
+        this.expirationDate = expirationDate;
+        supplierId = _supplierId;
+        ingredientId = _ingredientId;
+        batchPrice = _batchPrice;
        
     }
     
@@ -52,14 +62,34 @@ public class SupplierBatch extends Batch
         return batchPrice;
     }
 
-    public int getQuantity(){
+    public float getQuantity(){
         return quantity;
     }
 
-    public int getSupplierBatchId()
+    public int getBatchNumber()
     {
-        return supplierBatchId;
+        return batchNumber;
     }
+
+    public String getUnits()
+    {
+        return units;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+
     //Abstract methods
 
 	// Removes from this batch's quantity after using "amount" number of items
@@ -70,44 +100,44 @@ public class SupplierBatch extends Batch
     @Override
 	public void removeFromBatch(int _amount)
     {
-        int remainingQuanity = quantity - _amount;
+        // int remainingQuanity = quantity - _amount;
 
-        if (remainingQuanity < 0) //if the current batch doesn't have enough
-        {
-            quantity = 0; //set own quantity to 0
-            int ingredientToRemove = this.getIngredientId();
+        // if (remainingQuanity < 0) //if the current batch doesn't have enough
+        // {
+        //     quantity = 0; //set own quantity to 0
+        //     int ingredientToRemove = this.getIngredientId();
 
-            for (SupplierBatch thisSupplierBatch : everySupplierBatch)
-            {
-                // take away the batch amount from this if its the same ingredientID
-                // and has stuff to remove
-                int thisBatchQuantity = thisSupplierBatch.getQuantity();
+        //     for (SupplierBatch thisSupplierBatch : everySupplierBatch)
+        //     {
+        //         // take away the batch amount from this if its the same ingredientID
+        //         // and has stuff to remove
+        //         int thisBatchQuantity = thisSupplierBatch.getQuantity();
 
-                if ((thisBatchQuantity > 0) &&
-                    thisSupplierBatch.getIngredientId() == ingredientToRemove)
-                {
+        //         if ((thisBatchQuantity > 0) &&
+        //             thisSupplierBatch.getIngredientId() == ingredientToRemove)
+        //         {
                     
-                    int amountToTake = remainingQuanity - thisBatchQuantity;
+        //             int amountToTake = remainingQuanity - thisBatchQuantity;
 
-                    if (amountToTake <= 0)
-                    {
-                        thisSupplierBatch.removeFromBatch(thisBatchQuantity);
-                        remainingQuanity = amountToTake;
-                    }
-                    else //if you can take the amount shown
-                    {
-                        thisSupplierBatch.removeFromBatch(amountToTake);
-                        remainingQuanity = 0;
-                    }
-                    thisSupplierBatch.removeFromBatch(remainingQuanity);
+        //             if (amountToTake <= 0)
+        //             {
+        //                 thisSupplierBatch.removeFromBatch(thisBatchQuantity);
+        //                 remainingQuanity = amountToTake;
+        //             }
+        //             else //if you can take the amount shown
+        //             {
+        //                 thisSupplierBatch.removeFromBatch(amountToTake);
+        //                 remainingQuanity = 0;
+        //             }
+        //             thisSupplierBatch.removeFromBatch(remainingQuanity);
 
-                }
-            }
-        }
-        else //if you can take away and it still be avalible
-        {
-            quantity -= _amount;
-        }
+        //         }
+        //     }
+        // }
+        // else //if you can take away and it still be avalible
+        // {
+        //     quantity -= _amount;
+        // }
         
     }
 
@@ -125,17 +155,18 @@ public class SupplierBatch extends Batch
     @Override
 	public boolean deleteBatch(int _batchID)
     {
-       boolean hasDeletedID = false;
-        for (SupplierBatch supplierBatch : everySupplierBatch)
-        {
-            if (supplierBatch.getSupplierBatchId() == _batchID)
-            {
-                everySupplierBatch.remove(supplierBatch);
-                break;
-            }
-        }
+    //    boolean hasDeletedID = false;
+    //     for (SupplierBatch supplierBatch : everySupplierBatch)
+    //     {
+    //         if (supplierBatch.getSupplierBatchId() == _batchID)
+    //         {
+    //             everySupplierBatch.remove(supplierBatch);
+    //             break;
+    //         }
+    //     }
 
-        return hasDeletedID;
+        // return hasDeletedID;
+        return false;
         
     }
 
@@ -146,13 +177,14 @@ public class SupplierBatch extends Batch
     {
         ArrayList<Batch> returnArray = new ArrayList<>();
 
-        for (SupplierBatch supplierBatch : everySupplierBatch)
-        {
-            if (supplierBatch.getIngredientId() == _lookupID)
-                returnArray.add(supplierBatch);
-        }
+        // for (SupplierBatch supplierBatch : everySupplierBatch)
+        // {
+        //     if (supplierBatch.getIngredientId() == _lookupID)
+        //         returnArray.add(supplierBatch);
+        // }
 
         return returnArray;
     }
 
+    
 }

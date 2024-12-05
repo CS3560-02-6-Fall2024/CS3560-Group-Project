@@ -2,8 +2,8 @@
 <html>
     <head>
         <title> Edit Batch </title>
-        <link rel="stylesheet" href="editBatch_style.css">
-        <link rel="stylesheet" href="side_nav.css">
+        <link rel="stylesheet" href="editBatchstyle.css">
+        <link rel="stylesheet" href="sidenav.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
@@ -21,15 +21,129 @@
                 <button onclick="location.href='supplier.html'">Suppliers</button><br/>
             </div>
         </nav>
-        
+        <div></div>
         <header>
             <a href="search.html"> &#8592; Back to Search </a> <br/>
             <div class="head"> Strawberry Croissant </div>
             <div class="batchNum"> Number of Batches: 64 </div>
         </header>
 
+      <div class="content">
+          <!-- Message Handling -->
+          <div class="message" style="color:green">Test</div>
+      </div>
+ 
         <div class="l">Scroll with "Shift + Scroll wheel" </div>
         <div class="batches" id="batches" onwheel="this.scrollLeft+=event.deltaY>0?100:-100"></div>
-        <script crossorigin  type="text/babel" src="addBatch.js"></script>
+        <script crossorigin  type="text/babel">
+        const { useState, useEffect } = React
+
+            function App() {
+                const [formFields, setFormFields] = useState([{ quantity: '1', unit:'cup', expirationDate: '10/2' , creationDate: '20/2', orderStatus: 'TEST', batchID: '1', saveButton: 'save'}])
+              
+                const handleFormChange = (event, index) => {
+                  let data = [...formFields];
+                  data[index][event.target.name] = event.target.value;
+                  setFormFields(data);
+                }
+              
+                const submit = (e) => {
+                  e.preventDefault();
+                  console.log(formFields)
+                }
+              
+                const addFields = () => {
+                  let object = {
+                    quantity: '',
+                    expirationDate: '',
+                    creationDate: '',
+                    batchID: 'New Batch',
+                    saveButton: 'add'
+                  }
+              
+                  setFormFields([...formFields, object])
+                }
+              
+                const removeFields = (index) => {
+                  let data = [...formFields];
+                  data.splice(index, 1)
+                  setFormFields(data)
+                }
+              
+                return (
+                  <div className="App">
+                    <div class="box">
+                        <button type="button" class="add-batch-box" onClick={addFields}> + </button>
+                    </div>
+                      {formFields.map((form, index) => {
+                        return (
+                          <div key={index}>
+                            <form class="box">
+                                <input type="hidden" name="batchID" value={form.batchID.substring(1)}/>
+                                <div class="batchID">{form.batchID}</div>
+                                <div className="top-row">
+                                  {/* Quantity Field */}
+                                  <div className="input-container">
+                                    <div className="text">Quantity</div>
+                                    <input
+                                      type="text"
+                                      name="quantity"
+                                      placeholder="Enter here..."
+                                      value={form.quantity}
+                                      onChange={(event) => handleFormChange(event, index)}
+                                    />
+                                  </div>
+            
+                                  {/* Units Field */}
+                                  <div className="input-container">
+                                    <div className="text">Units</div>
+                                    <input
+                                      type="text"
+                                      name="unit"
+                                      placeholder="Enter here..."
+                                      value={form.unit}
+                                      onChange={(event) => handleFormChange(event, index)}
+                                    />
+                                  </div>
+                                </div>
+                                <div class="bottom">
+                                  <div class="text">Expiration Date</div>
+                                  <input type="text"
+                                  name="expirationDate"
+                                  placeholder='Enter here...'
+                                  value={form.expirationDate}
+                                  onChange={event => handleFormChange(event, index)}
+                                  />
+            
+                                  <div class="text">Creation Date</div>
+                                  <input type="text"
+                                  name="creationDate"
+                                  placeholder='Enter here...'
+                                  value={form.creationDate}
+                                  onChange={event => handleFormChange(event, index)}
+                                  />
+            
+                                  <div class="text">Order Status</div>
+                                  <input type="text"
+                                  name="orderStatus"
+                                  placeholder='Enter here...'
+                                  value={form.orderStatus}
+                                  onChange={event => handleFormChange(event, index)}
+                                  /></div>
+            
+                                <div class="buttons">
+                                  <button type="submit" name={form.saveButton} value="true" class="save"> Save </button>
+                                  <button type="submit" name="remove" value="true" class="remove" onClick={() => {if(form.saveButton.equals('add')){removeFields(index)}}}> Remove </button>
+                                </div>
+                            </form>
+                          </div>
+                        )
+                      })}
+                  </div>
+                );
+              }
+            
+            const appElement = document.getElementById('batches')
+            ReactDOM.render(<App/>, appElement)</script>
     </body>
     </html>

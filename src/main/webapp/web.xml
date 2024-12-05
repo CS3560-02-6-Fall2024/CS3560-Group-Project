@@ -15,6 +15,16 @@
         <url-pattern>/InventorySubsystem/search*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EditProductBatchServlet</servlet-name>
+        <servlet-class>SearchServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditProductBatchServlet</servlet-name>
+        <url-pattern>/InventorySubsystem/editBatch*</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>AddProductServlet</servlet-name>

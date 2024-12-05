@@ -2,45 +2,52 @@ import java.util.ArrayList;
 
 public class Supplier
 {
-	private static int idCounter = 1; // Counter to ensure unique supplier IDs
-	private static ArrayList<Supplier> suppliers = new ArrayList<>(); // List of all suppliers
-	
 	private int supplierID; // Primary key for suppliers
 	private String name; // Name of the supplier
 	private String phoneNumber; // Number of the supplier 
 	private String email; // Email of the supplier
-	private String description; // Information user wants to note down, such as ingredients sold 
+	private String address; // Information user wants to note down, such as ingredients sold 
 
 	// Constructor for Supplier
-	public Supplier(String _name, String _phoneNumber, String _email, String _description)
+	public Supplier(String _name, String _phoneNumber, String _email, String address)
 	{
-		this.supplierID = idCounter++;
+		this.supplierID = DatabaseGetter.getLastSupplierID() + 1;
 		this.name = _name;
 		this.phoneNumber = _phoneNumber;
 		this.email = _email;
-		this.description = _description;
-		suppliers.add(this);
+		this.address = address;
 	}
 
-	// Individual Update Methods 
-	public void updateName(String newName) 
+	// Constructor for Supplier
+	public Supplier(int id, String _name, String _phoneNumber, String _email, String address)
 	{
-		this.name = newName;
+		this.supplierID = id;
+		this.name = _name;
+		this.phoneNumber = _phoneNumber;
+		this.email = _email;
+		this.address = address;
 	}
 
-	public void updateNumber(String newNumber) 
+	// Getter methods
+	public int getID()
 	{
-		this.phoneNumber = newNumber;
+		return supplierID;
 	}
-
-	public void updateEmail(String newEmail) 
+	public String getName()
 	{
-		this.email = newEmail;
+		return name;
 	}
-	
-	public void updateDescription(String newDescription)
+	public String getPhoneNumber()
 	{
-		this.description = newDescription;
+		return phoneNumber;
+	}
+	public String getEmail()
+	{
+		return email;
+	}
+	public String getAddress()
+	{
+		return address;
 	}
 
 	// Method to Remove Supplier

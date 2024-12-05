@@ -1,9 +1,7 @@
 const { useState, useEffect } = React
 
 function App() {
-    const [formFields, setFormFields] = useState([
-      { quantity: '', expirationDate: '' , creationDate: '', orderStatus: ''},
-    ])
+    const [formFields, setFormFields] = useState([{ quantity: '1', unit:'cup', expirationDate: '10/2' , creationDate: '20/2', orderStatus: 'TEST'}])
   
     const handleFormChange = (event, index) => {
       let data = [...formFields];
@@ -41,7 +39,7 @@ function App() {
             return (
               <div key={index}>
                 <div class="box">
-                    <div class="batchID">#{index + 1}</div>
+                    <div class="batchID">New Batch</div>
                     <div className="top-row">
                       {/* Quantity Field */}
                       <div className="input-container">
@@ -96,7 +94,6 @@ function App() {
                       <button class="save"> Save </button>
                       <button class="remove" onClick={() => removeFields(index)}> Remove </button>
                     </div>
-                    <div class="batch-number">Batch Number: {index + 1}</div>
                 </div>
               </div>
             )

@@ -58,7 +58,7 @@ public class SearchServlet extends HttpServlet {
           "                    <div class=\"batch-quantity\"> Number of batches: 64  </div>\r\n" + //
           "                    <div class=\"buttons\">\r\n" + //
           "                        <button onclick=\"location.href='editProduct.html?itemID=" + product.getItemID() + "&"+ str + "'\" class=\"edit-button\">Edit Item</button><br/>\r\n" + //
-          "                        <button onclick=\"location.href='editBatch.html'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
+          "                        <button onclick=\"location.href='editBatch.html?itemID=P" + product.getItemID() + "'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
           "                        <button onclick=\"location.href='info.html?itemID=P" + product.getItemID() +"'\" class=\"edit-button\">Info</button><br/>\r\n" + //
           "                    </div>               \r\n" + //
           "                </div>";
@@ -76,7 +76,7 @@ public class SearchServlet extends HttpServlet {
         "                    <div class=\"batch-quantity\"> Number of batches: 64  </div>\r\n" + //
         "                    <div class=\"buttons\">\r\n" + //
         "                        <button onclick=\"location.href='editIngredient.html?itemID=" + + ingredient.getItemID() + "'\" class=\"edit-button\">Edit Item</button><br/>\r\n" + //
-        "                        <button onclick=\"location.href='editBatch.html'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
+        "                        <button onclick=\"location.href='editBatch.html?itemID=I" + ingredient.getItemID() + "'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
         "                        <button onclick=\"location.href='info.html?itemID=I" + ingredient.getItemID() +"'\" class=\"edit-button\">Info</button><br/>\r\n" + //
         "                    </div>               \r\n" + //
         "                </div>";

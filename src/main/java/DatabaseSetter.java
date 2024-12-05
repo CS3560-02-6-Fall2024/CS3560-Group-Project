@@ -66,6 +66,34 @@ public class DatabaseSetter
         }
 	}
 
+    public static void insertProductBatch(ProductBatch productBatch)
+	{
+		System.out.println("Adding product batch into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for batch
+            statement.execute("INSERT IGNORE INTO Batch Values(" + 
+			productBatch.getBatchNumber() + ", " + 
+			"'" + productBatch.getQuantity() + "', " + 
+            "'" + productBatch.getUnits() + "', " + 
+            "'" + productBatch.getStatus() + "', " + 
+            "'" + productBatch.getCreationDate() + "', " + 
+			"'" + productBatch.getExpirationDate() + "');");
+            
+            // Insert query for productBatch
+            statement.execute("INSERT IGNORE INTO ProductBatch Values(" + productBatch.getBatchNumber() + ", " + productBatch.getProductID() +");");
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
     public static void insertIngredient(Ingredient ingredient)
 	{
 		System.out.println("Adding ingredient into database...");
@@ -85,6 +113,60 @@ public class DatabaseSetter
             // Insert query for product
 			statement.execute("INSERT IGNORE INTO Ingredient Values(" + 
 			ingredient.getItemID() + ", '" + ingredient.getStorageIntructions() + "')");
+
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    public static void insertIngredientBatch(IngredientBatch ingredientBatch)
+	{
+		System.out.println("Adding product batch into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for batch
+            statement.execute("INSERT IGNORE INTO Batch Values(" + 
+			ingredientBatch.getBatchNumber() + ", " + 
+			"'" + ingredientBatch.getQuantity() + "', " + 
+            "'" + ingredientBatch.getUnits() + "', " + 
+            "'" + ingredientBatch.getStatus() + "', " + 
+            "'" + ingredientBatch.getCreationDate() + "', " + 
+			"'" + ingredientBatch.getExpirationDate() + "');");
+            
+            // Insert query for productBatch
+            statement.execute("INSERT IGNORE INTO IngredientBatch Values(" + ingredientBatch.getBatchNumber() + ", " + ingredientBatch.getIngredientID() +");");
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+    public static void insertSupplier(Supplier supplier)
+	{
+		System.out.println("Adding supplier into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+
+            // Insert query for item
+            statement.execute("INSERT IGNORE INTO Supplier Values(" + 
+			supplier.getID() + ", " + 
+			"'" + supplier.getName() + "', " + 
+            "'" + supplier.getPhoneNumber() + "', " + 
+            "'" + supplier.getEmail() + "', " + 
+			"'" + supplier.getAddress() + "')");
 
 
         }
@@ -143,6 +225,81 @@ public class DatabaseSetter
         }
 	}
 
+    public static void updateIngredient(Ingredient ingredient)
+	{
+		System.out.println("Update ingredient into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for Item
+            statement.execute("UPDATE Item SET name = '" + ingredient.getName() + "', description = '" + ingredient.getDescription() + "' WHERE itemID = " + ingredient.getItemID() + ";");
+
+            // Insert query for ingredient
+			statement.execute("UPDATE Ingredient SET storageInstructions = '" + ingredient.getStorageIntructions() + "' WHERE itemID = " + ingredient.getItemID() + ";");
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    public static void updateIngredientBatch(IngredientBatch ingredientBatch)
+	{
+		System.out.println("Update ingredient into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for Item
+            statement.execute("UPDATE Batch SET batchNumber = " + ingredientBatch.getBatchNumber() + 
+            ", quantity = " + ingredientBatch.getQuantity() + 
+            ", units = '" + ingredientBatch.getUnits() + 
+            "', batchStatus = '" + ingredientBatch.getStatus() + 
+            "', quantity = '" + ingredientBatch.getQuantity() + 
+            "', dateAdded = '" + ingredientBatch.getCreationDate() + 
+            "', expirationDate = '" + ingredientBatch.getExpirationDate() + 
+            "' WHERE batchNumber = " + ingredientBatch.getBatchNumber() + ";");
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    public static void updateProductBatch(ProductBatch productBatch)
+	{
+		System.out.println("Update prodcut into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for Item
+            statement.execute("UPDATE Batch SET batchNumber = " + productBatch.getBatchNumber() + 
+            ", quantity = " + productBatch.getQuantity() + 
+            ", units = '" + productBatch.getUnits() + 
+            "', batchStatus = '" + productBatch.getStatus() + 
+            "', quantity = '" + productBatch.getQuantity() + 
+            "', dateAdded = '" + productBatch.getCreationDate() + 
+            "', expirationDate = '" + productBatch.getExpirationDate() + 
+            "' WHERE batchNumber = " + productBatch.getBatchNumber() + ";");
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
     public static void updateRecipe(Product product, ArrayList<RecipeIngredient> ingredients)
 	{
 		System.out.println("Update recipe into database...");
@@ -177,6 +334,30 @@ public class DatabaseSetter
         }
 	}
 
+    public static void updateSupplier(Supplier supplier)
+	{
+		System.out.println("Update supplier into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for supplier
+            
+            statement.execute("UPDATE Supplier SET name = '" + supplier.getName() + 
+            "', phoneNumber = '" + supplier.getPhoneNumber() + 
+            "', email = '" + supplier.getEmail() + 
+            "', address = '" + supplier.getAddress() + "' WHERE supplierID = " + supplier.getID() + ";");
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
     // DELETE METHODS
     public static void deleteProduct(Product product)
 	{
@@ -190,6 +371,8 @@ public class DatabaseSetter
             // Delete query for recipeIngredient
             statement.execute("DELETE FROM recipeIngredient WHERE productID = " + product.getItemID() + ";");
 
+            deleteProductBatchAssociated(product.getItemID());
+
             // Delete query for image
             statement.execute("DELETE FROM image WHERE itemID = " + product.getItemID() + ";");
 
@@ -198,6 +381,42 @@ public class DatabaseSetter
 
             // Delete query for Item
             statement.execute("DELETE FROM item WHERE itemID = " + product.getItemID() + ";");
+
+            
+
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+    
+    public static void deleteIngredient(Ingredient ingredient)
+	{
+		System.out.println("Delete ingredient from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for recipeIngredient
+            statement.execute("DELETE FROM recipeIngredient WHERE ingredientID = " + ingredient.getItemID() + ";");
+
+            // Delete associated ingredient batches and regular batches
+            deleteIngredientBatchAssociated(ingredient.getItemID());
+            statement.execute("DELETE FROM supplierBatch WHERE itemID = " + ingredient.getItemID() + ";");
+
+            // Delete query for image
+            statement.execute("DELETE FROM image WHERE itemID = " + ingredient.getItemID() + ";");
+
+            // Delete query for product
+			statement.execute("DELETE FROM ingredient WHERE itemID = " + ingredient.getItemID() + ";");
+
+            // Delete query for Item
+            statement.execute("DELETE FROM item WHERE itemID = " + ingredient.getItemID() + ";");
 
             
 
@@ -227,4 +446,140 @@ public class DatabaseSetter
             e.printStackTrace();
         }
 	}
+
+    public static void deleteSupplier(int supplierID)
+	{
+		System.out.println("Delete supplier from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for recipeIngredient
+            statement.execute("DELETE FROM supplier WHERE supplierID = " + supplierID + ";");
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    public static void deleteProductBatch(int batchNumber)
+	{
+		System.out.println("Delete product batch from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for batch
+            statement.execute("DELETE FROM productBatch WHERE batchNumber = " + batchNumber + ";");
+            statement.execute("DELETE FROM batch WHERE batchNumber = " + batchNumber + ";");
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    public static void deleteIngredientBatch(int batchNumber)
+	{
+		System.out.println("Delete ingredient batch from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for batch
+            statement.execute("DELETE FROM ingredientBatch WHERE batchNumber = " + batchNumber + ";");
+            statement.execute("DELETE FROM batch WHERE batchNumber = " + batchNumber + ";");
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    public static void deleteIngredientBatchAssociated(int itemID)
+	{
+		System.out.println("Delete supplier from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for batch
+            statement.execute("DELETE FROM ingredientBatch WHERE itemID = " + itemID + ";");
+
+            ArrayList<Batch> batches = DatabaseGetter.getIngredientBatches(itemID);
+            for (Batch batch : batches) 
+            {
+                statement.execute("DELETE FROM batch WHERE batchNumber = " + batch.getBatchNumber() + ";");
+            }
+            
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    public static void deleteProductBatchAssociated(int itemID)
+	{
+		System.out.println("Delete supplier from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for batch
+            statement.execute("DELETE FROM productBatch WHERE itemID = " + itemID + ";");
+
+            ArrayList<Batch> batches = DatabaseGetter.getProductBatches(itemID);
+            for (Batch batch : batches) 
+            {
+                statement.execute("DELETE FROM batch WHERE batchNumber = " + batch.getBatchNumber() + ";");
+            }
+            
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+
+    // MISC METHODS
+    public static void orderBatch(SupplierBatch batch)
+	{
+		System.out.println("Order supplierBatch from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for recipeIngredient
+            statement.execute("DELETE FROM SupplierBatch WHERE batchNumber = " + batch.getBatchNumber() + ";");
+            statement.execute("INSERT IGNORE INTO IngredientBatch Values(" + batch.getBatchNumber() + ",  " + batch.getIngredientId() +");");
+            statement.execute("UPDATE Batch SET batchStatus = 'Ordered' WHERE batchNumber = " + batch.getBatchNumber() + ";");
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
 }

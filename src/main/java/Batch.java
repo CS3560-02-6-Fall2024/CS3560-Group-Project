@@ -1,9 +1,12 @@
 import java.util.ArrayList;
 public abstract class Batch
 {
-	public int batchNumber; // Key attribute used to identify the batch
-	public int quantity; // Number of products in this batch
-	public String expirationDate; // Date of expiration of ALL products in this batch (MM/DD/YYYY)
+	protected int batchNumber; // Key attribute used to identify the batch
+	protected float quantity; // Number of products in this batch
+	protected String units;
+	protected String status;
+	protected String creationDate; // Date of expiration of ALL products in this batch (MM/DD/YYYY)
+	protected String expirationDate; // Date of expiration of ALL products in this batch (MM/DD/YYYY)
 
 	// Removes from this batch's quantity after using "amount" number of items
 	// Pseduo code
@@ -23,5 +26,13 @@ public abstract class Batch
 	// Search for a batch by ingredientID
 	// returns: a list of Batches that have that lookupID
 	public abstract ArrayList<Batch> searchForBatch(int _lookupID);
+
+	//Getter methods
+	public abstract int getBatchNumber();
+	public abstract float getQuantity();
+	public abstract String getUnits();
+	public abstract String getCreationDate();
+	public abstract String getExpirationDate();
+	public abstract String getStatus();
 
 }

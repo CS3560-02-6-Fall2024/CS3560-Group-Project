@@ -17,8 +17,8 @@ public class EditProductServlet extends HttpServlet {
   {
     
     // Get parameters
-    String name = request.getParameter("productName");
-    String description = request.getParameter("productDescription");
+    String name = request.getParameter("ingredientName");
+    String description = request.getParameter("ingredientDescription");
     String price = request.getParameter("price");
     String photoFile = request.getParameter("photoFile");
     String[] quantities = request.getParameterValues("quantity");
@@ -117,7 +117,7 @@ public class EditProductServlet extends HttpServlet {
                     "                    <div class=\"right-side\">\r\n" + //
                     "                        <div class=\"description\">\r\n" + //
                     "                            <label> Description</label>\r\n" + //
-                    "                            <input type=\"text\" style=\"padding-bottom: 14em; padding-right: 7%\" placeholder=\"Enter here\" name=\"productDescription\"  value=\"" + pdescription + "\" >\r\n" + //
+                    "                            <input type=\"text\" style=\"padding-bottom: 7em; padding-right: 7%\" placeholder=\"Enter here\" name=\"productDescription\"  value=\"" + pdescription + "\" >\r\n" + //
                     "                        </div>\r\n" + //
                     "                    </div>\r\n" + //
                     "                </div>\r\n" + //
