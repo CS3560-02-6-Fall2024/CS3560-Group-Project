@@ -282,4 +282,29 @@ public class DatabaseSetter
             e.printStackTrace();
         }
 	}
+
+
+    // MISC METHODS
+    public static void orderBatch(SupplierBatch batch)
+	{
+		System.out.println("Order supplierBatch from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for recipeIngredient
+            statement.execute("DELETE FROM SupplierBatch WHERE batchNumber = " + batch.getBatchNumber() + ";");
+            statement.execute("INSERT IGNORE INTO IngredientBatch Values(" + batch.getBatchNumber() + ",  " + batch.getIngredientId() +");");
+            statement.execute("UPDATE Batch SET batchStatus = 'Ordered' WHERE batchNumber = " + batch.getBatchNumber() + ";");
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
 }

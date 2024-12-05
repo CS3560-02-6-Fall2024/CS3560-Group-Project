@@ -3,6 +3,7 @@ public abstract class Batch
 {
 	public int batchNumber; // Key attribute used to identify the batch
 	public int quantity; // Number of products in this batch
+	public String units;
 	public String expirationDate; // Date of expiration of ALL products in this batch (MM/DD/YYYY)
 
 	// Removes from this batch's quantity after using "amount" number of items

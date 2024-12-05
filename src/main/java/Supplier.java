@@ -2,9 +2,6 @@ import java.util.ArrayList;
 
 public class Supplier
 {
-	private static int idCounter = 1; // Counter to ensure unique supplier IDs
-	private static ArrayList<Supplier> suppliers = new ArrayList<>(); // List of all suppliers
-	
 	private int supplierID; // Primary key for suppliers
 	private String name; // Name of the supplier
 	private String phoneNumber; // Number of the supplier 
@@ -14,33 +11,33 @@ public class Supplier
 	// Constructor for Supplier
 	public Supplier(String _name, String _phoneNumber, String _email, String _description)
 	{
-		this.supplierID = idCounter++;
+		this.supplierID = DatabaseGetter.getLastSupplierID();
 		this.name = _name;
 		this.phoneNumber = _phoneNumber;
 		this.email = _email;
 		this.description = _description;
-		suppliers.add(this);
 	}
 
-	// Individual Update Methods 
-	public void updateName(String newName) 
+	// Getter methods
+	public int getID()
 	{
-		this.name = newName;
+		return supplierID;
 	}
-
-	public void updateNumber(String newNumber) 
+	public String getName()
 	{
-		this.phoneNumber = newNumber;
+		return name;
 	}
-
-	public void updateEmail(String newEmail) 
+	public String getPhoneNumber()
 	{
-		this.email = newEmail;
+		return phoneNumber;
 	}
-	
-	public void updateDescription(String newDescription)
+	public String getEmail()
 	{
-		this.description = newDescription;
+		return email;
+	}
+	public String getDescription()
+	{
+		return name;
 	}
 
 	// Method to Remove Supplier

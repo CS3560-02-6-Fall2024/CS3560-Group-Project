@@ -17,8 +17,6 @@ public class DatabaseGetter
     static final String PASSWORD = "12bucklemyshoe";
    
     //==============
-
-
     // Returns the ID of the last item in the item table
     public static int getLastItemID()
     {
@@ -42,7 +40,7 @@ public class DatabaseGetter
        
     }
 
-    // Returns the ID of the last item in the item table
+    // Returns the ID of the recipe item in the item table
     public static int getLastRecipeIngredientID()
     {
         try 
@@ -54,6 +52,51 @@ public class DatabaseGetter
             while(results.next())
             {
                 id = results.getInt("id");
+            }
+            return id;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return -1;
+        }
+       
+    }
+
+    public static int getLastSupplierID()
+    {
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM Supplier");
+            int id = -1;
+            while(results.next())
+            {
+                id = results.getInt("supplierID");
+            }
+            return id;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return -1;
+        }
+       
+    }
+
+    // Returns the ID of the last batch in the batch table
+    public static int getLastBatchNumber()
+    {
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM Batch");
+            int id = -1;
+            while(results.next())
+            {
+                id = results.getInt("batchNumber");
             }
             return id;
         }
@@ -130,6 +173,38 @@ public class DatabaseGetter
                 products.add(new Product(productID, name, description, price));
             } 
             return products;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        
+    }
+
+    public static ArrayList<SupplierBatch> getSupplierBatches()
+    {
+        try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ArrayList<SupplierBatch> batches = new ArrayList<SupplierBatch>();
+            // READ QUERY FOR ingredient, TESTING
+            ResultSet results = statement.executeQuery("SELECT * FROM SupplierBatch INNER JOIN Batch ON supplierBatch.batchNumber=batch.batchNumber;");
+            while (results.next())
+            {
+                //get result info (reads the column name in get string)
+                int batchNumber = results.getInt("batchNumber");
+                int quantity= results.getInt("quantity");
+                String units = results.getString("units");
+                String expirationDate= results.getString("expirationDate");
+                int supplierID = results.getInt("supplierID");
+                int itemID= results.getInt("itemID");
+                float price = results.getFloat("batchPrice");
+                batches.add(new SupplierBatch(batchNumber, quantity, units, expirationDate, supplierID, itemID, price));
+            } 
+            return batches;
         }
         catch(Exception e)
         {
@@ -253,7 +328,6 @@ public class DatabaseGetter
 
     public static Product getProductFromID(int id)
     {
-        System.out.println("Getting Image...");
         try 
         {
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
@@ -283,7 +357,6 @@ public class DatabaseGetter
 
     public static Ingredient getIngredientFromID(int id)
     {
-        System.out.println("Getting Image...");
         try 
         {
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
@@ -314,7 +387,6 @@ public class DatabaseGetter
 
     public static String getImageFromID(int id)
     {
-        System.out.println("Getting Image...");
         try 
         {
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
@@ -336,34 +408,63 @@ public class DatabaseGetter
         }
        
     }
+    public static Supplier getSupplierFromID(int id)
+    {
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM supplier WHERE supplierID=" + id +";");
+            
+            //System.out.println("IMAGE ROW: " + results.getRow() + " ID " + id + " IS BEFORE FIRST" + results.isBeforeFirst());
+            
+            // if the ResultSet is not empty then get the imagePath
+            if(results.next())
+            {
+                String name = results.getString("name");
+                String phoneNumebr = results.getString("phoneNumber");
+                String email = results.getString("email");
+                String description = results.getString("description");
 
-    public static ArrayList<SupplierBatch> getSupplierBatch()
+                return new Supplier(name, phoneNumebr, email, description);
+            }
+                
+            return null;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+       
+    }
+
+    public static SupplierBatch getSuppilerBatchFromNumber(int batchNumber)
     {
         try
         {
             //get connector
             Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
             Statement statement = connection.createStatement();
-            ArrayList<SupplierBatch> returnSupplierBatch = new ArrayList<>();
             // READ QUERY FOR ingredient, TESTING
-            ResultSet results = statement.executeQuery("SELECT * FROM supplierbatch");
+            ResultSet results = statement.executeQuery("SELECT * FROM SupplierBatch INNER JOIN Batch ON supplierBatch.batchNumber=batch.batchNumber WHERE supplierBatch.batchNumber = " + batchNumber + ";");
             while (results.next())
             {
-                //get result info (reads the column name in get string)
+                int quantity= results.getInt("quantity");
+                String units = results.getString("units");
+                String expirationDate= results.getString("expirationDate");
                 int supplierID = results.getInt("supplierID");
-                int ingredientID = results.getInt("itemID");
-                float batchPrice = results.getInt("batchPrice");
-                returnSupplierBatch.add(new SupplierBatch(supplierID, ingredientID, batchPrice));
-                
+                int itemID= results.getInt("itemID");
+                float price = results.getFloat("batchPrice");
+                return new SupplierBatch(batchNumber, quantity, units, expirationDate, supplierID, itemID, price);
             } 
-            return returnSupplierBatch;
+            return null;
         }
         catch(Exception e)
         {
             e.printStackTrace();
             return null;
         }
-
+        
     }
-    
 }
