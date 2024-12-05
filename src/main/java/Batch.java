@@ -4,6 +4,7 @@ public abstract class Batch
 	protected int batchNumber; // Key attribute used to identify the batch
 	protected float quantity; // Number of products in this batch
 	protected String units;
+	protected String status;
 	protected String creationDate; // Date of expiration of ALL products in this batch (MM/DD/YYYY)
 	protected String expirationDate; // Date of expiration of ALL products in this batch (MM/DD/YYYY)
 
@@ -32,5 +33,6 @@ public abstract class Batch
 	public abstract String getUnits();
 	public abstract String getCreationDate();
 	public abstract String getExpirationDate();
+	public abstract String getStatus();
 
 }

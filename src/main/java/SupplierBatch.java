@@ -85,6 +85,10 @@ public class SupplierBatch extends Batch
         return expirationDate;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
 
     //Abstract methods
 

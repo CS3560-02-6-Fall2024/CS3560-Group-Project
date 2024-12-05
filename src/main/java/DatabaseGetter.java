@@ -255,7 +255,8 @@ public class DatabaseGetter
                 String units = results.getString("units");
                 String expirationDate= results.getString("expirationDate");
                 String creationDate= results.getString("dateAdded");
-                batches.add(new IngredientBatch(batchNumber, quantity, units, creationDate, expirationDate));
+                String status = results.getString("batchStatus");
+                batches.add(new IngredientBatch(batchNumber, quantity, units, creationDate, expirationDate, status));
             } 
             return batches;
         }

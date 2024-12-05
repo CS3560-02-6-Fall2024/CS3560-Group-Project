@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -42,7 +43,18 @@ public class EditBatchServlet extends HttpServlet {
       batches = DatabaseGetter.getIngredientBatches(id);
     }
 
+    StringBuilder formattedInputs = new StringBuilder();
 
+    for(int i = 0; i < batches.size(); i++)
+    {
+      Batch batch = batches.get(i);
+      formattedInputs.append("{ quantity: '" + batch.getQuantity() + "', unit:'" + batch.getUnits() + "', expirationDate: '" + batch.getExpirationDate() + "' , creationDate: '" + batch.getCreationDate() + "', orderStatus: '" + batch.getStatus() + "', batchID: '#" + batch.getBatchNumber() + "'}");
+      if(i != batches.size() - 1)
+      {
+        formattedInputs.append(",");
+      }
+    }
+    
     // Render html page (just copies the html of the page that you are using)
     File html = new File(System.getProperty("user.dir") + "/src/main/webapp/editBatch.html");
     Scanner scan = new Scanner(html, "UTF-8");
@@ -58,6 +70,10 @@ public class EditBatchServlet extends HttpServlet {
       else if(nextLine.contains("div class=\"batchNum\""))
       {
         out.println("<div class=\"batchNum\"> Number of Batches: " + batches.size() + " </div>");
+      }
+      else if(nextLine.contains("const [formFields, setFormFields]"))
+      {
+        out.println("const [formFields, setFormFields] = useState(["+formattedInputs+"])");
       }
       else if(nextLine.contains("<div class=\"App\">"))
       {
