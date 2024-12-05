@@ -93,7 +93,7 @@ function App() {
                       /></div>
 
                     <div class="buttons">
-                      <button class="save" onClick={() => removeFields(index)}> Save </button>
+                      <button class="save"> Save </button>
                       <button class="remove" onClick={() => removeFields(index)}> Remove </button>
                     </div>
                     <div class="batch-number">Batch Number: {index + 1}</div>
