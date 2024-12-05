@@ -86,7 +86,7 @@ form button:hover {
 {
     display:flex;
     position:absolute;
-    margin-top:-10vh;
+    margin-top:-5vh;
     padding: 2%;
     font-size: 2em;
     font-weight: bold;

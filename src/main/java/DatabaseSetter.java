@@ -226,6 +226,30 @@ public class DatabaseSetter
         }
 	}
 
+    public static void updateSupplier(Supplier supplier)
+	{
+		System.out.println("Update supplier into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for supplier
+            
+            statement.execute("UPDATE Supplier SET name = '" + supplier.getName() + 
+            "', phoneNumber = '" + supplier.getPhoneNumber() + 
+            "', email = '" + supplier.getEmail() + 
+            "', address = '" + supplier.getAddress() + "' WHERE supplierID = " + supplier.getID() + ";");
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
     // DELETE METHODS
     public static void deleteProduct(Product product)
 	{
@@ -301,6 +325,25 @@ public class DatabaseSetter
 
             // Delete query for recipeIngredient
             statement.execute("DELETE FROM recipeIngredient WHERE productID = " + productID + ";");
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    public static void deleteSupplier(int supplierID)
+	{
+		System.out.println("Delete supplier from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for recipeIngredient
+            statement.execute("DELETE FROM supplier WHERE supplierID = " + supplierID + ";");
         }
         
         catch(Exception e)

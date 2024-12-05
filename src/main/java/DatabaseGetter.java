@@ -152,6 +152,28 @@ public class DatabaseGetter
             return false;
         }
     }
+
+    public static boolean checkForDuplicateSupplier(String name)
+    {
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM Supplier");
+            while(results.next())
+            {
+                String n = results.getString("name");
+                if(name.equalsIgnoreCase(n))
+                    return false;
+            }
+            return true;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
     
     public static ArrayList<Product> getProducts()
     {
@@ -456,9 +478,9 @@ public class DatabaseGetter
                 String name = results.getString("name");
                 String phoneNumebr = results.getString("phoneNumber");
                 String email = results.getString("email");
-                String description = results.getString("description");
+                String address = results.getString("address");
 
-                return new Supplier(name, phoneNumebr, email, description);
+                return new Supplier(id, name, phoneNumebr, email, address);
             }
                 
             return null;

@@ -48,7 +48,7 @@ public class SupplierServlet extends HttpServlet {
                                 "                        <div><strong>Address:</strong> " + supplier.getAddress() + "</div>\r\n" + //
                                 "                    </div>\r\n" + //
                                 "                    <div class=\"buttons\">\r\n" + //
-                                "                        <button onclick=\"location.href='editSupplier.html'\" class=\"edit-button\">Edit</button><br/>\r\n" + //
+                                "                        <button onclick=\"location.href='editSupplier.html?supplierID="+supplier.getID()+"'\" class=\"edit-button\">Edit</button><br/>\r\n" + //
                                 "                    </div>\r\n" + //
                                 "                </div>";
             out.println(resultBoxHtml);

@@ -46,9 +46,9 @@ public class EditIngredientServlet extends HttpServlet {
       name=null;
       description=null;
       photoFile=null;
-      pname = null;
-      pdescription = null;
-      pstorageInstructions = null;
+      pname = "";
+      pdescription = "";
+      pstorageInstructions = "";
     }
     // Populate fields with current data
     else

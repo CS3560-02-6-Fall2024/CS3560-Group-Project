@@ -78,7 +78,7 @@ public class AddSupplierServlet extends HttpServlet {
     {
       return "Missing address.";
     }
-    if(!DatabaseGetter.checkForDuplicateProducts(name))// CHANGE THIS
+    if(!DatabaseGetter.checkForDuplicateSupplier(name))// CHANGE THIS
     {
       return "Duplicate supplier found.";
     }
