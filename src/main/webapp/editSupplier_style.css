@@ -1,24 +1,84 @@
+/* General Page Layout */
 body {
     font-family: sans-serif;
     background-color: #d3cbc4;
-    overflow-y: hidden;
-    margin-left: 18%;
 }
 
 /* Header Section */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1%;
-    margin-right: 7%;
-    margin-top: 1%;
+    padding: 20px;
+    background-color: #d3cbc4; 
+    color: #453836; 
+    font-size: 2.5em;
+    font-weight: bold;
 }
 
 .back-link {
+    margin-left: 17%;
     color: #453836;
-    font-size: 2.5em;
+    font-size: 0.75em;
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
 }
+
+/* Main Content Area */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2%; 
+    margin-left: 12%;
+}
+
+/* Form Container */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 2%;
+    background-color: #453836;
+    border-radius: 1%;
+    min-width: 600px;
+    max-width: 800px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+/* Form Labels */
+form label {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #F3F3F3;
+    display: block;
+}
+
+/* Input Fields */
+input[type="text"] {    
+    padding: 2%;      
+    border-radius: 15px;
+    border: none;
+    background-color: #f3f3f3;
+    color: #706661;
+    font-size: 1em;
+}
+
+/* Submit Button Styling */
+form button {
+    width: 30%; 
+    padding: 2%; 
+    border: none;
+    border-radius: 5px;
+    background-color: #6b4f47; 
+    color: white;
+    font-size: 16px; 
+    cursor: pointer;
+    margin: 10px auto; 
+    display: block; 
+}
+
+form button:hover {
+    background-color: #8c6757;
+}
+
