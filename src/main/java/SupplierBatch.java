@@ -1,17 +1,15 @@
 import java.util.ArrayList;
 
-public class SupplierBatch 
+public class SupplierBatch extends Batch
 {
-    private static int idCounter = 1; //used for pk
-
-    //i am not used to new line bracklet lo
-    private static ArrayList<SupplierBatch> everySupplierBatch = new ArrayList<>();
-
+    
+    public static ArrayList<SupplierBatch> everySupplierBatch = new ArrayList<>();
+    public static int idCounter = 1;
     private int supplierBatchId;
     private int supplierId;
     private int ingredientId;
     private float batchPrice;
-    //expirationDate; do we need this?
+
 
     /**
      * Make new SupplierBatch
@@ -25,6 +23,7 @@ public class SupplierBatch
         ingredientId = _ingredientId;
         batchPrice = _batchPrice;
         everySupplierBatch.add(this);
+       
     }
     
     /**
@@ -53,13 +52,43 @@ public class SupplierBatch
         return batchPrice;
     }
 
-    /**
-     * Removes the given SupplierBatch from data
-     * @param reqingredientId The ID of the SupplierBatch
-     */
-    public boolean removeSupplierBatch(int reqSupplierBatch)
+    
+    //Abstract methods
+
+	// Removes from this batch's quantity after using "amount" number of items
+	// Pseduo code
+	// if quantity - amount < 0, we don't have enough products in this batch, search for other batches with this item
+	// quantity = quantity - amount
+	// if quantity = 0, remove/ notify to remove batch
+    @Override
+	public void removeFromBatch(int _amount)
     {
-        throw new UnsupportedOperationException("NOT YET IMPLEMENTED!!!");
+        throw new UnsupportedOperationException();
+    }
+
+	// Adds to this batch's quantity after using "amount" number of items
+	// Used to fix batch information when a batch is incorrectly entered into the system
+    @Override
+	public void addToBatch(int _amount)
+    {
+
+        throw new UnsupportedOperationException();
+    };
+
+	// Delete this batch
+	// Returns true if deletion is sucessful, false otherwise
+    @Override
+	public boolean deleteBatch(int _batchID)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+	// Search for a batch by ingredientID
+	// returns: a list of Batches that have that lookupID
+    @Override
+	public ArrayList<Batch> searchForBatch(int _lookupID)
+    {
+        throw new UnsupportedOperationException();
     }
 
 }
