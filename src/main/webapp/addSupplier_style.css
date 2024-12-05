@@ -6,12 +6,20 @@ body {
 
 /* Header Section */
 header {
-    text-align: center;
     padding: 20px;
     background-color: #d3cbc4; 
     color: #453836; 
     font-size: 2.5em;
     font-weight: bold;
+}
+
+.back-link {
+    margin-left: 200px;
+    color: #453836;
+    font-size: 0.75em;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* Main Content Area */
