@@ -69,11 +69,12 @@ body {
   
   /* Result Backdrop */
   .result-grid {
+    margin-top: 3%;
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap:2%;
-    padding:2%;
+    gap: 2%;
+    grid-template-columns: 1fr 1fr;
+    padding: 2%;
     scrollbar-width: none; 
     white-space: nowrap;   
     overflow-x: hidden;      
@@ -89,65 +90,44 @@ body {
   /* Result Box Components */
   .result-box {
     display: flex;
-    flex-direction: column;
     gap: 1%;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: #D9D9D9;
     border-radius: 20px;
-    height: 35vh;
-    min-height: 250px;
+    height: 20vh;
+    min-height: 180px;
+    border: 0.2rem solid transparent;
   }
-  
-  .product-ID {
+
+  .result-box:hover {
+    border: 0.2rem solid #453836;
+  }
+
+  .supplier-info {
     color: #453836;
-    font-size: 1.5em;
-    font-weight: bold;
+    font-size: 1.3em;
     font-family: sans-serif;
-    margin-bottom: 1%;
+    margin-left: 5%;
   }
-  
-  img {
-    height: 18vh;
-    width: 13vw;
-    object-fit: cover;
-    border: 3px solid #F3F3F3;
-    border-radius: 20px;
-    margin-bottom: 5px;
+
+  .supplier-info div {
+    margin: 2%;
   }
-  
-  .product-name {
-    color: #453836;
-    font-size: 1.5em;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1%;
-  }
-  
-  .batch-quantity{
-    color: #453836;
-    font-size: 1em;
-    font-family: sans-serif;
-    margin-bottom: 1%;
-  }
-  
+
   .buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-right: 4%;
+    margin-bottom: 20%;
   }
   
   .edit-button {
+    font-size: 1.5em;
     background-color: #453836;
     color: #F3F3F3;
-    width: 5vw;
-    min-width: 80px;
-    min-height: 20px;
-    height: 3vh;
+    padding: 0.5em;
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    margin: 2%;
   }
   .edit-button:hover {
     background-color: #7d7271 ;
@@ -173,29 +153,9 @@ body {
     .addSupplier{
       font-size: .7em;
     }
-  
-    /* Results */
-    .result-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-      
-    }
+
     .result-box {
       min-width: 220px;
-    }
-    .product-name {
-      font-size: 1.2em;
-    }
-    
-    .batch-quantity{
-      font-size: 1em;
-    }
-  
-    .edit-button {
-      width: 5vw;
-      min-width: 65px;
-      height: 3vh;
-      font-size: 0.75em;
-      margin: 1%;
     }
   
   }
@@ -205,10 +165,5 @@ body {
     .search-bar input[type=text] {
       font-size: 1em;
     }
-  
-    /* Results */
-    .result-grid {
-      grid-template-columns: 1fr 1fr;
-      
-    }
+
   }
