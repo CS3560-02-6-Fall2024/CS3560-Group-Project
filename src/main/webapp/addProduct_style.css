@@ -108,23 +108,33 @@ label {
 
 /* Product Name Styling */
 .product-name {
-    margin-bottom: 6%; 
+    margin-bottom: 3%; 
 }
 
 .product-name label {
-    font-size: 2em; 
+    font-size: 1.75em; 
     font-weight: bold;
     color: #F3F3F3; 
 }
 
 .price label {
-    font-size: 2em; 
+    font-size: 1.75em; 
     font-weight: bold;
     color: #F3F3F3; 
 }
 
-input[type="text"], input[type="number"]  {
-    padding: 3%;
+input[type="text"]  {
+    padding: 2.2%;
+    color: #706661;
+    border: 0px;
+    width: 90%; 
+    outline: none;
+    border-radius: 15px;
+}
+input[type="number"] {
+    padding-left: 2.5%;
+    padding-right: 1.5%;
+    height:2.5em;
     color: #706661;
     border: 0px;
     width: 90%; 
@@ -134,7 +144,7 @@ input[type="text"], input[type="number"]  {
 
 /* Description Styling */
 .description label {
-    font-size: 2em;
+    font-size: 1.75em;
     margin-bottom: 5px; 
     font-weight: bold;
     color: #F3F3F3;
@@ -219,8 +229,18 @@ input[type="file"] {
 }
 
 .ingredient-row .top-row input[type="text"] {
+    padding-left: 5%;
     border-radius: 15px;
     height: 2.5em; 
+    background-color: #f3f3f3;
+    color: #796f6b;
+    border: none;
+    outline: none;
+}
+.ingredient-row .top-row input[type="number"] {
+    padding-left: 5%;
+    border-radius: 15px;
+    height: 2.8em; 
     background-color: #f3f3f3;
     color: #796f6b;
     border: none;
@@ -284,7 +304,7 @@ select {
     outline: none;
     border-radius: 15px;
     background-color: #F3F3F3;
-    font-size: 1em;
+    font-size: 0.9em;
     font-family: sans-serif;
     cursor: pointer;
     border: 2px solid transparent;
@@ -301,7 +321,7 @@ select:focus {
 option {
     color: #706661;
     background-color: #F3F3F3;
-    font-size: 1em;
+    font-size: 0.9em;
     font-family: sans-serif;
 }
 
@@ -322,7 +342,7 @@ option {
 
     /* Ingredients Section Styling */
     .ingredients {
-        height: 35vh;
+        height: 49vh;
         margin-bottom: 2vh;
     }
 

@@ -3,20 +3,26 @@
     <head>
         <title> Edit Supplier </title>
         <link rel="stylesheet" href="editSupplier_style.css">
-        <link rel="stylesheet" href="side_nav.css">
-    </head>
+        <link rel="stylesheet" href="sidenav.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+        <script crossorigin type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+        </head>
     <body>
+    
         <!-- Side Navigation -->
-        <nav class="sidebar">
+        <nav class="sidebar" id="sidebar">
             <div>
-                <button onclick="location.href='home.html'" class="button">Home</button><br/>
-                <button onclick="location.href='search.html'" class="button">Search</button><br/>
-                <button onclick="location.href='add.html'" class="button">Add</button><br/>
-                <button onclick="location.href='suppliers.html'" class="button">Suppliers</button><br/>
+                <button onclick="location.href='home.html'"><i class="fa fa-home"></i> Home</button><br/>
+                <button onclick="location.href='search.html'">Search</button><br/>
+                <button onclick="location.href='add.html'">Add</button><br/>
+                <button onclick="location.href='order.html'">Order</button><br/>
+                <button onclick="location.href='supplier.html'">Suppliers</button><br/>
             </div>
         </nav>
         <header>
-            <a href="suppliers.html" class="back-link">← Back to Search</a>
+            <a href="supplier.html" class="back-link">← Back to Search</a>
         </header>
         <div> will fill once add supplier is completed</div>
     </body>

@@ -281,6 +281,36 @@ public class DatabaseGetter
         }
     }
 
+    public static Ingredient getIngredientFromID(int id)
+    {
+        System.out.println("Getting Image...");
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM ingredient INNER JOIN Item ON ingredient.itemID=item.itemID WHERE ingredient.itemID=" + id +";");
+            
+            //System.out.println("IMAGE ROW: " + results.getRow() + " ID " + id + " IS BEFORE FIRST" + results.isBeforeFirst());
+            
+            // if the ResultSet is not empty then get the imagePath
+            if(results.next())
+            {
+                //get result info (reads the column name in get string)
+                int ingredientID = results.getInt("itemID");
+                String name = results.getString("name");
+                String description = results.getString("description");
+                String storageInstructions = results.getString("storageInstructions");
+                return new Ingredient(ingredientID, name, storageInstructions, description);
+            }
+            return null;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     public static String getImageFromID(int id)
     {
@@ -334,35 +364,6 @@ public class DatabaseGetter
             return null;
         }
 
-    }
-
-    public static Ingredient getIngredientFromID(int id)
-    {
-        System.out.println("Getting Ingredient...");
-        try 
-        {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
-            Statement statement = connection.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM ingredient INNER JOIN Item ON Ingredient.itemID=item.itemID WHERE ingredient.itemID=" + id +";");
-            
-            //System.out.println("IMAGE ROW: " + results.getRow() + " ID " + id + " IS BEFORE FIRST" + results.isBeforeFirst());
-            
-            // if the ResultSet is not empty then get the imagePath
-            if(results.next())
-            {
-                //get result info (reads the column name in get string)
-                String name= results.getString("name");
-                String storageInstructions = results.getString("storageInstructions");
-                String description = results.getString("description");
-                return new Ingredient(name, storageInstructions, description);
-            }
-            return null;
-        }
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-            return null;
-        }
     }
     
 }

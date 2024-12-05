@@ -3,16 +3,22 @@
     <head>
         <title> Edit Ingredient </title>
         <link rel="stylesheet" href="editIngredient_style.css">
-        <link rel="stylesheet" href="side_nav.css">
-    </head>
+        <link rel="stylesheet" href="sidenav.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+        <script crossorigin type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+        </head>
     <body>
+    
         <!-- Side Navigation -->
-        <nav class="sidebar">
+        <nav class="sidebar" id="sidebar">
             <div>
-                <button onclick="location.href='home.html'" class="button">Home</button><br/>
-                <button onclick="location.href='search.html'" class="button">Search</button><br/>
-                <button onclick="location.href='add.html'" class="button">Add</button><br/>
-                <button onclick="location.href='suppliers.html'" class="button">Suppliers</button><br/>
+                <button onclick="location.href='home.html'"><i class="fa fa-home"></i> Home</button><br/>
+                <button onclick="location.href='search.html'">Search</button><br/>
+                <button onclick="location.href='add.html'">Add</button><br/>
+                <button onclick="location.href='order.html'">Order</button><br/>
+                <button onclick="location.href='supplier.html'">Suppliers</button><br/>
             </div>
         </nav>
 
@@ -20,42 +26,40 @@
         <div class="content">
            <!-- Header with back and save-->
             <div class="header">
-                <a href="add.html" class="back-link">← Back to Selection</a>
+                <a href="search.html" class="back-link">&larr; Back to Selection</a>
                 <div class="hButtons">
-                    <button class="hbutton">Save Changes</button>
-                    <button class="hbutton">Remove Item</button>
+                    <button type="submit" form="form" name="save" value="true" class="hbutton">Save Changes</button>
+                    <button type="submit" form="form" name="delete" value="true" class="hbutton">Remove Item</button>
                 </div>
             </div>
 
+            <!-- Message Handling -->
+            <div class="message" style="color:green">Test</div>
+
             <!-- Form Layout-->
-             <div class="form">
+             <form class="form" id="form">
                 <div class="left-side">
                     <div class="fieldLabel">
                         <label>* Ingredient Name</label>
-                        <input type="text" id="product-name" placeholder="Enter here">
+                        <input type="text" id="product-name" placeholder="Enter here" name="ingredientName">
                     </div>
                     <div class="fieldLabel">
-                        <label for="price">Price</label>
-                        <input type="number" step="0.01" value="0.00" name="price">
+                        <label for="price">storageInstructions</label>
+                        <input type="text" name="storageInstructions">
                     </div>
                     
                     <div class="fieldLabel">
-                        <label>Supplier</label>
-                        <input type="text" id="product-name" placeholder="Enter here">
-                    </div>
-
-                    <div class="fieldLabel">
                         <label>Description</label>
-                        <input type="text" style="padding-bottom: 14em;" placeholder="Enter here">
+                        <input type="text" style="padding-bottom: 14em;" placeholder="Enter here" name="ingredientDescription">
                     </div>
                 </div>
                 <div class="right-side">
                     <!-- <button class="add-photo">+</button> -->
                     <label for="file-upload" class="add-photo">+</label>
-                    <input type = "file" id="file-upload" class="add-photo">
+                    <input type = "file" id="file-upload" class="add-photo" name="photoFile">
                     <label for="add-photo" class="add-photo-label">Add Photo</label>
                 </div>
-            </div> 
+            </form> 
         </div>
     </body>
 </html>

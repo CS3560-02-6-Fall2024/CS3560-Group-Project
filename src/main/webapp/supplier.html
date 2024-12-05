@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Search </title>
+        <title> Suppliers </title>
+        <link rel="stylesheet" href="supplier_style.css">
         <link rel="stylesheet" href="sidenav.css">
-        <link rel="stylesheet" href="searchstyle.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
         <script crossorigin type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-        </head>
+    </head>
     <body>
     
         <!-- Side Navigation -->
@@ -21,6 +21,7 @@
                 <button onclick="location.href='supplier.html'">Suppliers</button><br/>
             </div>
         </nav>
+    
         <!-- Search Bar -->
         <div class="center">
             <div class="search">
@@ -28,21 +29,25 @@
                     <input type="text" placeholder="Search...">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </div>
+                <button class ="addSupplier" type="button" onclick="location.href='addSupplier.html'">
+                    <i class="fa fa-plus"></i>
+                    <div>Add Supplier</div>
+                </button>
             </div>
-
             <div class="result-grid">
                 <!-- This is the code for the individual result boxes -->
-                <!-- START RESULT BOX -->
-                <div class="result-box">
-                    <div class="product-ID"> #892JFI123 </div>
-                    <img src="Images/turkey.jpg" alt="No Image">
-                    <div class="product-name"> Strawberry Croissant </div>
-                    <div class="batch-quantity"> Number of batches: 64  </div>
+                 <!-- START RESULT BOX -->
+                 <div class="result-box">
+                    <div class="supplier-info">
+                        <div>Supplier Name: ABC Supplies</div>
+                        <div>Phone: 123-456-7890</div>
+                        <div>Email: abc@supplies.com</div>
+                        <div>Address: 123 Supply St, Supply City</div>
+                    </div>
                     <div class="buttons">
-                        <button onclick="location.href='editProduct.html'" class="edit-button">Edit Item</button><br/>
-                        <button onclick="location.href='editBatch.html'" class="edit-button">Edit Batch</button><br/>
-                        <button onclick="location.href='info.html'" class="edit-button">Info</button><br/>
-                    </div>               
+                        <button onclick="location.href='editSupplier.html'" class="edit-button">Edit</button><br/>
+                        <button onclick="location.href='order.html'" class="edit-button">Order</button><br/>
+                    </div>
                 </div>
                 <!-- END RESULT BOX -->
             </div>

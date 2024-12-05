@@ -160,3 +160,11 @@ input[type="file"]
     margin-bottom: 2%;
 }
 
+.message {
+    position: absolute;
+    padding: 2%;
+    font-size: 2em;
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+}

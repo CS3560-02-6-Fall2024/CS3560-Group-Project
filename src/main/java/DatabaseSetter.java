@@ -1,5 +1,6 @@
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DatabaseSetter 
 {
@@ -15,6 +16,7 @@ public class DatabaseSetter
      //If you put a password for the MySQL server put it here
     static final String PASSWORD = "12bucklemyshoe";
    
+    // INSERT METHODS
     public static void insertImage(Image image)
     {
         System.out.println("Adding image into database...");
@@ -117,4 +119,167 @@ public class DatabaseSetter
         }
 	}
 
+    // UPDATE METHODS
+    public static void updateProduct(Product product)
+	{
+		System.out.println("Update product into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for Item
+            statement.execute("UPDATE Item SET name = '" + product.getName() + "', description = '" + product.getDescription() + "' WHERE itemID = " + product.getItemID() + ";");
+
+            // Insert query for product
+			statement.execute("UPDATE Product SET standardPrice = " + product.getPrice() + " WHERE itemID = " + product.getItemID() + ";");
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    public static void updateIngredient(Ingredient ingredient)
+	{
+		System.out.println("Update ingredient into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for Item
+            statement.execute("UPDATE Item SET name = '" + ingredient.getName() + "', description = '" + ingredient.getDescription() + "' WHERE itemID = " + ingredient.getItemID() + ";");
+
+            // Insert query for ingredient
+			statement.execute("UPDATE Ingredient SET storageInstructions = " + ingredient.getStorageIntructions() + " WHERE itemID = " + ingredient.getItemID() + ";");
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    public static void updateRecipe(Product product, ArrayList<RecipeIngredient> ingredients)
+	{
+		System.out.println("Update recipe into database...");
+        deleteRecipeIngredient(product.getItemID());
+
+        for (RecipeIngredient recipeIngredient : ingredients) 
+        {
+            insertRecipeIngredient(recipeIngredient);
+        }
+	}
+
+    public static void updateImage(Image image)
+	{
+		System.out.println("Update image into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Insert query for Item
+            // if image is null, insert image
+            DatabaseSetter.insertImage(image);
+            
+            statement.execute("UPDATE Image SET itemID = '" + image.getItemID() + "', imagePath = '" + image.getPath() + "' WHERE itemID = " + image.getItemID() + ";");
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
+    // DELETE METHODS
+    public static void deleteProduct(Product product)
+	{
+		System.out.println("Delete product from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for recipeIngredient
+            statement.execute("DELETE FROM recipeIngredient WHERE productID = " + product.getItemID() + ";");
+
+            // Delete query for image
+            statement.execute("DELETE FROM image WHERE itemID = " + product.getItemID() + ";");
+
+            // Delete query for product
+			statement.execute("DELETE FROM product WHERE itemID = " + product.getItemID() + ";");
+
+            // Delete query for Item
+            statement.execute("DELETE FROM item WHERE itemID = " + product.getItemID() + ";");
+
+            
+
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+    
+    public static void deleteIngredient(Ingredient ingredient)
+	{
+		System.out.println("Delete ingredient from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for recipeIngredient
+            statement.execute("DELETE FROM recipeIngredient WHERE ingredientID = " + ingredient.getItemID() + ";");
+
+            // Delete query for image
+            statement.execute("DELETE FROM image WHERE itemID = " + ingredient.getItemID() + ";");
+
+            // Delete query for product
+			statement.execute("DELETE FROM ingredient WHERE itemID = " + ingredient.getItemID() + ";");
+
+            // Delete query for Item
+            statement.execute("DELETE FROM item WHERE itemID = " + ingredient.getItemID() + ";");
+
+            
+
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+    public static void deleteRecipeIngredient(int productID)
+	{
+		System.out.println("Delete product from database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+            // Delete query for recipeIngredient
+            statement.execute("DELETE FROM recipeIngredient WHERE productID = " + productID + ";");
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
 }
