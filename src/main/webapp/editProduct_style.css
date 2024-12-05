@@ -307,6 +307,10 @@ option {
 }
 
 @media screen and (max-width: 1400px) {
+    .content {
+        margin-left: 22%;
+    }
+
     .form {
         border-radius: 1%;
     }
