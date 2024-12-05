@@ -22,3 +22,13 @@ a {
     color: #453836;
 }
 
+@media screen and (max-width: 1400px) {
+    a {
+        padding-left: 10%;
+    }
+
+    .container {
+        padding-left: 10%;
+    }
+  
+  }
