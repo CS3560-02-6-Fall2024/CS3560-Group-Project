@@ -155,9 +155,9 @@ public class EditIngredientServlet extends HttpServlet {
       // Check for photo file (optional file)
       if(photoFile != null && !photoFile.equals(""))
       {
-        DatabaseSetter.insertImage(new Image(ingredient.getItemID(), photoFile));
+        DatabaseSetter.updateImage(new Image(ingredient.getItemID(), photoFile));
       }
-      return "Ingredient added successfully";
+      return "Ingredient updated successfully";
     }
     return "Something went wrong";
   }

@@ -238,7 +238,7 @@ public class DatabaseSetter
             statement.execute("UPDATE Item SET name = '" + ingredient.getName() + "', description = '" + ingredient.getDescription() + "' WHERE itemID = " + ingredient.getItemID() + ";");
 
             // Insert query for ingredient
-			statement.execute("UPDATE Ingredient SET storageInstructions = " + ingredient.getStorageIntructions() + " WHERE itemID = " + ingredient.getItemID() + ";");
+			statement.execute("UPDATE Ingredient SET storageInstructions = '" + ingredient.getStorageIntructions() + "' WHERE itemID = " + ingredient.getItemID() + ";");
 
         }
         
