@@ -108,7 +108,7 @@ public class SupplierBatch extends Batch
         {
             quantity -= _amount;
         }
-        throw new UnsupportedOperationException();
+        
     }
 
 	// Adds to this batch's quantity after using "amount" number of items

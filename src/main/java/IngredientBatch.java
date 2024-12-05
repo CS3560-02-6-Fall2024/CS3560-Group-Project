@@ -8,11 +8,12 @@ public class IngredientBatch extends Batch
     public String dateAdded;
 
     // Constructor for IngredientBatch
-    public IngredientBatch(int _ingredientID, int _supplierID)
+    public IngredientBatch(int _ingredientID, int _supplierID, String _dateAdded)
     {
         ingredientID = _ingredientID;
         ingredientID++;
         supplierID = _supplierID;
+        dateAdded = _dateAdded;
     }
 
     // returns true if the quantity of this batch is below the reorder threshold
@@ -29,17 +30,35 @@ public class IngredientBatch extends Batch
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    // Implement abstract methods
+    public int getIngredientId()
+    {
+        return ingredientID;
+    }
+
+    // IAbstract methods
     @Override
     public void removeFromBatch(int _amount) 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        int remainingQuanity = quantity - _amount;
+
+        if (remainingQuanity < 0) //if the current batch doesn't have enough
+        {
+            quantity = 0; //set own quantity to 0
+            
+          
+            
+        }
+        else //if you can take away and it still be avalible
+        {
+            quantity -= _amount;
+        }
     }
 
     @Override
     public void addToBatch(int _amount) 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (_amount > 0)
+            quantity += _amount;
     }
 
     @Override
@@ -49,6 +68,17 @@ public class IngredientBatch extends Batch
 
     @Override
     public ArrayList<Batch> searchForBatch(int _ingredientID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("So how does this work o_");
+        /*
+        ArrayList<Batch> returnArray = new ArrayList<>();
+
+        for (SupplierBatch supplierBatch : everySupplierBatch)
+        {
+            if (supplierBatch.getIngredientId() == _lookupID)
+                returnArray.add(supplierBatch);
+        }
+
+        return returnArray;
+        */
     }
 }
