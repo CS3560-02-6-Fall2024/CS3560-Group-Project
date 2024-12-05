@@ -108,7 +108,7 @@ label {
 
 /* Product Name Styling */
 .product-name {
-    margin-bottom: 6%; 
+    margin-bottom: 3%; 
 }
 
 .product-name label {
@@ -124,7 +124,7 @@ label {
 }
 
 input[type="text"], input[type="number"]  {
-    padding: 3%;
+    padding: 2.20%;
     color: #706661;
     border: 0px;
     width: 90%; 
@@ -230,7 +230,7 @@ input[type="file"] {
 .ingredient-row .bottom-row .remove {
     margin-top: 1%;   
     color: #4d413e;
-    font-size: .9rem;
+    font-size: .8rem;
     font-weight:lighter;
     background-color: transparent;
     background-repeat: no-repeat;
@@ -284,7 +284,7 @@ select {
     outline: none;
     border-radius: 15px;
     background-color: #F3F3F3;
-    font-size: 1em;
+    font-size: 0.9em;
     font-family: sans-serif;
     cursor: pointer;
     border: 2px solid transparent;
@@ -301,7 +301,7 @@ select:focus {
 option {
     color: #706661;
     background-color: #F3F3F3;
-    font-size: 1em;
+    font-size: 0.9em;
     font-family: sans-serif;
 }
 
@@ -322,7 +322,7 @@ option {
 
     /* Ingredients Section Styling */
     .ingredients {
-        height: 35vh;
+        height: 43vh;
         margin-bottom: 2vh;
     }
 
