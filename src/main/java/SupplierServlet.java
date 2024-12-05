@@ -45,19 +45,16 @@ public class SupplierServlet extends HttpServlet {
                 // Add results box n times into the page
                 for(SupplierBatch supplierBatch : supplierBatchArray)
                 {
-
                     
-                    // until ben gets up the company batch thingy i will put mock data
-                    //TODO: updateh when it done
-                    String price = "$123.20"; // use the getter for supplierBatch when implemented into database
+                    String price = String.valueOf(supplierBatch.getBatchPrice()); // use the getter for supplierBatch when implemented into database
                     int ingredientID = supplierBatch.getIngredientId();
                     Ingredient ingredient = DatabaseGetter.getIngredientFromID(ingredientID);
                     String ingredientName = ingredient.getName(); // use product.getName()
-
+                    String imagePath = DatabaseGetter.getImageFromID(ingredientID);
                     
                     String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
                     "                    <div class=\"product-ID\"> #P" + price + "</div>\r\n" + //
-                    "                    <div class=\"image\"><img src=\"Images/" + DatabaseGetter.getImageFromID(ingredientID) + "\" alt=\"No Image\"></div>\r\n" + //
+                    "                    <div class=\"image\"><img src=\"Images/" + imagePath + "\" alt=\"No Image\"></div>\r\n" + //
                     "                    <div class=\"product-name\">" + ingredientName + "</div>\r\n" + //
                     "                    <div class=\"buttons\">\r\n" + //
                     "                        <button onclick=\"location.href='order.html'\" class=\"edit-button\">Order</button>" + //
@@ -65,7 +62,6 @@ public class SupplierServlet extends HttpServlet {
                     "                    </div>               \r\n" + //
                     "                </div>";
                       out.println(resultBoxHtml);
-
 
                 }
             }
