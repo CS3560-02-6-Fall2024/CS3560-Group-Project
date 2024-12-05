@@ -196,13 +196,44 @@ public class DatabaseGetter
             {
                 //get result info (reads the column name in get string)
                 int batchNumber = results.getInt("batchNumber");
-                int quantity= results.getInt("quantity");
+                float quantity= results.getFloat("quantity");
                 String units = results.getString("units");
                 String expirationDate= results.getString("expirationDate");
                 int supplierID = results.getInt("supplierID");
                 int itemID= results.getInt("itemID");
                 float price = results.getFloat("batchPrice");
                 batches.add(new SupplierBatch(batchNumber, quantity, units, expirationDate, supplierID, itemID, price));
+            } 
+            return batches;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        
+    }
+
+    // Gets all batches from this ingredient
+    public static ArrayList<Batch> getIngredientBatches(int ingredientID)
+    {
+        try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ArrayList<Batch> batches = new ArrayList<Batch>();
+            // READ QUERY FOR ingredient, TESTING
+            ResultSet results = statement.executeQuery("SELECT * FROM IngredientBatch INNER JOIN Batch ON ingredientBatch.batchNumber=batch.batchNumber WHERE itemID = " + ingredientID + ";");
+            while (results.next())
+            {
+                //get result info (reads the column name in get string)
+                int batchNumber = results.getInt("batchNumber");
+                float quantity= results.getFloat("quantity");
+                String units = results.getString("units");
+                String expirationDate= results.getString("expirationDate");
+                String creationDate= results.getString("dateAdded");
+                batches.add(new IngredientBatch(batchNumber, quantity, units, creationDate, expirationDate));
             } 
             return batches;
         }

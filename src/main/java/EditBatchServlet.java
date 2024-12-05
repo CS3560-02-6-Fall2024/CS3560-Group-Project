@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,10 +10,39 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/editBatch.html")
-public class EditProductBatchServlet extends HttpServlet {
+public class EditBatchServlet extends HttpServlet {
     @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
+    	// Get parameters
+	
+    String itemID = request.getParameter("itemID");
+    boolean product = itemID.substring(0,1).equals("P");
+    int id = Integer.parseInt(itemID.substring(1));
+
+    // Parameters we are going to use to populate page
+
+    String name = "";
+    String description = "";
+    ArrayList<Batch> batches;
+    // If the item is a product
+    if(product)
+    {
+      Product prod = DatabaseGetter.getProductFromID(id);
+      name = prod.getName();
+      description = prod.getDescription();
+      batches = new ArrayList<Batch>();
+    }
+    // else if the item is an ingredient
+    else
+    {
+      Ingredient ingredient = DatabaseGetter.getIngredientFromID(id);
+      name = ingredient.getName();
+      description = ingredient.getDescription();
+      batches = DatabaseGetter.getIngredientBatches(id);
+    }
+
+
     // Render html page (just copies the html of the page that you are using)
     File html = new File(System.getProperty("user.dir") + "/src/main/webapp/editBatch.html");
     Scanner scan = new Scanner(html, "UTF-8");
@@ -23,12 +51,29 @@ public class EditProductBatchServlet extends HttpServlet {
     while(scan.hasNextLine())
     {
       String nextLine = scan.nextLine();
-      out.println(nextLine);
+      if(nextLine.contains("div class=\"head\""))
+      {
+        out.println("<div class=\"head\"> " + name + " </div>");
+      }
+      else if(nextLine.contains("div class=\"batchNum\""))
+      {
+        out.println("<div class=\"batchNum\"> Number of Batches: " + batches.size() + " </div>");
+      }
+      else if(nextLine.contains("<div class=\"App\">"))
+      {
+        out.println(nextLine);
+      }
+      else
+      {
+        out.println(nextLine);
+      }
+      
     }
     System.out.println("Edit Batch");
     scan.close();
-    
   }
+
+  
 
   // @Override
   // public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

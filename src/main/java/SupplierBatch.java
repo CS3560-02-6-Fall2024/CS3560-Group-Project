@@ -12,7 +12,7 @@ public class SupplierBatch extends Batch
      * @param _supplierId The Supplier ID
      * @param _ingredientId The Ingredient ID
      */
-    public SupplierBatch(int quantity, String units, String expirationDate, int _supplierId, int _ingredientId, float _batchPrice)
+    public SupplierBatch(float quantity, String units, String expirationDate, int _supplierId, int _ingredientId, float _batchPrice)
     {
         batchNumber = DatabaseGetter.getLastBatchNumber() + 1;
         this.quantity= quantity;
@@ -24,7 +24,7 @@ public class SupplierBatch extends Batch
        
     }
 
-    public SupplierBatch(int batchNumber, int quantity, String units, String expirationDate, int _supplierId, int _ingredientId, float _batchPrice)
+    public SupplierBatch(int batchNumber, float quantity, String units, String expirationDate, int _supplierId, int _ingredientId, float _batchPrice)
     {
         this.batchNumber = batchNumber;
         this.quantity= quantity;
@@ -62,7 +62,7 @@ public class SupplierBatch extends Batch
         return batchPrice;
     }
 
-    public int getQuantity(){
+    public float getQuantity(){
         return quantity;
     }
 
@@ -75,6 +75,17 @@ public class SupplierBatch extends Batch
     {
         return units;
     }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
+
     //Abstract methods
 
 	// Removes from this batch's quantity after using "amount" number of items
@@ -151,7 +162,7 @@ public class SupplierBatch extends Batch
     //     }
 
         // return hasDeletedID;
-        return -1;
+        return false;
         
     }
 
@@ -171,4 +182,5 @@ public class SupplierBatch extends Batch
         return returnArray;
     }
 
+    
 }
