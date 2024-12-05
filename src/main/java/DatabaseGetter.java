@@ -256,7 +256,7 @@ public class DatabaseGetter
                 String expirationDate= results.getString("expirationDate");
                 String creationDate= results.getString("dateAdded");
                 String status = results.getString("batchStatus");
-                batches.add(new IngredientBatch(batchNumber, quantity, units, creationDate, expirationDate, status));
+                batches.add(new IngredientBatch(batchNumber, quantity, units, creationDate, expirationDate, status, ingredientID));
             } 
             return batches;
         }
@@ -267,6 +267,39 @@ public class DatabaseGetter
         }
         
     }
+
+    // Gets all batches from this ingredient
+    public static ArrayList<Batch> getProductBatches(int productID)
+    {
+        try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ArrayList<Batch> batches = new ArrayList<Batch>();
+            // READ QUERY FOR ingredient, TESTING
+            ResultSet results = statement.executeQuery("SELECT * FROM ProductBatch INNER JOIN Batch ON productBatch.batchNumber=batch.batchNumber WHERE itemID = " + productID + ";");
+            while (results.next())
+            {
+                //get result info (reads the column name in get string)
+                int batchNumber = results.getInt("batchNumber");
+                float quantity= results.getFloat("quantity");
+                String units = results.getString("units");
+                String expirationDate= results.getString("expirationDate");
+                String creationDate= results.getString("dateAdded");
+                String status = results.getString("batchStatus");
+                batches.add(new ProductBatch(batchNumber, quantity, units, creationDate, expirationDate, status, productID));
+            } 
+            return batches;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        
+    }
+
     public static ArrayList<Ingredient> getIngredients()
     {
         try

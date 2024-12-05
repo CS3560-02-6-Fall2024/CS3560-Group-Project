@@ -15,31 +15,40 @@ public class EditBatchServlet extends HttpServlet {
     @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
-    	// Get parameters
-	
+    // Get parameters
+    String quantity = request.getParameter("quantity");
+    String unit = request.getParameter("unit");
+    String expirationDate = request.getParameter("expirationDate");
+    String creationDate = request.getParameter("creationDate");
+    String orderStatus = request.getParameter("orderStatus");
+    String batchID = request.getParameter("batchID");
+    boolean save = request.getParameter("save") != null;
+    boolean remove = request.getParameter("remove") != null;
+    boolean add = request.getParameter("add") != null;
+
+      
     String itemID = request.getParameter("itemID");
     boolean product = itemID.substring(0,1).equals("P");
     int id = Integer.parseInt(itemID.substring(1));
 
+    String message = verifyInput(quantity, unit, expirationDate, creationDate, orderStatus, save, remove, add, product, id, batchID);
+
     // Parameters we are going to use to populate page
 
     String name = "";
-    String description = "";
     ArrayList<Batch> batches;
     // If the item is a product
     if(product)
     {
       Product prod = DatabaseGetter.getProductFromID(id);
       name = prod.getName();
-      description = prod.getDescription();
-      batches = new ArrayList<Batch>();
+      batches = DatabaseGetter.getProductBatches(id);
     }
     // else if the item is an ingredient
     else
     {
       Ingredient ingredient = DatabaseGetter.getIngredientFromID(id);
       name = ingredient.getName();
-      description = ingredient.getDescription();
       batches = DatabaseGetter.getIngredientBatches(id);
     }
 
@@ -48,12 +57,14 @@ public class EditBatchServlet extends HttpServlet {
     for(int i = 0; i < batches.size(); i++)
     {
       Batch batch = batches.get(i);
-      formattedInputs.append("{ quantity: '" + batch.getQuantity() + "', unit:'" + batch.getUnits() + "', expirationDate: '" + batch.getExpirationDate() + "' , creationDate: '" + batch.getCreationDate() + "', orderStatus: '" + batch.getStatus() + "', batchID: '#" + batch.getBatchNumber() + "'}");
+      formattedInputs.append("{ quantity: '" + batch.getQuantity() + "', unit:'" + batch.getUnits() + "', expirationDate: '" + batch.getExpirationDate() + "' , creationDate: '" + batch.getCreationDate() + "', orderStatus: '" + batch.getStatus() + "', batchID: '#" + batch.getBatchNumber()  + "', saveButton: 'save'}");
       if(i != batches.size() - 1)
       {
         formattedInputs.append(",");
       }
     }
+
+    
     
     // Render html page (just copies the html of the page that you are using)
     File html = new File(System.getProperty("user.dir") + "/src/main/webapp/editBatch.html");
@@ -67,6 +78,16 @@ public class EditBatchServlet extends HttpServlet {
       {
         out.println("<div class=\"head\"> " + name + " </div>");
       }
+      // Add message html
+      else if(nextLine.contains("div class=\"message\""))
+      {
+          String color = "red";
+          if(message.contains("successfully"))
+          {
+          color="green";
+          }
+          out.println("<div class=\"message\" style=\"color:" + color + "\">" + message + "</div>");
+      }
       else if(nextLine.contains("div class=\"batchNum\""))
       {
         out.println("<div class=\"batchNum\"> Number of Batches: " + batches.size() + " </div>");
@@ -75,9 +96,10 @@ public class EditBatchServlet extends HttpServlet {
       {
         out.println("const [formFields, setFormFields] = useState(["+formattedInputs+"])");
       }
-      else if(nextLine.contains("<div class=\"App\">"))
+      else if(nextLine.contains("form class=\"box\""))
       {
         out.println(nextLine);
+        out.println("<input type=\"hidden\" name=\"itemID\" value=\"" + itemID + "\"/>");
       }
       else
       {
@@ -89,67 +111,93 @@ public class EditBatchServlet extends HttpServlet {
     scan.close();
   }
 
-  
+  // Verifies the input from webapp and returns a message to display
+  private String verifyInput(String quantity, String units, String expirationDate, String creationDate, String status, boolean save, boolean delete, boolean add, boolean product, int itemID, String batchID)
+  {
+    if(quantity == null && !delete)
+    {
+      return "";
+    }
+    if(delete)
+    {
+      if(batchID == null || batchID.equals(""))
+      {
+        return "Batch ID error";
+      }
+      // remove batchID associated with itemID
+      if(product)
+      {
+        // Remove product batch
+        DatabaseSetter.deleteProductBatch(Integer.parseInt(batchID));
+      }
+      else
+      {
+        // remove ingredient batch
+        DatabaseSetter.deleteIngredientBatch(Integer.parseInt(batchID));
+      }
+      return "Batch removed successfully";
+    }
+      
+    if(quantity.equals(""))
+    {
+      return "Missing Quantity";
+    }
+    if(units == null || units.equals(""))
+    {
+      return "Missing units.";
+    }
+    if(expirationDate == null || expirationDate.equals(""))
+    {
+      return "Missing Expiration Date.";
+    }
+    if(creationDate == null || creationDate.equals(""))
+    {
+      return "Missing Creation Date.";
+    }
+    if(creationDate == null || creationDate.equals(""))
+    {
+      return "Missing status.";
+    }
+    if(save)
+    {
+      if(batchID == null || batchID.equals(""))
+      {
+        return "Batch ID error";
+      }
+      if(product)
+      {
+        // Create product batch
+        ProductBatch batch = new ProductBatch( Integer.parseInt(batchID), Float.parseFloat(quantity), units, creationDate, expirationDate, status, itemID);
+        // Update product batch
 
-  // @Override
-  // public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-  //   String action = request.getParameter("action");
+      }
+      else
+      {
+        // Create ingredient batch
+        IngredientBatch batch = new IngredientBatch( Integer.parseInt(batchID), Float.parseFloat(quantity), units, creationDate, expirationDate, status, itemID);
+        // Update ingredient batch
 
-  //   if ("add".equals(action)) {
-  //     // Add a new batch
-  //     String batchName = request.getParameter("batchName");
-  //     String batchSize = request.getParameter("batchSize");
-  //     String productionDate = request.getParameter("productionDate");
-  //     String expiryDate = request.getParameter("expiryDate");
-
-  //     String message = addBatch(batchName, batchSize, productionDate, expiryDate);
-  //     response.getWriter().write(message);
-
-  //   } else if ("remove".equals(action)) {
-        
-  //     // Remove an existing batch
-  //     String batchID = request.getParameter("batchID");
-
-  //     String message = removeBatch(Integer.parseInt(batchID));
-  //     response.getWriter().write(message);
-  //   }
-  // }
-
-  // // Add a new batch to the database
-  // private String addBatch(String batchName, String batchSize, String productionDate, String expiryDate) {
-  //   if (batchName == null || batchName.isEmpty()) {
-  //     return "Missing batch name.";
-  //   }
-  //   if (batchSize == null || batchSize.isEmpty()) {
-  //     return "Missing batch size.";
-  //   }
-  //   try {
-  //     int size = Integer.parseInt(batchSize);
-  //     if (size <= 0) {
-  //       return "Batch size must be positive.";
-  //     }
-  //   } catch (NumberFormatException e) {
-  //     return "Batch size must be a number.";
-  //   }
-  //   if (productionDate == null || productionDate.isEmpty()) {
-  //     return "Missing production date.";
-  //   }
-  //   if (expiryDate == null || expiryDate.isEmpty()) {
-  //     return "Missing expiry date.";
-  //   }
-
-  //   Batch batch = new Batch(batchName, Integer.parseInt(batchSize), productionDate, expiryDate);
-  //   DatabaseSetter.insertBatch(batch);
-  //   return "Batch added successfully.";
-  // }
-
-  // // Remove a batch from the database
-  // private String removeBatch(int batchID) {
-  //   boolean success = DatabaseSetter.deleteBatch(batchID);
-  //   if (success) {
-  //     return "Batch removed successfully.";
-  //   } else {
-  //     return "Failed to remove batch.";
-  //   }
-  // }
+      }
+      return "Batch updated successfully";
+    }
+    else if(add)
+    {
+      if(product)
+      {
+        // Create product batch
+        ProductBatch batch = new ProductBatch(Float.parseFloat(quantity), units, creationDate, expirationDate, status, itemID);
+        // Add product batch
+        DatabaseSetter.insertProductBatch(batch);
+      }
+      else
+      {
+        // Create ingredient batch
+        IngredientBatch batch = new IngredientBatch(Float.parseFloat(quantity), units, creationDate, expirationDate, status, itemID);
+        // Add ingredient batch
+        DatabaseSetter.insertIngredientBatch(batch);
+      }
+      return "Batch added successfully";
+    }
+    return "Something went wrong";
+  }
 }

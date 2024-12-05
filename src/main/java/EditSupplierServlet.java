@@ -122,7 +122,7 @@ public class EditSupplierServlet extends HttpServlet {
         scan.close();
     }
 
-    // Verifies the input from webapp and returns a message to display
+  // Verifies the input from webapp and returns a message to display
   private String verifyInput(String name, String phone, String email, String address, boolean save, boolean delete, Supplier supplier)
   {
     if(name == null && !delete)

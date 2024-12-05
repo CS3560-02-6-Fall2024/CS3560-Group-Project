@@ -6,7 +6,7 @@ public class IngredientBatch extends Batch
     public int ingredientID;
 
     // Constructor for IngredientBatch
-    public IngredientBatch(float quantity, String units, String dateAdded, String expirationDate, String status)
+    public IngredientBatch(float quantity, String units, String dateAdded, String expirationDate, String status, int ingredientID)
     {
         batchNumber = DatabaseGetter.getLastBatchNumber() + 1;
         this.quantity= quantity;
@@ -15,8 +15,9 @@ public class IngredientBatch extends Batch
         this.creationDate = dateAdded;
         this.expirationDate = expirationDate;
         this.status = status;
+        this.ingredientID = ingredientID;
     }
-    public IngredientBatch(int batchNumber, float quantity, String units, String dateAdded, String expirationDate, String status)
+    public IngredientBatch(int batchNumber, float quantity, String units, String dateAdded, String expirationDate, String status, int ingredientID)
     {
         this.batchNumber = batchNumber;
         this.quantity= quantity;
@@ -25,6 +26,7 @@ public class IngredientBatch extends Batch
         this.creationDate = dateAdded;
         this.expirationDate = expirationDate;
         this.status = status;
+        this.ingredientID = ingredientID;
     }
 
     // IAbstract methods
@@ -103,7 +105,7 @@ public class IngredientBatch extends Batch
     }
 
     
-    public int getIngredientId()
+    public int getIngredientID()
     {
         return ingredientID;
     }
