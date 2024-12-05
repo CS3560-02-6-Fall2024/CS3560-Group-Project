@@ -25,8 +25,8 @@
             <div class="header">
                 <a href="search.html" class="back-link">← Back to Search</a>
                 <div class="hButtons">
-                    <button class="hbutton">Save Changes</button>
-                    <button class="hbutton">Remove Item</button>
+                    <button type="submit" form="form" name="save" value="true" class="hbutton">Save Changes</button>
+                    <button type="submit" form="form" name="delete" value="true" class="hbutton">Remove Item</button>
                 </div>
             </div>
 
@@ -34,12 +34,12 @@
             <div class="message" style="color:green">Test</div>
 
             <!-- Form Layout -->
-             <div class="form">
+            <form class="form" id="form">
                 <div class="top">
                     <div class="left-side">
                         <div class="product-name">
                             <label>* Product Name</label>
-                            <input type="text" placeholder="Enter here">
+                            <input type="text" placeholder="Enter here" name="productName">
                         </div>
                         <div class="price">
                             <label for="price">Price</label>
@@ -49,7 +49,7 @@
                     <div class="right-side">
                         <div class="description">
                             <label> Description</label>
-                            <input type="text" style="padding-bottom: 14em; padding-right: 7%" placeholder="Enter here">
+                            <input type="text" style="padding-bottom: 14em; padding-right: 7%" placeholder="Enter here" name="description">
                         </div>
                     </div>
                 </div>
@@ -57,14 +57,14 @@
                     <div class="left-side">
                         <label for="add-photo" class="add-photo-label">Update Photo</label>
                         <label for="file-upload" class="add-photo">+</label>
-                        <input type = "file" id="file-upload" class="add-photo">
+                        <input type = "file" id="file-upload" class="add-photo" name="photoFile">
                     </div>
                     <div class="right-side">
                         <div class="ingredients" id="ingredients">
                         </div>
                     </div>
                 </div>
-            </div> 
+            </form> 
         </div>
         <script crossorigin  type="text/babel" src="addIngredient.js"></script>
     </body>
