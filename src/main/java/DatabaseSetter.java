@@ -93,4 +93,28 @@ public class DatabaseSetter
         }
 	}
 
+    public static void insertRecipeIngredient(RecipeIngredient ingredient)
+	{
+		System.out.println("Adding ingredient into database...");
+		try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+
+
+            // Insert query for RecipeIngredient
+            statement.execute("INSERT IGNORE INTO RecipeIngredient Values(" + 
+			ingredient.getID() + ", " + ingredient.getProductID() + ", " + ingredient.getIngredientID() + 
+            ", " + ingredient.getQuantity() + ", '" + ingredient.getUnits() + "')"); 
+
+
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
+
 }

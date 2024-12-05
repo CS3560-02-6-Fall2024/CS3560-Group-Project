@@ -47,7 +47,8 @@ function App() {
                                 <div className="one">
                                     <label>Quantity</label>
                                     <input
-                                        type="text"
+                                        type="number"
+                                        step="0.01"
                                         name="quantity"
                                         placeholder="Enter quantity..."
                                         value={form.quantity}

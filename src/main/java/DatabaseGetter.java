@@ -42,6 +42,50 @@ public class DatabaseGetter
        
     }
 
+    // Returns the ID of the last item in the item table
+    public static int getLastRecipeIngredientID()
+    {
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM RecipeIngredient");
+            int id = -1;
+            while(results.next())
+            {
+                id = results.getInt("id");
+            }
+            return id;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return -1;
+        }
+       
+    }
+
+    public static int getItemIDFromName(String name)
+    {
+        try 
+        {
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM item WHERE name = \"" + name + "\";");
+            while(results.next())
+            {
+                return results.getInt("itemID");
+            }
+            return -1;
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return -1;
+        }
+       
+    }
+
     // Return's true if there is no duplicates
     // False otherwise
     public static boolean checkForDuplicateProducts(String name)
@@ -65,7 +109,7 @@ public class DatabaseGetter
             return false;
         }
     }
-
+    
     public static ArrayList<Product> getProducts()
     {
         try
@@ -114,6 +158,61 @@ public class DatabaseGetter
                 ingredients.add(new Ingredient(productID, name, storageInstructions, description));
             } 
             return ingredients;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        
+    }
+
+    // Gets recipe ingredients associated with ID
+    public static ArrayList<RecipeIngredient> getRecipeIngredients(int productID)
+    {
+        try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            ArrayList<RecipeIngredient> ingredients = new ArrayList<RecipeIngredient>();
+            // READ QUERY FOR ingredient, TESTING
+            ResultSet results = statement.executeQuery("SELECT * FROM RecipeIngredient INNER JOIN Item ON item.itemID=RecipeIngredient.productID where item.itemID = " + productID + ";");
+            while (results.next())
+            {
+                //get result info (reads the column name in get string)
+                int id = results.getInt("id");
+                int ingredientID = results.getInt("ingredientID");
+                float quantity = results.getFloat("quantity");
+                String units = results.getString("units");
+                ingredients.add(new RecipeIngredient(id, productID, ingredientID, quantity, units));
+            } 
+            return ingredients;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        
+    }
+
+    // Gets recipe ingredients names associated with productID
+    public static ArrayList<String> getRecipeIngredientName(int productID)
+    {
+        try
+        {
+            //get connector
+            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Statement statement = connection.createStatement();
+            // READ QUERY FOR ingredient, TESTING
+            ArrayList<String> names = new ArrayList<String>();
+            ResultSet results = statement.executeQuery("SELECT item.name FROM Item INNER JOIN RecipeIngredient ON item.itemID=RecipeIngredient.ingredientID WHERE RecipeIngredient.productID = " + productID);
+            while (results.next())
+            {
+                names.add(results.getString("name"));
+            } 
+            return names;
         }
         catch(Exception e)
         {

@@ -20,6 +20,7 @@ public class AddProductServlet extends HttpServlet {
     String price = request.getParameter("price");
     String photoFile = request.getParameter("photoFile");
     String[] quantities = request.getParameterValues("quantity");
+    String[] units = request.getParameterValues("unit");
     String[] ingredients = request.getParameterValues("ingredient");
     System.out.println("Add Next Product:" +
                         "\n Product Name: " + name +
@@ -36,7 +37,7 @@ public class AddProductServlet extends HttpServlet {
     
 
     // Try to add product to database
-    String message = verifyInput(name, description, price, photoFile, quantities, ingredients);
+    String message = verifyInput(name, description, price, photoFile, quantities, ingredients, units);
     // Render html page (just copies the html of the page that you are using)
     File html = new File(System.getProperty("user.dir") + "/src/main/webapp/addProduct.html");
     Scanner scan = new Scanner(html, "UTF-8");
@@ -74,7 +75,7 @@ public class AddProductServlet extends HttpServlet {
   }
   
   // Verifies the input from webapp and returns a message to display
-  private String verifyInput(String name, String description, String price, String photoFile, String[] quantities, String[] ingredients)
+  private String verifyInput(String name, String description, String price, String photoFile, String[] quantities, String[] ingredients, String[] units)
   {
     if(name == null)
     {
@@ -114,6 +115,13 @@ public class AddProductServlet extends HttpServlet {
         return "Missing ingredient value";
       }
     }
+    for(String u : units)
+    {
+      if(u == null || u.equals(""))
+      {
+        return "Missing units value";
+      }
+    }
     
     // Add Product
     Product prod = new Product(name, description, Float.parseFloat(price));
@@ -127,8 +135,12 @@ public class AddProductServlet extends HttpServlet {
 
 
     // Add ingredients into recipe table
-
-
+    for(int i = 0; i < ingredients.length; i++)
+    {
+      RecipeIngredient r = new RecipeIngredient(prod.getItemID(), DatabaseGetter.getItemIDFromName(ingredients[i]), Float.parseFloat(quantities[i]), units[i]);
+      RecipeIngredient.CreateRecipeIngredient(r);
+    }
+    
 
     return "Product added successfully";
   }

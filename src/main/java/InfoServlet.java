@@ -82,6 +82,23 @@ public class InfoServlet extends HttpServlet {
 				//We are "eating" lines in the condition of the while loop, searching for the end of the div
 			}
 		}
+		else
+		{
+			ArrayList<RecipeIngredient> ingredients = RecipeIngredient.GetRecipeIngredients(id);
+			ArrayList<String> names = DatabaseGetter.getRecipeIngredientName(id);
+			out.println(nextLine);
+			while(!nextLine.contains("<ul>"))
+			{
+				// Print ahead to the list elements
+				nextLine = scan.nextLine();
+				out.println(nextLine);
+			}
+			// Once we get to li part, print out ingredients
+			for (int i = 0; i <ingredients.size(); i++) 
+			{
+				out.println("<li>" + ingredients.get(i).getQuantity() + " " + ingredients.get(i).getUnits() + " " + names.get(i) + "</li>");
+			}
+		}
 
 	  }
 	  // Copy all static html
