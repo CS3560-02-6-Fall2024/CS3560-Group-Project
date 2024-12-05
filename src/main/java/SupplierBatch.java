@@ -52,7 +52,10 @@ public class SupplierBatch extends Batch
         return batchPrice;
     }
 
-    
+    public int getQuantity(){
+        return quantity;
+    }
+
     //Abstract methods
 
 	// Removes from this batch's quantity after using "amount" number of items
@@ -63,6 +66,28 @@ public class SupplierBatch extends Batch
     @Override
 	public void removeFromBatch(int _amount)
     {
+        int remainingQuanity = quantity - _amount;
+
+        if (remainingQuanity < 0) //if the current batch doesn't have enough
+        {
+            quantity = 0; //set own quantity to 0
+            int ingredientToRemove = this.getIngredientId();
+
+            for (SupplierBatch thisSupplierBatch : everySupplierBatch)
+            {
+                // take away the batch amount from this if its the same ingredientID
+                // and has stuff to remove
+                if ((thisSupplierBatch.getIngredientId() == ingredientToRemove) &&
+                    thisSupplierBatch.getQuantity() > 0)
+                {
+                    thisSupplierBatch.removeFromBatch(remainingQuanity);
+                }
+            }
+        }
+        else //if you can take away and it still be avalible
+        {
+            quantity -= _amount;
+        }
         throw new UnsupportedOperationException();
     }
 
@@ -71,8 +96,8 @@ public class SupplierBatch extends Batch
     @Override
 	public void addToBatch(int _amount)
     {
-
-        throw new UnsupportedOperationException();
+        if (_amount > 0)
+            quantity += _amount;
     };
 
 	// Delete this batch
@@ -88,7 +113,15 @@ public class SupplierBatch extends Batch
     @Override
 	public ArrayList<Batch> searchForBatch(int _lookupID)
     {
-        throw new UnsupportedOperationException();
+        ArrayList<Batch> returnArray = new ArrayList<>();
+
+        for (SupplierBatch supplierBatch : everySupplierBatch)
+        {
+            if (supplierBatch.getIngredientId() == _lookupID)
+                returnArray.add(supplierBatch);
+        }
+
+        return returnArray;
     }
 
 }
