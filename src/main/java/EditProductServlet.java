@@ -17,20 +17,20 @@ public class EditProductServlet extends HttpServlet {
   {
     
     // Get parameters
-    String name = request.getParameter("ingredientName");
-    String description = request.getParameter("ingredientDescription");
+    String name = request.getParameter("productName");
+    String description = request.getParameter("productDescription");
     String price = request.getParameter("price");
     String photoFile = request.getParameter("photoFile");
     String[] quantities = request.getParameterValues("quantity");
     String[] units = request.getParameterValues("unit");
     String[] ingredients = request.getParameterValues("ingredient");
-    System.out.println("Add Next Product:" +
-                        "\n Product Name: " + name +
-                        "\n Product Description: " + description +
-                        "\n Price: " + price +
-                        "\n Photofile: " + photoFile +
-                        "\n quantitys: " + quantities +
-                        "\n ingredients: " + ingredients);
+    // System.out.println("Add Next Product:" +
+    //                     "\n Product Name: " + name +
+    //                     "\n Product Description: " + description +
+    //                     "\n Price: " + price +
+    //                     "\n Photofile: " + photoFile +
+    //                     "\n quantitys: " + quantities +
+    //                     "\n ingredients: " + ingredients);
 
     // String [] debug = request.getParameterValues("ingredientList");  
     // for (String string : debug) {
@@ -44,6 +44,7 @@ public class EditProductServlet extends HttpServlet {
     // Update in database
     if(request.getParameter("save") != null)
     {
+      System.out.println("Save");
       prod = new Product(Integer.parseInt(request.getParameter("itemID")), name, description, Float.parseFloat(price));
       pname = prod.getName();
       pdescription = prod.getDescription();
