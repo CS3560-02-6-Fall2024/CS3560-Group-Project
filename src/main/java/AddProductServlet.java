@@ -34,8 +34,6 @@ public class AddProductServlet extends HttpServlet {
     // for (String string : debug) {
     //   System.out.println("ingredient: " + string);
     // }                  
-    
-
     // Try to add product to database
     String message = verifyInput(name, description, price, photoFile, quantities, ingredients, units);
     // Render html page (just copies the html of the page that you are using)

@@ -41,6 +41,7 @@ public class EditProductServlet extends HttpServlet {
     String pname;
     String pdescription;
     float pprice;
+    ArrayList<RecipeIngredient> pIngredients;
     // Update in database
     if(request.getParameter("save") != null)
     {
@@ -49,6 +50,7 @@ public class EditProductServlet extends HttpServlet {
       pname = prod.getName();
       pdescription = prod.getDescription();
       pprice = prod.getPrice();
+      pIngredients =  DatabaseGetter.getRecipeIngredients(Integer.parseInt(request.getParameter("itemID")));
     }
     else if(request.getParameter("delete") != null)
     {
@@ -65,6 +67,7 @@ public class EditProductServlet extends HttpServlet {
       pname = null;
       pdescription = null;
       pprice = 0;
+      pIngredients = new ArrayList<RecipeIngredient>();
     }
     // Populate fields with current data
     else
@@ -73,8 +76,22 @@ public class EditProductServlet extends HttpServlet {
       pname = prod.getName();
       pdescription = prod.getDescription();
       pprice = prod.getPrice();
+      pIngredients =  DatabaseGetter.getRecipeIngredients(Integer.parseInt(request.getParameter("itemID")));
     }
     
+
+    StringBuilder formattedInputs = new StringBuilder();
+
+    for(int i = 0; i < pIngredients.size(); i++)
+    {
+      RecipeIngredient ingredient = pIngredients.get(i);
+      formattedInputs.append("{ quantity: '" + ingredient.getQuantity() + "', ingredient:'" + DatabaseGetter.getIngredientFromID(ingredient.getIngredientID()).getName() + "', unit: '" + ingredient.getUnits() + "'}");
+      if(i != pIngredients.size() - 1)
+      {
+        formattedInputs.append(",");
+      }
+    }
+
     // Try to add product to database
     String message = verifyInput(name, description, price, photoFile, quantities, ingredients, units, request.getParameter("save") != null, request.getParameter("delete") != null, prod);
     // Render html page (just copies the html of the page that you are using)
@@ -94,6 +111,10 @@ public class EditProductServlet extends HttpServlet {
           color="green";
         }
         out.println("<div class=\"message\" style=\"color:" + color + "\">" + message + "</div>");
+      }
+      else if(nextLine.contains("const [formFields, setFormFields]"))
+      {
+        out.println("const [formFields, setFormFields] = useState(["+formattedInputs+"])");
       }
       else if(nextLine.contains("form class=\"form\""))
       {

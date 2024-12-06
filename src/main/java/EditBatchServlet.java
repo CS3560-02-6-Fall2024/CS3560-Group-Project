@@ -169,13 +169,14 @@ public class EditBatchServlet extends HttpServlet {
         // Create product batch
         ProductBatch batch = new ProductBatch( Integer.parseInt(batchID), Float.parseFloat(quantity), units, creationDate, expirationDate, status, itemID);
         // Update product batch
-
+        DatabaseSetter.updateProductBatch(batch);
       }
       else
       {
         // Create ingredient batch
         IngredientBatch batch = new IngredientBatch( Integer.parseInt(batchID), Float.parseFloat(quantity), units, creationDate, expirationDate, status, itemID);
         // Update ingredient batch
+        DatabaseSetter.updateIngredientBatch(batch);
 
       }
       return "Batch updated successfully";
