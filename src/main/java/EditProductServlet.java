@@ -205,10 +205,11 @@ public class EditProductServlet extends HttpServlet {
     if(ingredients != null && ingredients.length != 0 && !ingredients[0].equals(""))
     {
       ArrayList<RecipeIngredient> ing = new ArrayList<RecipeIngredient>();
+      int id = DatabaseGetter.getLastRecipeIngredientID() + 1;
       // Add ingredients into recipe table
       for(int i = 0; i < ingredients.length; i++)
       {
-        RecipeIngredient r = new RecipeIngredient(prod.getItemID(), DatabaseGetter.getItemIDFromName(ingredients[i]), Float.parseFloat(quantities[i]), units[i]);
+        RecipeIngredient r = new RecipeIngredient(id + i, prod.getItemID(), DatabaseGetter.getItemIDFromName(ingredients[i]), Float.parseFloat(quantities[i]), units[i]);
         ing.add(r);
       }
       DatabaseSetter.updateRecipe(prod, ing);

@@ -179,7 +179,7 @@ public class DatabaseSetter
 
     public static void insertRecipeIngredient(RecipeIngredient ingredient)
 	{
-		System.out.println("Adding ingredient into database...");
+		System.out.println("Adding ingredient into database..." + ingredient.getID());
 		try
         {
             //get connector
@@ -304,7 +304,6 @@ public class DatabaseSetter
 	{
 		System.out.println("Update recipe into database...");
         deleteRecipeIngredient(product.getItemID());
-
         for (RecipeIngredient recipeIngredient : ingredients) 
         {
             insertRecipeIngredient(recipeIngredient);
@@ -440,7 +439,6 @@ public class DatabaseSetter
             // Delete query for recipeIngredient
             statement.execute("DELETE FROM recipeIngredient WHERE productID = " + productID + ";");
         }
-        
         catch(Exception e)
         {
             e.printStackTrace();

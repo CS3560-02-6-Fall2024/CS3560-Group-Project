@@ -51,11 +51,12 @@ public class SearchServlet extends HttpServlet {
         }
         for(Product product : products)
         {
+          ArrayList<Batch> batches = DatabaseGetter.getProductBatches(product.getItemID());
           String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
           "                    <div class=\"product-ID\"> #P" + product.getItemID() + "</div>\r\n" + //
           "                    <div class=\"image\"><img src=\"Images/" + DatabaseGetter.getImageFromID(product.getItemID()) + "\" alt=\"No Image\"></div>\r\n" + //
           "                    <div class=\"product-name\">" + product.getName() + "</div>\r\n" + //
-          "                    <div class=\"batch-quantity\"> Number of batches: 64  </div>\r\n" + //
+          "                    <div class=\"batch-quantity\"> Number of batches: " + batches.size() + "  </div>\r\n" + //
           "                    <div class=\"buttons\">\r\n" + //
           "                        <button onclick=\"location.href='editProduct.html?itemID=" + product.getItemID() + "&"+ str + "'\" class=\"edit-button\">Edit Item</button><br/>\r\n" + //
           "                        <button onclick=\"location.href='editBatch.html?itemID=P" + product.getItemID() + "'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
@@ -69,11 +70,12 @@ public class SearchServlet extends HttpServlet {
         // Add results box n times into the page for ingredients
         for(Ingredient ingredient : ingredients)
         {
+        ArrayList<Batch> batches = DatabaseGetter.getIngredientBatches(ingredient.getItemID());
         String resultBoxHtml = "<div class=\"result-box\">\r\n" + //
         "                    <div class=\"product-ID\"> #I" + ingredient.getItemID() + "</div>\r\n" + //
         "                    <div class=\"image\"><img src=\"Images/" + DatabaseGetter.getImageFromID(ingredient.getItemID()) + "\" alt=\"No Image\"></div>\r\n" + //
         "                    <div class=\"product-name\">" + ingredient.getName() + "</div>\r\n" + //
-        "                    <div class=\"batch-quantity\"> Number of batches: 64  </div>\r\n" + //
+        "                    <div class=\"batch-quantity\"> Number of batches: " + batches.size() + "  </div>\r\n" + //
         "                    <div class=\"buttons\">\r\n" + //
         "                        <button onclick=\"location.href='editIngredient.html?itemID=" + + ingredient.getItemID() + "'\" class=\"edit-button\">Edit Item</button><br/>\r\n" + //
         "                        <button onclick=\"location.href='editBatch.html?itemID=I" + ingredient.getItemID() + "'\" class=\"edit-button\">Edit Batch</button><br/>\r\n" + //
