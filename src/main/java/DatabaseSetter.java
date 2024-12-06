@@ -15,7 +15,32 @@ public class DatabaseSetter
 
      //If you put a password for the MySQL server put it here
     static final String PASSWORD = "12bucklemyshoe";
+
+    static Connection connection;
    
+
+    // SINGLETON CONNETION
+    private static Connection getConnection()
+    {
+        // If we already have a connection instance, return connection
+        if(connection != null)
+        {
+            return connection;
+        }
+
+
+        // Otherwise, create a connection
+        try 
+        {
+            connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            return connection;
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     // INSERT METHODS
     public static void insertImage(Image image)
     {
@@ -23,7 +48,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Insert query for product
@@ -44,7 +69,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Insert query for Item
@@ -72,7 +97,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Insert query for batch
@@ -100,7 +125,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
 
@@ -129,7 +154,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Insert query for batch
@@ -156,7 +181,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
 
@@ -183,7 +208,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
 
@@ -208,7 +233,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Insert query for Item
@@ -231,7 +256,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Insert query for Item
@@ -254,7 +279,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Insert query for Item
@@ -280,7 +305,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Insert query for Item
@@ -316,7 +341,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Insert query for Item
@@ -339,7 +364,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Insert query for supplier
@@ -364,7 +389,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Delete query for recipeIngredient
@@ -398,7 +423,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Delete query for recipeIngredient
@@ -433,7 +458,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Delete query for recipeIngredient
@@ -451,7 +476,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Delete query for recipeIngredient
@@ -470,7 +495,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Delete query for batch
@@ -490,7 +515,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Delete query for batch
@@ -510,7 +535,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Delete query for batch
@@ -536,7 +561,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Delete query for batch
@@ -564,7 +589,7 @@ public class DatabaseSetter
 		try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
             // Delete query for recipeIngredient

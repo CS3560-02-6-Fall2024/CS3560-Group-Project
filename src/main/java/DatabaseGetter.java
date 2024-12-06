@@ -16,13 +16,39 @@ public class DatabaseGetter
      //If you put a password for the MySQL server put it here
     static final String PASSWORD = "12bucklemyshoe";
    
+    static Connection connection;
+   
+
+    // SINGLETON CONNETION
+    private static Connection getConnection()
+    {
+        // If we already have a connection instance, return connection
+        if(connection != null)
+        {
+            return connection;
+        }
+
+
+        // Otherwise, create a connection
+        try 
+        {
+            connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+            return connection;
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
     //==============
     // Returns the ID of the last item in the item table
     public static int getLastItemID()
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM Item");
             int id = -1;
@@ -45,7 +71,7 @@ public class DatabaseGetter
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM RecipeIngredient");
             int id = -1;
@@ -67,7 +93,7 @@ public class DatabaseGetter
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM Supplier");
             int id = -1;
@@ -90,7 +116,7 @@ public class DatabaseGetter
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM Batch");
             int id = -1;
@@ -112,7 +138,7 @@ public class DatabaseGetter
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM item WHERE name = \"" + name + "\";");
             while(results.next())
@@ -135,7 +161,7 @@ public class DatabaseGetter
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM Item");
             while(results.next())
@@ -157,7 +183,7 @@ public class DatabaseGetter
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM Supplier");
             while(results.next())
@@ -180,7 +206,7 @@ public class DatabaseGetter
         try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ArrayList<Product> products = new ArrayList<Product>();
             // READ QUERY FOR ingredient, TESTING
@@ -209,7 +235,7 @@ public class DatabaseGetter
         try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ArrayList<SupplierBatch> batches = new ArrayList<SupplierBatch>();
             // READ QUERY FOR ingredient, TESTING
@@ -242,7 +268,7 @@ public class DatabaseGetter
         try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ArrayList<Batch> batches = new ArrayList<Batch>();
             // READ QUERY FOR ingredient, TESTING
@@ -274,7 +300,7 @@ public class DatabaseGetter
         try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ArrayList<Batch> batches = new ArrayList<Batch>();
             // READ QUERY FOR ingredient, TESTING
@@ -305,7 +331,7 @@ public class DatabaseGetter
         try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
             // READ QUERY FOR ingredient, TESTING
@@ -335,7 +361,7 @@ public class DatabaseGetter
         try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ArrayList<RecipeIngredient> ingredients = new ArrayList<RecipeIngredient>();
             // READ QUERY FOR ingredient, TESTING
@@ -365,7 +391,7 @@ public class DatabaseGetter
         try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             // READ QUERY FOR ingredient, TESTING
             ArrayList<String> names = new ArrayList<String>();
@@ -389,7 +415,7 @@ public class DatabaseGetter
         try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ArrayList<Supplier> allSuppliers = new ArrayList<>();
             // READ QUERY FOR ingredient, TESTING
@@ -418,7 +444,7 @@ public class DatabaseGetter
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM product INNER JOIN Item ON product.itemID=item.itemID WHERE product.itemID=" + id +";");
             
@@ -447,7 +473,7 @@ public class DatabaseGetter
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM ingredient INNER JOIN Item ON ingredient.itemID=item.itemID WHERE ingredient.itemID=" + id +";");
             
@@ -477,7 +503,7 @@ public class DatabaseGetter
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM image WHERE itemID=" + id +";");
             
@@ -500,7 +526,7 @@ public class DatabaseGetter
     {
         try 
         {
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM supplier WHERE supplierID=" + id +";");
             
@@ -532,7 +558,7 @@ public class DatabaseGetter
         try
         {
             //get connector
-            Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
+           Connection connection = getConnection();
             Statement statement = connection.createStatement();
             // READ QUERY FOR ingredient, TESTING
             ResultSet results = statement.executeQuery("SELECT * FROM SupplierBatch INNER JOIN Batch ON supplierBatch.batchNumber=batch.batchNumber WHERE supplierBatch.batchNumber = " + batchNumber + ";");
